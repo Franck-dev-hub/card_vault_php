@@ -1,0 +1,13 @@
+html, body {
+    height: 99%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #F9FAFB;
+}
+
+main {
+    flex: 1;
+}

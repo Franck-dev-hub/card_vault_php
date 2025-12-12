@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+    <link rel="icon" href="/public/assets/favicon.png" type="image/x-png">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/header.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+</head>
+
+<?php
+// Init infos
+$pageTitle = "Dashboard";
+$profileText = "Profile";
+
+// Import header
+include "public/header/header.php";
+
+// Body
+
+// Import footer
+include "public/footer/footer.php";
+?>
+
+</html>

@@ -1,0 +1,21 @@
+.header-box {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    gap: 20px;
+}
+
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #0A0A0A;
+    font-weight: 600;
+}
+
+.header-profile {
+    position: relative;
+    margin-left: auto;
+}
