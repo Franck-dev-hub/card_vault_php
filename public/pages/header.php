@@ -1,5 +1,7 @@
 <?php
 
+$language = "fr";
+
 /**
  * @throws DOMException
  */

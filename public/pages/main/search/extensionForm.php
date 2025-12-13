@@ -30,7 +30,7 @@ if (isset($_POST["choix"]) && !empty($_POST["choix"])) {
     if ($licenceSelected === "pokemon") {
         $setId = $setDataPokemon[$setSelected] ?? null;
         if ($setId) {
-            $cards = getCardsFromSet($setId);
+            $cards = getCardsFromSet($setId, $language);
         }
     }
 }

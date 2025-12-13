@@ -2,8 +2,8 @@
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.25em;
-    padding: 0.25em;
+    gap: 0.30em;
+    padding: 0.30em;
     padding-bottom: 80px;
     max-width: 1200px;
     margin: 0 auto;
@@ -12,11 +12,13 @@
 /* Individual card */
 .card-item {
     overflow: hidden;
+    filter: brightness(0.95);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-1px);
+    filter: brightness(1.05);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 

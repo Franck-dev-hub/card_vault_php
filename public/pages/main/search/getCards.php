@@ -1,6 +1,6 @@
 <?php
-function getCardsFromSet($setId) {
-    $tcgdex = new \TCGdex\TCGdex("fr");
+function getCardsFromSet($setId, $language) {
+    $tcgdex = new \TCGdex\TCGdex($language);
 
     try {
         $set = $tcgdex->set->get($setId);
