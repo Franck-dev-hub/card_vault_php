@@ -16,12 +16,12 @@ $pageTitle = "Dashboard";
 $profileText = "Profile";
 
 // Import header
-include "public/header/header.php";
+include "public/pages/common/header.php";
 
 // Body
 
 // Import footer
-include "public/footer/footer.php";
+include "public/pages/common/footer.php";
 ?>
 
 </html>

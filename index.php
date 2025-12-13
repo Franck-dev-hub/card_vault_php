@@ -1,9 +1,43 @@
 <?php
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+$mainDir = "public/pages/main/";
 
 switch($uri) {
-    case '/dashboard':
-        include 'public/pages/index.php';
+    case "/dashboard":
+        try {
+            include $mainDir . "dashboard.php";
+        } catch (DOMException $e) {
+            echo "Can't access dashboard file";
+        }
+        break;
+    case "/stats":
+        try {
+            include $mainDir . "stats.php";
+        } catch (DOMException $e) {
+            echo "Can't access stats file";
+        }
+        break;
+    case "/scan":
+        try {
+            include $mainDir . "scan.php";
+        } catch (DOMException $e) {
+            echo "Can't access scan file";
+        }
+        break;
+    case "/vault":
+        try {
+            include $mainDir . "vault.php";
+        } catch (DOMException $e) {
+            echo "Can't access vault file";
+        }
+        break;
+    case "/search":
+        try {
+            include $mainDir . "search.php";
+        } catch (DOMException $e) {
+            echo "Can't access search file";
+        }
         break;
     default:
         http_response_code(404);

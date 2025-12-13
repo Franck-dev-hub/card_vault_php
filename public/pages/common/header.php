@@ -28,7 +28,7 @@ function readHeader(string $pageTitle = "Page Title", string $profileText = "Pro
 }
 
 try {
-    readHeader("Dashboard", "User Profile");
+    readHeader($pageTitle, $profileText);
 } catch (DOMException $e) {
     echo "Can't read header php file";
 }
