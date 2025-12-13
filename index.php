@@ -7,7 +7,7 @@ Translator::init('fr_FR');
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 // PHP files directory
-$mainDir = "public/pages/common/main/";
+$mainDir = "public/pages/main/";
 
 // Switch routes
 switch($uri) {
