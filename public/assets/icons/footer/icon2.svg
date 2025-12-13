@@ -1,1 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc. --><path fill="currentColor" d="M112 120C112 106.7 101.3 96 88 96C74.7 96 64 106.7 64 120L64 464C64 508.2 99.8 544 144 544L552 544C565.3 544 576 533.3 576 520C576 506.7 565.3 496 552 496L144 496C126.3 496 112 481.7 112 464L112 120zM216 192L424 192C437.3 192 448 181.3 448 168C448 154.7 437.3 144 424 144L216 144C202.7 144 192 154.7 192 168C192 181.3 202.7 192 216 192zM216 256C202.7 256 192 266.7 192 280C192 293.3 202.7 304 216 304L360 304C373.3 304 384 293.3 384 280C384 266.7 373.3 256 360 256L216 256zM216 368C202.7 368 192 378.7 192 392C192 405.3 202.7 416 216 416L488 416C501.3 416 512 405.3 512 392C512 378.7 501.3 368 488 368L216 368z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 640 640"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="icon2.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.88828125"
+     inkscape:cx="-114.26561"
+     inkscape:cy="386.70185"
+     inkscape:window-width="2558"
+     inkscape:window-height="1341"
+     inkscape:window-x="1272"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc. -->
+  <path
+     fill="currentColor"
+     d="M 59.97889,34.282699 C 59.97889,15.28437 46.608595,0 29.989445,0 13.370294,0 0,15.28437 0,34.282699 V 525.66805 c 0,63.13731 44.734255,114.27567 99.964816,114.27567 H 609.78538 c 16.61915,0 29.98944,-15.28437 29.98944,-34.2827 0,-18.99833 -13.37029,-34.2827 -29.98944,-34.2827 H 99.964816 c -22.117216,0 -39.985926,-20.42677 -39.985926,-45.71027 z M 189.93315,137.1308 h 259.90852 c 16.61915,0 29.98945,-15.28437 29.98945,-34.2827 0,-18.998332 -13.3703,-34.282702 -29.98945,-34.282702 H 189.93315 c -16.61915,0 -29.98944,15.28437 -29.98944,34.282702 0,18.99833 13.37029,34.2827 29.98944,34.2827 z m 0,91.42053 c -16.61915,0 -29.98944,15.28437 -29.98944,34.2827 0,18.99833 13.37029,34.2827 29.98944,34.2827 h 179.93667 c 16.61915,0 29.98944,-15.28437 29.98944,-34.2827 0,-18.99833 -13.37029,-34.2827 -29.98944,-34.2827 z m 0,159.98593 c -16.61915,0 -29.98944,15.28437 -29.98944,34.2827 0,18.99833 13.37029,34.2827 29.98944,34.2827 h 339.88037 c 16.61916,0 29.98945,-15.28437 29.98945,-34.2827 0,-18.99833 -13.37029,-34.2827 -29.98945,-34.2827 z"
+     id="path1"
+     style="stroke-width:1" />
+</svg>

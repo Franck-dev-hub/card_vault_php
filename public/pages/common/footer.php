@@ -8,8 +8,8 @@
 function readFooter(): void
 {
 	// Init DOM
-	$dom = new DOMDocument;
-	$dom->formatOutput = true;
+    $dom = new DOMDocument;
+    $dom->formatOutput = true;
 
     // Get the current page
     $currentPage = basename($_SERVER["PHP_SELF"], ".php");
@@ -26,11 +26,11 @@ function readFooter(): void
     ];
 
 	// Main content (Flex box)
-	$flexContainer = $dom->createElement("div");
+    $flexContainer = $dom->createElement("div");
     $flexContainer->setAttribute("class", "footer-box");
 
     // Generate buttons
-	foreach ($buttons as [$page, $buttonName, $buttonIcon]) {
+    foreach ($buttons as [$page, $buttonName, $buttonIcon]) {
         // Check if svg file exist
         if (!file_exists($_SERVER["DOCUMENT_ROOT"] . $buttonIcon)) {
             echo "Can't load file :" . $buttonIcon . "<br>";
@@ -64,10 +64,10 @@ function readFooter(): void
 	}
 
     // Add footer to the DOM
-	$dom->appendChild($flexContainer);
+    $dom->appendChild($flexContainer);
 
     // Final HTML
-	echo $dom->saveHTML($flexContainer);
+    echo $dom->saveHTML($flexContainer);
 }
 
 try {
