@@ -7,5 +7,5 @@ $contentFile = __FILE__;
 if (!isset($isTemplate)):
     $isTemplate = true; include "public/pages/template.php";
 else:
-    include "public/pages/main/search/api.php";
+    include "public/pages/main/search/research.php";
 endif; ?>

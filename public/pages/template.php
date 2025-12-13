@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/header.css">
     <link rel="stylesheet" href="/public/css/footer.css">
+    <link rel="stylesheet" href="/public/css/search.css">
 </head>
 <body>
 <?php include __DIR__ . "/header.php"; ?>
