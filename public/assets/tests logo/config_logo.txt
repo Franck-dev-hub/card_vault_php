@@ -1,0 +1,17 @@
+bleu
+#37afd4
+
+blanc
+#e6e6e6
+
+height total
+93
+
+width total
+118
+
+height card
+63
+
+width card
+88
