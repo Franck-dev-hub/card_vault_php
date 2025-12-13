@@ -1,8 +1,12 @@
 <?php
+require_once "getCards.php";
+
 // Pokemon
 $extensionPokemon = [];
+$setDataPokemon = [];
 foreach ($tcgdex->set->list() as $set) {
     $extensionPokemon[] = $set->name;
+    $setDataPokemon[$set->name] = $set->id;
 }
 
 // Magic
@@ -17,16 +21,47 @@ $extensions = [
     "yugioh" => $extensionYugioh
 ];
 
+// Fetch cards
+$cards = [];
+$setSelected = null;
+if (isset($_POST["choix"]) && !empty($_POST["choix"])) {
+    $setSelected = $_POST["choix"];
+
+    if ($licenceSelected === "pokemon") {
+        $setId = $setDataPokemon[$setSelected] ?? null;
+        if ($setId) {
+            $cards = getCardsFromSet($setId);
+        }
+    }
+}
+
 ?>
-    <!-- Extension form -->
+
+<!-- Extension form -->
 <?php if($licenceSelected && isset($extensions[$licenceSelected])): ?>
-    <form method="post" action="">
-        <select name="choix" id="choix">
+    <form method="post" action="" id="setForm">
+        <select name="choix" id="choix" onchange="this.form.submit()">
             <option value="">-- Sélectionnez un set --</option>
             <?php foreach ($extensions[$licenceSelected] as $value): ?>
-                <option value="<?= htmlspecialchars($value) ?>"><?= htmlspecialchars($value) ?></option>
+                <option value="<?= $value ?>"
+                    <?= ($setSelected === $value) ? "selected" : '' ?>>
+                    <?= $value ?>
+                </option>
             <?php endforeach; ?>
         </select>
-        <input type="hidden" name="licence" value="<?= htmlspecialchars($licenceSelected) ?>">
+        <input type="hidden" name="licence" value="<?= $licenceSelected ?>">
     </form>
+<?php endif; ?>
+
+<!-- Display cards -->
+<?php if (!empty($cards)): ?>
+    <div class="cards-container">
+        <?php foreach ($cards as $card): ?>
+            <div class="card-item">
+                <img src="<?= $card->image . "/high.webp" ?>"
+                     alt="<?= $card->name ?>"
+                     loading="lazy">
+            </div>
+        <?php endforeach; ?>
+    </div>
 <?php endif; ?>
