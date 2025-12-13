@@ -1,8 +1,15 @@
 <?php
+// Translator
+require_once "public/includes/translator.php";
+Translator::init('fr_FR');
+
+// Route
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
+// PHP files directory
 $mainDir = "public/pages/common/main/";
 
+// Switch routes
 switch($uri) {
     case "/dashboard":
         try {

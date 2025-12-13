@@ -18,11 +18,11 @@ function readFooter(): void
     $iconDir = "/public/assets/icons/footer/";
     // [route, label, icon]
     $buttons = [
-            ["dashboard", "Dashboard", $iconDir . "icon1.svg"],
-            ["stats", "Stats", $iconDir . "icon2.svg"],
-            ["scan", "Scan", $iconDir . "icon3.svg"],
-            ["vault", "Vault", $iconDir . "icon4.svg"],
-            ["search", "Search", $iconDir . "icon5.svg"]
+            ["dashboard", t("dashboard.title"), $iconDir . "icon1.svg"],
+            ["stats", t("stats.title"), $iconDir . "icon2.svg"],
+            ["scan", t("scan.title"), $iconDir . "icon3.svg"],
+            ["vault", t("vault.title"), $iconDir . "icon4.svg"],
+            ["search", t("search.title"), $iconDir . "icon5.svg"]
     ];
 
 	// Main content (Flex box)

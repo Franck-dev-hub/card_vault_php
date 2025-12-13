@@ -1,0 +1,21 @@
+{
+  "common": {
+    "profile": "Profil"
+  },
+  "dashboard": {
+    "title": "Tableau de bord"
+  },
+  "stats": {
+    "title": "Statistiques"
+  },
+  "scan": {
+    "title": "Scan"
+  },
+  "vault": {
+    "title": "Vault"
+  },
+  "search": {
+    "title": "Recherche"
+
+  }
+}

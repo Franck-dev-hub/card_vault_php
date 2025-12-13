@@ -1,7 +1,7 @@
 <?php
 // Define variables
-$pageTitle = "Dashboard";
-$profileText = "Profile";
+$pageTitle = t("dashboard.title");
+$profileText = t("common.profile");
 $contentFile = __FILE__;
 
 if (!isset($isTemplate)):

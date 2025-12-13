@@ -1,7 +1,7 @@
 <?php
 // Define variables
-$pageTitle = "Vault";
-$profileText = "Profile";
+$pageTitle = t("vault.title");
+$profileText = t("common.profile");
 $contentFile = __FILE__;
 
 if (!isset($isTemplate)):
