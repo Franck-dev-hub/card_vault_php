@@ -24,12 +24,14 @@ $extensions = [
 // Fetch cards
 $cards = [];
 $setSelected = null;
+$currentSet = null;
 if (isset($_POST["choix"]) && !empty($_POST["choix"])) {
     $setSelected = $_POST["choix"];
 
     if ($licenceSelected === "pokemon") {
         $setId = $setDataPokemon[$setSelected] ?? null;
         if ($setId) {
+            $currentSet = $tcgdex->set->get($setId);
             $cards = getCardsFromSet($setId, $language);
         }
     }
@@ -51,6 +53,12 @@ if (isset($_POST["choix"]) && !empty($_POST["choix"])) {
         </select>
         <input type="hidden" name="licence" value="<?= $licenceSelected ?>">
     </form>
+
+    <!-- Display total cards -->
+    <?php if ($currentSet && isset($currentSet->cardCount->total)): ?>
+        <p>Total de cartes dans ce set : <?= $currentSet->cardCount->total ?></p>
+    <?php endif; ?>
+
 <?php endif; ?>
 
 <!-- Display cards -->
@@ -58,7 +66,7 @@ if (isset($_POST["choix"]) && !empty($_POST["choix"])) {
     <div class="cards-container">
         <?php foreach ($cards as $card): ?>
             <div class="card-item">
-                <img src="<?= $card->image . "/high.webp" ?>"
+                <img src="<?= $card->image . "/low.webp" ?>"
                      alt="<?= $card->name ?>"
                      loading="lazy">
             </div>
