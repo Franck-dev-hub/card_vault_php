@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pageTitle }}</title>
+    <link rel="icon" href="{{ asset("favicon.png") }}" type="image/x-png">
+    <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/header.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/footer.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/search.css") }}">
+</head>
+<body>
+{% include "header.html.twig" %}
+
+<main>
+    {% block content %} {% endblock %}
+</main>
+
+{% include "footer.html.twig" %}
+</body>
+</html>
+
+<!--
+TCGDex languages :
+en - English
+fr - French
+es - Spanish
+it - Italian
+pt - Portuguese
+de - German
+
+ne fonctionne pas :
+ja - Japanese
+zh - Chinese
+id - Indonesian
+th - Thai
+-->

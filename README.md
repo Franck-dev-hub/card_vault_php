@@ -1,20 +1,33 @@
-# Card Vault - PHP
-## Descripton
-This project is a personnal project as a clone of ´card vault´.
+# Card Vault - Symfony
+## Description
+This project is a personal project as a clone of "card vault".  
 The purpose is to learn PHP & Symfony.
 
-## How to use
-1) Launch docker the project with Docker
+## Requirements
+- Docker
+
+## Installation
+Launch the project with Docker:
 ```bash
 docker compose up --build
 ```
-2) Open the web app dashboard with this adress
-´´´bash
-http://localhost:8000/dashboard
-´´´
 
-## NB
-You can access the running project files into the docker with this command
+## How to use
+Open the web app at this address :
+```
+http://localhost:8000/
+```
+
+## Routes
+- `/` - Home (redirects to dashboard)
+- `/dashboard` - Dashboard page
+- `/stats` - Statistics page
+- `/scan` - Scan page
+- `/vault` - Vault page
+- `/search` - Search page
+
+## Notes
+You can access the running project files in Docker with:
 ```bash
 docker compose exec php bash
 ```

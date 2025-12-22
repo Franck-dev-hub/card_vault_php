@@ -11,3 +11,7 @@ body {
 main {
     flex: 1;
 }
+/* Disable debug toolbar */
+.sf-toolbar {
+    display: none !important;
+}

@@ -1,0 +1,11 @@
+<footer>
+    <div class="footer-box">
+        {% for button in buttons %}
+            <a href="/{{ button.route }}" class="footer-link">
+                <button class="footer-button {% if button.route == currentPage %}active{% endif %}">
+                    <img src="{{ button.icon }}" alt="{{ button.label }}">
+                </button>
+            </a>
+        {% endfor %}
+    </div>
+</footer>

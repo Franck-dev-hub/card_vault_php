@@ -1,26 +1,33 @@
-FROM php:8.1-cli
-LABEL authors="Franck"
+FROM php:8.5-cli
 
-# Update packages
+# Install system packages
 RUN apt-get update -y
 RUN apt-get upgrade -y
-RUN apt-get install -y curl wget git unzip libzip-dev libxml2-dev
+RUN apt-get install -y git curl build-essential libpq-dev libzip-dev libicu-dev zip unzip
+RUN rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql zip intl
 
 # Install composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Define working directory
 WORKDIR /app
 
-# Copy project files
+# Copy projet files
 COPY . /app
 
-# Install PHP dependencies with Composer
-RUN composer install --no-dev --optimize-autoloader
-RUN composer require tcgdex/sdk
+# Configure git to avoid ownership errors
+RUN git config --global --add safe.directory /app
+
+# Install PHP dependencies with compose
+RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer dump-autoload --optimize
 
 # Open dev port
 EXPOSE 8000
 
-# Laaunch PHP
-CMD ["php", "-S", "0.0.0.0:8000"]
+# Launch server
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
