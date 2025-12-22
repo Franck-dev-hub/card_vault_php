@@ -23,12 +23,11 @@ COPY . /app
 RUN git config --global --add safe.directory /app
 
 # Install PHP dependencies with compose
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer install --optimize-autoloader --no-scripts
 RUN composer dump-autoload --optimize
 
 # Open dev port
 EXPOSE 8000
 
 # Launch server
-ENV PORT=8000
-CMD ["php", "-S", "0.0.0.0:${PORT}", "-t", "public"]
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
