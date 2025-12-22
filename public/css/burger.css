@@ -22,9 +22,9 @@
     .burger-button {
         width: 40px;
         height: 40px;
-        border-radius: 50%;
+        border-radius: 25%;
         border: none;
-        background: #ffffff;
+        background: #e0e8ff;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         cursor: pointer;
         display: flex;
@@ -32,6 +32,11 @@
         justify-content: center;
         align-items: center;
         gap: 4px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .burger-button:hover {
+        background: #89acef;
     }
 
     .burger-line {
