@@ -30,4 +30,5 @@ RUN composer dump-autoload --optimize
 EXPOSE 8000
 
 # Launch server
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+ENV PORT=8000
+CMD ["php", "-S", "0.0.0.0:${PORT}", "-t", "public"]

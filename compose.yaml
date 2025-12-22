@@ -6,4 +6,4 @@ services:
     volumes:
       - .:/app
     environment:
-      - PHP_ENV= development
+      - PHP_ENV=development
