@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
     <link rel="stylesheet" href="{{ asset("css/header.css") }}">
     <link rel="stylesheet" href="{{ asset("css/footer.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/burger.css") }}">
     <link rel="stylesheet" href="{{ asset("css/search.css") }}">
 </head>
 <body>
+{% include "burger.html.twig" %}
 {% include "header.html.twig" %}
+<script src="{{ asset('js/toggleMenu.js') }}"></script>
 
 <main>
     {% block content %} {% endblock %}

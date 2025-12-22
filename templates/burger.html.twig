@@ -1,0 +1,33 @@
+<!-- Burger button -->
+<div class="burger-container">
+    <button class="burger-button" onclick="toggleMenu()">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+    </button>
+</div>
+
+<!-- Menu overlay -->
+<div class="menu-overlay" id="menuOverlay">
+    <div class="menu-content">
+        {% for button in buttons %}
+            <a href="/{{ button.route }}" class="menu-link">
+                <button class="menu-item {% if button.route == currentPage %}active{% endif %}">
+                    <img src="{{ button.icon }}" alt="{{ button.label }}">
+                    <span>{{ button.label }}</span>
+                </button>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+
+<script>
+    function toggleMenu() {
+        const overlay = document.getElementById("menuOverlay");
+        const backdrop = document.getElementById("menuBackdrop");
+        overlay.classList.toggle("open");
+        backdrop.classList.toggle("open");
+    }
+</script>
