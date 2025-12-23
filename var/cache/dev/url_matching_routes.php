@@ -16,6 +16,7 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\RootController::home'], null, null, null, false, false, null]],
+        '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\SearchController::search'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -38,13 +39,12 @@ return [
                     .')'
                 .')'
                 .'|/dashboard/([^/]++)(*:221)'
-                .'|/([^/]++)(*:238)'
                 .'|/s(?'
-                    .'|can/([^/]++)(*:263)'
-                    .'|earch/([^/]++)(*:285)'
-                    .'|tats/([^/]++)(*:306)'
+                    .'|can/([^/]++)(*:246)'
+                    .'|tats/([^/]++)(*:267)'
                 .')'
-                .'|/vault/([^/]++)(*:330)'
+                .'|/vault/([^/]++)(*:291)'
+                .'|/([^/]++)(*:308)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -57,12 +57,11 @@ return [
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         221 => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\DashboardController::dashboard'], ['name'], null, null, false, true, null]],
-        238 => [[['_route' => 'root', '_controller' => 'App\\Controller\\RootController::root'], ['name'], null, null, false, true, null]],
-        263 => [[['_route' => 'scan', '_controller' => 'App\\Controller\\ScanController::scan'], ['name'], null, null, false, true, null]],
-        285 => [[['_route' => 'search', '_controller' => 'App\\Controller\\SearchController::search'], ['name'], null, null, false, true, null]],
-        306 => [[['_route' => 'stats', '_controller' => 'App\\Controller\\StatsController::stats'], ['name'], null, null, false, true, null]],
-        330 => [
-            [['_route' => 'vault', '_controller' => 'App\\Controller\\VaultController::vault'], ['name'], null, null, false, true, null],
+        246 => [[['_route' => 'scan', '_controller' => 'App\\Controller\\ScanController::scan'], ['name'], null, null, false, true, null]],
+        267 => [[['_route' => 'stats', '_controller' => 'App\\Controller\\StatsController::stats'], ['name'], null, null, false, true, null]],
+        291 => [[['_route' => 'vault', '_controller' => 'App\\Controller\\VaultController::vault'], ['name'], null, null, false, true, null]],
+        308 => [
+            [['_route' => 'root', '_controller' => 'App\\Controller\\VaultController::root'], ['name'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

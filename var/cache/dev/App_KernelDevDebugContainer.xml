@@ -358,6 +358,7 @@
     <service id=".abstract.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" autoconfigure="true" abstract="true">
       <tag name="container.excluded" source="because the class is abstract"/>
       <tag name="controller.service_arguments"/>
+      <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
     </service>
     <service id="App\Controller\DashboardController" class="App\Controller\DashboardController" public="true" autowire="true" autoconfigure="true">
@@ -375,9 +376,6 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\FooterService"/>
-      <argument type="service" id="translator.data_collector"/>
-      <argument>%env(APP_LANGUAGE)%</argument>
       <call method="setContainer">
         <argument type="service" id=".service_locator.lNLWQgL.App\Controller\RootController"/>
       </call>
@@ -7651,6 +7649,7 @@
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0..abstract.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0..abstract.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" abstract="true"/>
+    <service id=".instanceof.App\Controller\BaseController.0..abstract.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof..abstract.App\Controller\BaseController" class="App\Controller\BaseController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DashboardController" class="App\Controller\DashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DashboardController" class="App\Controller\DashboardController" autowire="true" abstract="true"/>
