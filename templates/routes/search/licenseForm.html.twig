@@ -1,0 +1,26 @@
+<form method="post" action="">
+    <select name="license" id="license" onchange="this.form.submit()">
+        <option value="">{{ "search.search-license"|trans }}</option>
+
+        <!-- Pokémon -->
+        <option
+            value="pokemon"
+            {% if app.request.request.get("license") == "pokemon" %}selected{% endif %}>
+            Pokémon
+        </option>
+
+        <!-- Magic -->
+        <!-- <option
+            value="magic"
+            {% if app.request.request.get("license") == "magic" %}selected{% endif %}>
+            Magic
+        </option> -->
+
+        <!-- Yu-Gi-Oh -->
+        <!-- <option
+            value="yugioh"
+            {% if app.request.request.get("license") == "yugioh" %}selected{% endif %}>
+            Yu-Gi-Oh
+        </option> -->
+    </select>
+</form>

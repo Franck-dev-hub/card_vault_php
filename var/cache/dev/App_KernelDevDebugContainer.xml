@@ -368,6 +368,7 @@
       <argument type="service" id="App\Service\FooterService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument>%env(APP_LANGUAGE)%</argument>
+      <argument type="service" id="App\Service\PokemonService"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.lNLWQgL.App\Controller\DashboardController"/>
       </call>
@@ -387,6 +388,7 @@
       <argument type="service" id="App\Service\FooterService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument>%env(APP_LANGUAGE)%</argument>
+      <argument type="service" id="App\Service\PokemonService"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.lNLWQgL.App\Controller\ScanController"/>
       </call>
@@ -395,9 +397,11 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Service\LicenseServiceFactory"/>
       <argument type="service" id="App\Service\FooterService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument>%env(APP_LANGUAGE)%</argument>
+      <argument type="service" id="App\Service\PokemonService"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.lNLWQgL.App\Controller\SearchController"/>
       </call>
@@ -409,6 +413,7 @@
       <argument type="service" id="App\Service\FooterService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument>%env(APP_LANGUAGE)%</argument>
+      <argument type="service" id="App\Service\PokemonService"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.lNLWQgL.App\Controller\StatsController"/>
       </call>
@@ -420,11 +425,22 @@
       <argument type="service" id="App\Service\FooterService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument>%env(APP_LANGUAGE)%</argument>
+      <argument type="service" id="App\Service\PokemonService"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.lNLWQgL.App\Controller\VaultController"/>
       </call>
     </service>
     <service id="App\Service\FooterService" class="App\Service\FooterService" autowire="true" autoconfigure="true"/>
+    <service id=".abstract.App\Service\License\LicenseServiceInterface" class="App\Service\License\LicenseServiceInterface" autowire="true" autoconfigure="true" abstract="true">
+      <tag name="container.excluded" source="because the class is abstract"/>
+    </service>
+    <service id="App\Service\License\PokemonLicenseService" class="App\Service\License\PokemonLicenseService" autowire="true" autoconfigure="true">
+      <argument type="service" id="App\Service\PokemonService"/>
+    </service>
+    <service id="App\Service\LicenseServiceFactory" class="App\Service\LicenseServiceFactory" autowire="true" autoconfigure="true">
+      <argument type="service" id="App\Service\License\PokemonLicenseService"/>
+    </service>
+    <service id="App\Service\PokemonService" class="App\Service\PokemonService" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
       <tag name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver" priority="100">controller.argument_value_resolver</tag>
@@ -10373,6 +10389,7 @@
     <service id="Psr\Http\Message\StreamFactoryInterface" alias="nyholm.psr7.psr17_factory"/>
     <service id="Psr\Http\Message\UploadedFileFactoryInterface" alias="nyholm.psr7.psr17_factory"/>
     <service id="Psr\Http\Message\UriFactoryInterface" alias="nyholm.psr7.psr17_factory"/>
+    <service id="App\Service\License\LicenseServiceInterface" alias="App\Service\License\PokemonLicenseService"/>
     <service id="App\Kernel" alias="kernel" public="true"/>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\ControllerHelper" alias="controller.helper"/>
     <service id="Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface" alias="parameter_bag"/>

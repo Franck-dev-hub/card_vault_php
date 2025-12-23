@@ -1,37 +1,77 @@
 <?php
 namespace App\Controller;
 
+use App\Service\FooterService;
+use App\Service\LicenseServiceFactory;
+use App\Service\PokemonService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use TCGdex\TCGdex;
-use Symfony\Component\HttpClient\Psr18Client;
-use Nyholm\Psr7\Factory\Psr17Factory;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SearchController extends BaseController
 {
+    public function __construct(
+        protected readonly LicenseServiceFactory $licenseFactory,
+        FooterService $footerService,
+        TranslatorInterface $translator,
+        string $appLanguage,
+        PokemonService $pokemonService,
+    ) {
+        parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
+    }
+
     #[Route("/search", name: "search")]
-    public function search(): Response
+    public function search(Request $request): Response
     {
-        // Create PSR-17 factories
-        $psr17Factory = new Psr17Factory();
+        $licenseSelected = $request->request->get("license", '');
+        $setSelected = $request->request->get("choice", '');
 
-        // Set up the factories and client
-        TCGdex::$requestFactory = $psr17Factory;
-        TCGdex::$responseFactory = $psr17Factory;
-        TCGdex::$client = new Psr18Client();
-        // Set cache TTL (in milliseconds)
-        TCGdex::$ttl = 3600 * 1000; // 1 hour
+        $extensions = [];
+        $cards = [];
+        $currentSet = null;
 
-        // Initialize the SDK with the language
-        $tcgdex = new TCGdex("en");
+        $licenseService = $this->licenseFactory->getLicenseService($licenseSelected);
 
-        // Fetch a card by ID
-        $card = $tcgdex->card->get('swsh3-136');
-        $imageUrl = "https://assets.tcgdex.net/en/swsh/swsh3/136/";
+        if (!$licenseService) {
+            $this->addFlash("error", "search.error-license");
+            return $this->renderPage("routes/search.html.twig", [
+                "licenseSelected" => $licenseSelected,
+                "setSelected" => $setSelected,
+                "extensions" => $extensions,
+                "cards" => $cards,
+                "currentSet" => $currentSet,
+                "currentPage" => "search"
+            ]);
+        }
+
+        // Fetch sets
+        try {
+            $extensions = $licenseService->fetchSets();
+        } catch (\Exception $e) {
+            $this->addFlash("error", $e->getMessage());
+        }
+
+        // Handle set selection based on license
+        if ($setSelected) {
+            try {
+                [$currentSet, $cards] = match($licenseSelected) {
+                    "pokemon" => $licenseService->handleSetSelection($setSelected),
+                    // "yugioh" => $licenseService->handleSetSelection($setSelected),
+                    // "magic" => $licenseService->handleSetSelection($setSelected),
+                    default => [null, []],
+                };
+            } catch (\Exception $e) {
+                $this->addFlash("error", $e->getMessage());
+            }
+        }
 
         return $this->renderPage("routes/search.html.twig", [
-            "card" => $card,
-            "imageUrl" => $imageUrl,
+            "licenseSelected" => $licenseSelected,
+            "setSelected" => $setSelected,
+            "extensions" => $extensions,
+            "cards" => $cards,
+            "currentSet" => $currentSet,
             "currentPage" => "search"
         ]);
     }

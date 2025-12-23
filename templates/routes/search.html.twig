@@ -1,7 +1,28 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>Hello from {{ "search.title"|trans }}</h1>
-    <h2>Card : {{ card.id }}</h2>
-    <img src={{ imageUrl }}low.webp alt="" />
+    <h1>{{ "search.title"|trans }}</h1>
+
+    {% include "routes/search/licenseForm.html.twig" %}
+
+    {% if licenseSelected and extensions is not empty %}
+        {% include "routes/search/extensionForm.html.twig" %}
+    {% endif %}
+
+    {% if setSelected and cards is not empty %}
+        <div class="cards-container">
+            {% for card in cards %}
+                <div class="card-item">
+                    <img src="{{ card.image }}/low.webp"
+                         alt="{{ card.name }}"
+                         loading="lazy">
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if setSelected and cards is empty %}
+        <p>{{ "search.no-cards"|trans }}</p>
+    {% endif %}
+
 {% endblock %}

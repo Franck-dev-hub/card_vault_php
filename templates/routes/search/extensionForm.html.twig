@@ -1,0 +1,12 @@
+<form method="post" action="">
+    <select name="choice" id="choice" onchange="this.form.submit()">
+        <option value="">{{ "search.select-extension"|trans }}</option>
+        {% for seriesId, seriesName in extensions %}
+            <option value="{{ seriesId }}"
+                    {% if setSelected == seriesId %}selected{% endif %}>
+                {{ seriesName }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="hidden" name="license" value="{{ licenseSelected }}">
+</form>
