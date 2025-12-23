@@ -6,120 +6,118 @@
 }
 
 /* ===== Desktop (hide footer, show burger menu) ===== */
-@media (min-width: 1024px) {
-    footer {
-        display: none;
-    }
+.not-touch-device footer {
+    display: none;
+}
 
-    .burger-container {
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        z-index: 1100;
-        display: block;
-    }
+.not-touch-device .burger-container {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    display: block;
+}
 
-    .burger-button {
-        width: 40px;
-        height: 40px;
-        border-radius: 25%;
-        border: none;
-        background: #e0e8ff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-        transition: all 0.3s ease-in-out;
-    }
+.not-touch-device .burger-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 25%;
+    border: none;
+    background: #e0e8ff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease-in-out;
+}
 
-    .burger-button:hover {
-        background: #89acef;
-    }
+.not-touch-device .burger-button:hover {
+    background: #89acef;
+}
 
-    .burger-line {
-        width: 60%;
-        height: 2px;
-        background: #333;
-        border-radius: 1px;
-    }
+.not-touch-device .burger-line {
+    width: 60%;
+    height: 2px;
+    background: #333;
+    border-radius: 1px;
+}
 
-    .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 260px;
-        background: #ffffff;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.15);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 1200;
-        padding: 1.5rem 1rem;
-        display: block;
-    }
+.not-touch-device .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    background: #ffffff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1200;
+    padding: 1.5rem 1rem;
+    display: block;
+}
 
-    .menu-overlay.open {
-        transform: translateX(0);
-    }
+.not-touch-device .menu-overlay.open {
+    transform: translateX(0);
+}
 
-    .menu-backdrop {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.4);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-        z-index: 1150;
-        display: block;
-    }
+.not-touch-device .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1150;
+    display: block;
+}
 
-    .menu-backdrop.open {
-        opacity: 1;
-        pointer-events: auto;
-    }
+.not-touch-device .menu-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-    .menu-content {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
+.not-touch-device .menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
 
-    .menu-link {
-        text-decoration: none;
-    }
+.not-touch-device .menu-link {
+    text-decoration: none;
+}
 
-    .menu-item {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.5rem 0.75rem;
-        border: none;
-        background: transparent;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background 0.2s ease;
-    }
+.not-touch-device .menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    background: transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
 
-    .menu-item img {
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
-    }
+.not-touch-device .menu-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
 
-    .menu-item span {
-        color: #333;
-        font-size: 0.95rem;
-    }
+.not-touch-device .menu-item span {
+    color: #333;
+    font-size: 0.95rem;
+}
 
-    .menu-item:hover {
-        background: #f0f0f0;
-    }
+.not-touch-device .menu-item:hover {
+    background: #f0f0f0;
+}
 
-    .menu-item.active {
-        background: #e0e8ff;
-    }
+.not-touch-device .menu-item.active {
+    background: #e0e8ff;
 }

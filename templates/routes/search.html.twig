@@ -1,14 +1,13 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>{{ "search.title"|trans }}</h1>
-
+<div class="forms-container">
     {% include "routes/search/licenseForm.html.twig" %}
 
     {% if licenseSelected and extensions is not empty %}
         {% include "routes/search/extensionForm.html.twig" %}
     {% endif %}
-
+</div>
     {% if setSelected and cards is not empty %}
         <div class="cards-container">
             {% for card in cards %}
@@ -20,7 +19,6 @@
             {% endfor %}
         </div>
     {% endif %}
-
     {% if setSelected and cards is empty %}
         <p>{{ "search.no-cards"|trans }}</p>
     {% endif %}

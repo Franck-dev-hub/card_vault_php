@@ -1,5 +1,6 @@
 html, body {
     height: 99%;
+    font-family: "Sora", sans-serif;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
 main {
     flex: 1;
 }
+
 /* Disable debug toolbar */
 .sf-toolbar {
     display: none !important;

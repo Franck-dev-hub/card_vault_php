@@ -1,0 +1,61 @@
+/* Form container */
+.forms-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+form {
+    flex: 0 1 auto;
+    min-width: 200px;
+    margin-top: 0.25rem;
+}
+
+/* Select styling */
+select {
+    appearance: none;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.5rem 2.5rem 0.5rem .75rem;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /* Custom icon */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 12px;
+}
+
+/* Hover state */
+select:hover {
+    border-color: #4A5565;
+}
+
+/* Focus state */
+select:focus {
+    outline: none;
+    border-color: #4A5565;
+}
+
+/* Options styling */
+select option {
+    padding: 0.5rem;
+    background-color: white;
+    color: #333;
+}
+
+/* Responsive - mobile */
+@media (max-width: 640px) {
+    .forms-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form {
+        width: 100%;
+    }
+}

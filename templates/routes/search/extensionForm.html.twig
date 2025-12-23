@@ -1,5 +1,5 @@
 <form method="post" action="">
-    <select name="choice" id="choice" onchange="this.form.submit()">
+    <label for="choice"></label><select name="choice" id="choice" onchange="this.form.submit()">
         <option value="">{{ "search.select-extension"|trans }}</option>
         {% for seriesId, seriesName in extensions %}
             <option value="{{ seriesId }}"

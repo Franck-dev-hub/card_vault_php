@@ -1,0 +1,69 @@
+/* Main card container */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.30em;
+    padding: 0.30em 0.30em 80px;
+    margin: 0 auto;
+}
+
+/* Individual card */
+.card-item {
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-item:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card's image */
+.card-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Phone (max) */
+@media (min-width: 640px) {
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) {}
+
+/* Landscape tablets */
+@media (min-width: 1024px) {}
+
+/* Laptop 27" */
+@media (min-width: 1366px) {}
+
+/*  */
+@media (min-width: 1680px) {}
+
+/* Full HD */
+@media (min-width: 1920px) {}
+
+/*  */
+@media (min-width: 2048px) {}
+
+/* 4K */
+@media (min-width: 2560px) {}
+
+/* Large screen */
+@media (min-width: 2880px) {}
+
+/*  */
+@media (min-width: 3120px) {}
+
+/* Wide screen */
+@media (min-width: 3360px) {}
+
+/* Ultra wide screen */
+@media (min-width: 3840px) {}
