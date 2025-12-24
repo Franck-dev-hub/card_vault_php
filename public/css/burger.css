@@ -7,7 +7,7 @@
 
 /* ===== Desktop (hide menu, show burger menu) ===== */
 @media (min-width: 1024px) {
-    footer {
+    menu {
         display: none;
     }
 
