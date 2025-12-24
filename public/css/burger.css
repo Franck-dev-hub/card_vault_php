@@ -5,8 +5,8 @@
     display: none;
 }
 
-/* ===== Desktop (hide footer, show burger menu) ===== */
-.not-touch-device footer {
+/* ===== Desktop (hide menu, show burger menu) ===== */
+.not-touch-device menu {
     display: none;
 }
 

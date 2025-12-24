@@ -715,7 +715,7 @@ class Table
         }
 
         if ($this->rows) {
-            ++$numberOfRows; // Add row for footer separator
+            ++$numberOfRows; // Add row for menu separator
         }
 
         return $numberOfRows;

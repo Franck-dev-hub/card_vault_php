@@ -11,7 +11,7 @@ class PokemonService
     private TCGdex $tcgdex;
     private bool $initialized = false;
 
-    public function __construct()
+    public function __construct(private readonly LanguageManager $languageManager)
     {
         $this->initialize();
     }
@@ -27,7 +27,7 @@ class PokemonService
         TCGdex::$responseFactory = $psr17Factory;
         TCGdex::$client = new Psr18Client();
         TCGdex::$ttl = 3600 * 1000;
-        $this->tcgdex = new TCGdex("en");
+        $this->tcgdex = new TCGdex($this->languageManager->getCardsLanguage());
         $this->initialized = true;
     }
 

@@ -1,5 +1,6 @@
 {
     "common": {
+        "error": "Erreur",
         "profile": "Profil"
     },
     "dashboard": {
@@ -15,6 +16,9 @@
         "title": "Vault"
     },
     "search": {
-        "title": "Recherche"
+        "title": "Recherche",
+        "search-license": "-- Sélectionner une licence --",
+        "select-extension": "-- Sélectionner un set --",
+        "no-cards": "Pas de cartes trouvées"
     }
 }

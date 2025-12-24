@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Service\FooterService;
+use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
@@ -14,10 +14,10 @@ class SearchController extends BaseController
 {
     public function __construct(
         protected readonly LicenseServiceFactory $licenseFactory,
-        FooterService $footerService,
-        TranslatorInterface $translator,
-        LanguageManager $appLanguage,
-        PokemonService $pokemonService,
+        MenuService                              $footerService,
+        TranslatorInterface                      $translator,
+        LanguageManager                          $appLanguage,
+        PokemonService                           $pokemonService,
     ) {
         parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
     }
@@ -35,7 +35,7 @@ class SearchController extends BaseController
         $licenseService = $this->licenseFactory->getLicenseService($licenseSelected);
 
         if (!$licenseService) {
-            $this->addFlash("error", "search.error-license");
+            $this->addFlash("error", "License not supported");
             return $this->renderPage("routes/search.html.twig", [
                 "licenseSelected" => $licenseSelected,
                 "setSelected" => $setSelected,
@@ -48,7 +48,7 @@ class SearchController extends BaseController
 
         // Fetch sets
         try {
-            $extensions = $licenseService->fetchSets();
+            $extensions = $licenseService->fetchPokemonSets();
         } catch (\Exception $e) {
             $this->addFlash("error", $e->getMessage());
         }
@@ -57,7 +57,7 @@ class SearchController extends BaseController
         if ($setSelected) {
             try {
                 [$currentSet, $cards] = match($licenseSelected) {
-                    "pokemon" => $licenseService->handleSetSelection($setSelected),
+                    "pokemon" => $licenseService->handlePokemonSetSelection($setSelected),
                     // "yugioh" => $licenseService->handleSetSelection($setSelected),
                     // "magic" => $licenseService->handleSetSelection($setSelected),
                     default => [null, []],
