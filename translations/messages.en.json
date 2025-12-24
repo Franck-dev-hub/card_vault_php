@@ -20,5 +20,8 @@
         "search-license": "-- Select a license --",
         "select-extension": "-- Select a set --",
         "no-cards": "No card found"
+    },
+    "profile": {
+        "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?"
     }
 }
