@@ -15,6 +15,8 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/language/app' => [[['_route' => 'change_app_language', '_controller' => 'App\\Controller\\LanguageController::changeAppLanguage'], null, ['POST' => 0], null, false, false, null]],
+        '/language/cards' => [[['_route' => 'change_cards_language', '_controller' => 'App\\Controller\\LanguageController::changeCardsLanguage'], null, ['POST' => 0], null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\RootController::home'], null, null, null, false, false, null]],
         '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\SearchController::search'], null, null, null, false, false, null]],
     ],
