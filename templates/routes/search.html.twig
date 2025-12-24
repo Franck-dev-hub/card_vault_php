@@ -1,26 +1,31 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-<div class="forms-container">
-    {% include "routes/search/licenseForm.html.twig" %}
+    <div class="forms-container">
+        {% include "routes/search/licenseForm.html.twig" %}
 
-    {% if licenseSelected and extensions is not empty %}
-        {% include "routes/search/extensionForm.html.twig" %}
-    {% endif %}
-</div>
-    {% if setSelected and cards is not empty %}
-        <div class="cards-container">
-            {% for card in cards %}
-                <div class="card-item">
-                    <img src="{{ card.image }}/low.webp"
-                         alt="{{ card.name }}"
-                         loading="lazy">
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
-    {% if setSelected and cards is empty %}
-        <p>{{ "search.no-cards"|trans }}</p>
+        {% if licenseSelected and extensions is not empty %}
+            {% include "routes/search/extensionForm.html.twig" %}
+        {% endif %}
+    </div>
+
+    {% if setSelected %}
+        {% if cards is not empty %}
+            <div class="cards-container">
+                {% for card in cards %}
+                    <div class="card-item">
+                        {% if licenseSelected == "pokemon" %}
+                            {% set cardImage = card.image is not null ? card.image ~ "/low.webp" : asset("assets/cards/pokemon-rear.webp") %}
+                        {% else %}
+                            {% set cardImage = asset("") %}
+                        {% endif %}
+                        <img src="{{ cardImage }}" alt="{{ card.name }}" loading="lazy">
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{{ "search.no-cards"|trans }}</p>
+        {% endif %}
     {% endif %}
 
 {% endblock %}
