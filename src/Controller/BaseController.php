@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Service\FooterService;
+use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\PokemonService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,10 +13,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 abstract class BaseController extends AbstractController
 {
     public function __construct(
-        protected readonly FooterService $footerService,
+        protected readonly MenuService         $footerService,
         protected readonly TranslatorInterface $translator,
-        protected readonly LanguageManager $languageManager,
-        protected readonly PokemonService $pokemonService
+        protected readonly LanguageManager     $languageManager,
+        protected readonly PokemonService      $pokemonService
     ) {}
 
     protected function renderPage(string $template, array $data = []): Response

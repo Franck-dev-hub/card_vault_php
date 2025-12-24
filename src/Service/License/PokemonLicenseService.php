@@ -11,7 +11,7 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
     /**
      * @throws Exception
      */
-    public function getSets(): array
+    public function getPokemonSets(): array
     {
         return $this->pokemonService->getPokemonSets();
     }
@@ -19,7 +19,7 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
     /**
      * @throws Exception
      */
-    public function getSetWithCards(string $setId): array
+    public function getPokemonSetWithCards(string $setId): array
     {
         return $this->pokemonService->getSetWithCards($setId);
     }
@@ -27,7 +27,7 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
     /**
      * @throws Exception
      */
-    public function getSerieCards(string $setId): array
+    public function getPokemonSerieCards(string $setId): array
     {
         return $this->pokemonService->getSerieCards($setId);
     }
@@ -35,10 +35,10 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
     /**
      * Fetch Pokemon sets with error handling
      */
-    public function fetchSets(): array
+    public function fetchPokemonSets(): array
     {
         try {
-            $sets = $this->getSets();
+            $sets = $this->getPokemonSets();
             return array_reverse($sets, preserve_keys: true);
         } catch (Exception $e) {
             throw new Exception("Can't find Pokémon sets");
@@ -51,10 +51,10 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
      * @return array{0: ?object, 1: array}
      * @throws Exception
      */
-    public function handleSetSelection(string $setId): array
+    public function handlePokemonSetSelection(string $setId): array
     {
         try {
-            $result = $this->getSetWithCards($setId);
+            $result = $this->getPokemonSetWithCards($setId);
             if ($result["set"] !== null) {
                 return [$result["set"], $result["cards"]];
             }
@@ -63,7 +63,7 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
         }
 
         try {
-            $result = $this->getSerieCards($setId);
+            $result = $this->getPokemonSerieCards($setId);
             return [$result["set"], $result["cards"]];
         } catch (Exception $e) {
             throw new Exception("Pokemon fallback error");

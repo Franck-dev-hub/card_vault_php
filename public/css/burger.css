@@ -5,7 +5,7 @@
     display: none;
 }
 
-/* ===== Desktop (hide footer, show burger menu) ===== */
+/* ===== Desktop (hide menu, show burger menu) ===== */
 @media (min-width: 1024px) {
     footer {
         display: none;

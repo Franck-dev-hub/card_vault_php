@@ -369,7 +369,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\FooterService"/>
+      <argument type="service" id="App\Service\MenuService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="App\Service\LanguageManager"/>
       <argument type="service" id="App\Service\PokemonService"/>
@@ -398,7 +398,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\FooterService"/>
+      <argument type="service" id="App\Service\MenuService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="App\Service\LanguageManager"/>
       <argument type="service" id="App\Service\PokemonService"/>
@@ -411,7 +411,7 @@
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Service\LicenseServiceFactory"/>
-      <argument type="service" id="App\Service\FooterService"/>
+      <argument type="service" id="App\Service\MenuService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="App\Service\LanguageManager"/>
       <argument type="service" id="App\Service\PokemonService"/>
@@ -423,7 +423,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\FooterService"/>
+      <argument type="service" id="App\Service\MenuService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="App\Service\LanguageManager"/>
       <argument type="service" id="App\Service\PokemonService"/>
@@ -435,7 +435,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.controller"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Service\FooterService"/>
+      <argument type="service" id="App\Service\MenuService"/>
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="App\Service\LanguageManager"/>
       <argument type="service" id="App\Service\PokemonService"/>
@@ -443,7 +443,6 @@
         <argument type="service" id=".service_locator.TJNRSaV.App\Controller\VaultController"/>
       </call>
     </service>
-    <service id="App\Service\FooterService" class="App\Service\FooterService" autowire="true" autoconfigure="true"/>
     <service id=".abstract.App\Service\License\LicenseServiceInterface" class="App\Service\License\LicenseServiceInterface" autowire="true" autoconfigure="true" abstract="true">
       <tag name="container.excluded" source="because the class is abstract"/>
     </service>
@@ -453,7 +452,12 @@
     <service id="App\Service\LicenseServiceFactory" class="App\Service\LicenseServiceFactory" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Service\License\PokemonLicenseService"/>
     </service>
-    <service id="App\Service\PokemonService" class="App\Service\PokemonService" autowire="true" autoconfigure="true"/>
+    <service id="App\Service\MenuService" class="App\Service\MenuService" autowire="true" autoconfigure="true">
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="App\Service\PokemonService" class="App\Service\PokemonService" autowire="true" autoconfigure="true">
+      <argument type="service" id="App\Service\LanguageManager"/>
+    </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
       <tag name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver" priority="100">controller.argument_value_resolver</tag>
