@@ -1,0 +1,16 @@
+<!-- Profile button -->
+<div class="profile-container">
+    <button class="profile-button" onclick="toggleMenu('profile')">
+        <img src="{{ asset('assets/profile.svg') }}" alt="Profile">
+    </button>
+</div>
+
+<div class="profile-overlay" id="profileOverlay">
+    <div class="profile-content">
+        {% include "routes/profile/appLanguageForm.html.twig" %}
+        {% include "routes/profile/cardsLanguageForm.html.twig" %}
+    </div>
+</div>
+
+<script src="{{ asset("js/toggleMenu.js") }}"></script>
+<div class="menu-backdrop" id="profileBackdrop" onclick="toggleMenu('profile')"></div>

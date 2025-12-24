@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Service\FooterService;
+use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +16,7 @@ class SearchController extends BaseController
         protected readonly LicenseServiceFactory $licenseFactory,
         FooterService $footerService,
         TranslatorInterface $translator,
-        string $appLanguage,
+        LanguageManager $appLanguage,
         PokemonService $pokemonService,
     ) {
         parent::__construct($footerService, $translator, $appLanguage, $pokemonService);

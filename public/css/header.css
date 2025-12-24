@@ -8,14 +8,8 @@
 }
 
 .header-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    flex: 1;
+    text-align: center;
     color: #0A0A0A;
     font-weight: 600;
-}
-
-.header-profile {
-    position: relative;
-    margin-left: auto;
 }
