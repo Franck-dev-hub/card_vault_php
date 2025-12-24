@@ -19,7 +19,7 @@
         "title": "Research",
         "search-license": "-- Select a license --",
         "select-extension": "-- Select a set --",
-        "no-cards": "No card found"
+        "no-cards": "No card found for this set"
     },
     "profile": {
         "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?"

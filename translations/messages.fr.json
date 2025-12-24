@@ -19,7 +19,7 @@
         "title": "Recherche",
         "search-license": "-- Sélectionner une licence --",
         "select-extension": "-- Sélectionner un set --",
-        "no-cards": "Pas de cartes trouvées"
+        "no-cards": "Pas de cartes trouvées pour ce set"
     },
     "profile": {
         "card-language-pop-up": "Attention : les images des cartes peuvent être incomplètes dans les langues autres que l'anglais. Continuer ?"
