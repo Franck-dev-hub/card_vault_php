@@ -5,6 +5,7 @@ use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -49,7 +50,7 @@ class SearchController extends BaseController
         // Fetch sets
         try {
             $extensions = $licenseService->fetchPokemonSets();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->addFlash("error", $e->getMessage());
         }
 
@@ -62,7 +63,7 @@ class SearchController extends BaseController
                     // "magic" => $licenseService->handleSetSelection($setSelected),
                     default => [null, []],
                 };
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $this->addFlash("error", $e->getMessage());
             }
         }
