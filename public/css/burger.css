@@ -6,7 +6,7 @@
 }
 
 /* ===== Desktop (hide menu, show burger menu) ===== */
-.not-touch-device menu {
+.not-touch-device footer {
     display: none;
 }
 
