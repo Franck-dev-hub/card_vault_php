@@ -35,7 +35,7 @@ class SearchController extends BaseController
         $licenseService = $this->licenseFactory->getLicenseService($licenseSelected);
 
         if (!$licenseService) {
-            $this->addFlash("error", "search.error-license");
+            $this->addFlash("error", "License not supported");
             return $this->renderPage("routes/search.html.twig", [
                 "licenseSelected" => $licenseSelected,
                 "setSelected" => $setSelected,

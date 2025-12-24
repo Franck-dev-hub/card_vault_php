@@ -27,13 +27,14 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
     /**
      * @throws Exception
      */
-    public function getPokemonSerieCards(string $setId): array
+    public function getPokemonSeriesCards(string $setId): array
     {
         return $this->pokemonService->getSerieCards($setId);
     }
 
     /**
-     * Fetch Pokemon sets with error handling
+     * Fetch Pokémon sets with error handling
+     * @throws Exception
      */
     public function fetchPokemonSets(): array
     {
@@ -46,7 +47,7 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
     }
 
     /**
-     * Handle Pokemon set selection with fallback logic
+     * Handle Pokémon set selection with fallback logic
      *
      * @return array{0: ?object, 1: array}
      * @throws Exception
@@ -63,7 +64,7 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
         }
 
         try {
-            $result = $this->getPokemonSerieCards($setId);
+            $result = $this->getPokemonSeriesCards($setId);
             return [$result["set"], $result["cards"]];
         } catch (Exception $e) {
             throw new Exception("Pokemon fallback error");

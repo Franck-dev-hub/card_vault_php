@@ -19,10 +19,6 @@
         "title": "Research",
         "search-license": "-- Select a license --",
         "select-extension": "-- Select a set --",
-        "error-license": "License not supported",
-        "error-pokemon-set": "Impossible to load Pokémon sets",
-        "error-pokemon-set-no-found": "The requested set does not exist",
-        "error-pokemon-set-display-card": "Impossible to load Pokémon cards in the sets",
         "no-cards": "No card found"
     }
 }
