@@ -1,32 +1,10 @@
 <form method="POST" action="{{ path('change_cards_language') }}">
     <label for="cards-language-choice">Cards Language</label>
     <select name="choice" id="cards-language-choice" onchange="this.form.submit()">
-        <option value="en" {% if languageManager.cardsLanguage == "en" %}selected{% endif %}>
-            English
-        </option>
-        <option value="fr" {% if languageManager.cardsLanguage == "fr" %}selected{% endif %}>
-            Français
-        </option>
-        <option value="it" {% if languageManager.cardsLanguage == "it" %}selected{% endif %}>
-            Italiano
-        </option>
-        <option value="de" {% if languageManager.cardsLanguage == "de" %}selected{% endif %}>
-            Deutsch
-        </option>
-        <option value="es" {% if languageManager.cardsLanguage == "es" %}selected{% endif %}>
-            Español
-        </option>
-        <option value="pt" {% if languageManager.cardsLanguage == "pt" %}selected{% endif %}>
-            Português
-        </option>
-        <!-- <option value="jp">日本語</option> -->
+        {% for code, name in availableLanguages %}
+            <option value="{{ code }}" {% if languageManager.cardsLanguage == code %}selected{% endif %}>
+                {{ name }}
+            </option>
+        {% endfor %}
     </select>
 </form>
-
-<!--
-Not working TCGDex languages :
-ja - Japanese
-zh - Chinese
-id - Indonesian
-th - Thai
--->

@@ -5,7 +5,6 @@ use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\PokemonService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -29,12 +28,13 @@ abstract class BaseController extends AbstractController
         $data["buttons"] = $this->footerService->getButtons();
         $data["translator"] = $this->translator;
         $data["languageManager"] = $this->languageManager;
+        $data["availableLanguages"] = $this->languageManager->getAvailableLanguages();
 
         return $this->render($template, $data);
     }
 
     #[Route("/{name}", name: "root")]
-    public function root(string $name, Request $request): Response
+    public function root(string $name): Response
     {
         $appLanguage = $this->languageManager->getAppLanguage();
         $this->translator->setLocale($appLanguage);
@@ -45,9 +45,10 @@ abstract class BaseController extends AbstractController
             "buttons" => $this->footerService->getButtons(),
             "currentPage" => $name,
             "translator" => $this->translator,
-            "languageManager" => $this->languageManager
+            "languageManager" => $this->languageManager,
+            "availableLanguages" => $this->languageManager->getAvailableLanguages()
         ];
 
-        return $this->render("routes/{$name}.html.twig", $data);
+        return $this->render("routes/$name.html.twig", $data);
     }
 }

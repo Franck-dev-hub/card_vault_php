@@ -5,10 +5,19 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class LanguageManager
 {
-    private const SESSION_APP_LANGUAGE = "app_language";
-    private const SESSION_CARDS_LANGUAGE = "cards_language";
-    private const DEFAULT_APP_LANGUAGE = "en";
-    private const DEFAULT_CARDS_LANGUAGE = "en";
+    private const array AVAILABLE_LANGUAGES = [
+        "en" => "English",
+        "fr" => "Français",
+        "it" => "Italiano",
+        "de" => "Deutsch",
+        "es" => "Español",
+        "pt" => "Português",
+    ];
+
+    private const string SESSION_APP_LANGUAGE = "app_language";
+    private const string SESSION_CARDS_LANGUAGE = "cards_language";
+    private const string DEFAULT_APP_LANGUAGE = "en";
+    private const string DEFAULT_CARDS_LANGUAGE = "en";
 
     public function __construct(
         private readonly RequestStack $requestStack
@@ -44,5 +53,10 @@ class LanguageManager
     {
         $session = $this->requestStack->getSession();
         $session->set($key, $value);
+    }
+
+    public function getAvailableLanguages(): array
+    {
+        return self::AVAILABLE_LANGUAGES;
     }
 }
