@@ -18,7 +18,8 @@
     display: block;
 }
 
-.not-touch-device .burger-button {
+.not-touch-device .burger-button,
+.profile-button {
     width: 40px;
     height: 40px;
     border-radius: 25%;
@@ -91,16 +92,17 @@
 }
 
 .not-touch-device .menu-item {
-    width: 100%;
     display: flex;
-    align-items: center;
     gap: 0.75rem;
     padding: 0.5rem 0.75rem;
     border: none;
     background: transparent;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+    color: #4A5565;
+    width: 100%
 }
 
 .not-touch-device .menu-item img {

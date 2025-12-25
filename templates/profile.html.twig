@@ -7,8 +7,9 @@
 
 <div class="profile-overlay" id="profileOverlay">
     <div class="profile-content">
-        {% include "routes/profile/appLanguageForm.html.twig" %}
-        {% include "routes/profile/cardsLanguageForm.html.twig" %}
+        <div class="profile-section">{% include "routes/profile/appLanguageForm.html.twig" %}</div>
+        <div class="profile-section">{% include "routes/profile/cardsLanguageForm.html.twig" %}</div>
+        <div class="profile-section"><a href="/roadmap">Roadmap</a></div>
     </div>
 </div>
 
