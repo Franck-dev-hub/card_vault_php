@@ -23,5 +23,8 @@
     },
     "profile": {
         "card-language-pop-up": "Attention : les images des cartes peuvent être incomplètes dans les langues autres que l'anglais. Continuer ?"
+    },
+    "roadmap": {
+        "title": "Feuille de route"
     }
 }
