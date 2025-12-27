@@ -41,6 +41,23 @@ class RoadmapController extends BaseController
         $releases = [];
         $dataDir = $this->getParameter("kernel.project_dir") . "/data/roadmap/";
 
+        // Implemented section
+        $filePath = $dataDir . "roadmap-implemented.json";
+
+        if (!file_exists($filePath)) {
+            throw $this->createNotFoundException("File roadmap-implemented.json doesn't exist");
+        }
+
+        $jsonContent = file_get_contents($filePath);
+        $data = json_decode($jsonContent, true);
+
+        if ($data === null) {
+            throw new Exception("Error when decoding roadmap-implemented.json");
+        }
+
+        $implemented = $data;
+
+        // Release section
         foreach ($files as $file) {
             $filePath = $dataDir . $file;
 
@@ -57,7 +74,9 @@ class RoadmapController extends BaseController
 
             $releases = array_merge($releases, $data);
         }
+
         return $this->renderPage("routes/roadmap.html.twig", [
+            "implemented" => $implemented,
             "releases" => $releases,
             "currentPage" => "roadmap"
         ]);

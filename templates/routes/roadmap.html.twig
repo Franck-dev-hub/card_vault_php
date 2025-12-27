@@ -1,57 +1,49 @@
 {% extends "./base.html.twig" %}
 
 {% block content %}
-    <div class="roadmap-main">
-        <div class="roadmap-sub">
-            <!-- Header -->
-            <div class="roadmap-main-header">
-                <h1 class="roadmap-header-h1">Card Vault Roadmap</h1>
-                <p class="roadmap-header-p">Discover what's coming next</p>
-            </div>
+<div class="roadmap-main">
+    <div class="roadmap-sub">
+        <!-- Header -->
+        <div class="roadmap-main-header">
+            <h1 class="roadmap-header-h1">Card Vault Roadmap</h1>
+            <p class="roadmap-header-p">Discover what's coming next</p>
+        </div>
 
-            <!-- Features Implemented -->
-            <div class="feature-implemented-main">
-                <h2 class="feature-implemented-h2">✓ Features Implemented</h2>
-                <ul class="feature-implemented-ul">
-                    <li class="feature-implemented-li">Alpha 1 - Project initialisation</li>
-                    <li class="feature-implemented-li">Alpha 2 - Layout & navigation</li>
-                    <li class="feature-implemented-li">Alpha 3 - Internationalisation setup</li>
-                    <li class="feature-implemented-li">Alpha 4 - Backend foundations</li>
-                    <li class="feature-implemented-li">Alpha 5 - Card browsing core</li>
-                    <li class="feature-implemented-li">Alpha 6 - Framework migration</li>
-                    <li class="feature-implemented-li">Alpha 7 - Desktop navigation</li>
-                    <li class="feature-implemented-li">Alpha 8 - Responsive & deployment preparation</li>
-                    <li class="feature-implemented-li">Beta 1 - First public deployment</li>
-                    <li class="feature-implemented-li">Beta 2 - Responsive UI & user settings</li>
-                    <li class="feature-implemented-li">Beta 3 - Mobile UX refinement</li>
-                    <li class="feature-implemented-li">Beta 4 - Language & fallback handling</li>
-                </ul>
-            </div>
-
-            <!-- Versions Timeline -->
-            <div class="roadmap-timeline-main">
-                <!-- Main feature loop -->
-                {% for release in releases %}
-                    <div class="roadmap-release-main">
-                        <div class="roadmap-release-sub">
-                            <div class="roadmap-release-version{{ release.class }}">{{ release.version }}</div>
-                            <div>
-                                <h3 class="roadmap-release-title">{{ release.title }}</h3>
-                            </div>
-                        </div>
-                        <ul class="roadmap-release-features">
-                            {% for feature in release.features %}
-                                <li class="roadmap-release-points">{{ feature }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+        <!-- Features Implemented -->
+        <div class="feature-implemented-main">
+            <h2 class="feature-implemented-h2">✓ Features Implemented</h2>
+            <ul class="feature-implemented-ul">
+                {% for item in implemented %}
+                    <li class="feature-implemented-li">{{ item }}</li>
                 {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Versions Timeline -->
+        <div class="roadmap-timeline-main">
+            <!-- Main feature loop -->
+            {% for release in releases %}
+                <div class="roadmap-release-main">
+                    <div class="roadmap-release-sub">
+                        <div class="roadmap-release-version{{ release.class }}">{{ release.version }}</div>
+                        <div>
+                            <h3 class="roadmap-release-title">{{ release.title }}</h3>
+                        </div>
+                    </div>
+                    <ul class="roadmap-release-features">
+                        {% for feature in release.features %}
+                            <li class="roadmap-release-points">{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
 
             <!-- Footer -->
             <div class="roadmap-footer-main">
-                <p class="roadmap-footer-p">This roadmap is subject to change based on community feedback and priorities</p>
+                <p class="roadmap-footer-p">This roadmap is subject to change based on community feedback and
+                    priorities</p>
             </div>
         </div>
     </div>
 
-{% endblock %}
+    {% endblock %}
