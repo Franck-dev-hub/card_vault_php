@@ -14,7 +14,9 @@
             <h2 class="feature-implemented-h2">✓ Features Implemented</h2>
             <ul class="feature-implemented-ul">
                 {% for item in implemented %}
-                    <li class="feature-implemented-li">{{ item }}</li>
+                    <li class="feature-implemented-li">
+                        <a href="#{{ item.id }}">{{ item.title }}</a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
@@ -23,7 +25,7 @@
         <div class="roadmap-timeline-main">
             <!-- Main feature loop -->
             {% for release in releases %}
-                <div class="roadmap-release-main">
+                <div id="{{ release.id }}" class="roadmap-release-main">
                     <div class="roadmap-release-sub">
                         <div class="roadmap-release-version{{ release.class }}">{{ release.version }}</div>
                         <div>

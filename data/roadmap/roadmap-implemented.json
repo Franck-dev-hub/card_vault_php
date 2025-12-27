@@ -1,14 +1,50 @@
 [
-    "Alpha 1 - Project initialisation",
-    "Alpha 2 - Layout & navigation",
-    "Alpha 3 - Internationalisation setup",
-    "Alpha 4 - Backend foundations",
-    "Alpha 5 - Card browsing core",
-    "Alpha 6 - Framework migration",
-    "Alpha 7 - Desktop navigation",
-    "Alpha 8 - Responsive & deployment preparation",
-    "Beta 1 - First public deployment",
-    "Beta 2 - Responsive UI & user settings",
-    "Beta 3 - Mobile UX refinement",
-    "Beta 4 - Language & fallback handling"
+    {
+        "id": "V0.1-alpha",
+        "title": "Alpha 1 - Project initialisation"
+    },
+    {
+        "id": "V0.2-alpha",
+        "title": "Alpha 2 - Layout & navigation"
+    },
+    {
+        "id": "V0.3-alpha",
+        "title": "Alpha 3 - Internationalisation setup"
+    },
+    {
+        "id": "V0.4-alpha",
+        "title": "Alpha 4 - Backend foundations"
+    },
+    {
+        "id": "V0.5-alpha",
+        "title": "Alpha 5 - Card browsing core"
+    },
+    {
+        "id": "V0.6-alpha",
+        "title": "Alpha 6 - Framework migration"
+    },
+    {
+        "id": "V0.7-alpha",
+        "title": "Alpha 7 - Desktop navigation"
+    },
+    {
+        "id": "V0.8-alpha",
+        "title": "Alpha 8 - Responsive & deployment preparation"
+    },
+    {
+        "id": "V0.1-beta",
+        "title": "Beta 1 - First public deployment"
+    },
+    {
+        "id": "V0.2-beta",
+        "title": "Beta 2 - Responsive UI & user settings"
+    },
+    {
+        "id": "V0.3-beta",
+        "title": "Beta 3 - Mobile UX refinement"
+    },
+    {
+        "id": "V0.4-beta",
+        "title": "Beta 4 - Language & fallback handling"
+    }
 ]

@@ -99,12 +99,22 @@
 }
 
 .feature-implemented-li {
-    padding: 0.75rem 1rem;
+    padding: 0;
     background: rgba(16, 185, 129, 0.1);
     border-left: 2px solid #10b981;
     border-radius: 0.5rem;
-    color: #a7f3d0;
+    cursor: pointer;
     transition: all 0.3s ease;
+    list-style: none;
+}
+
+.feature-implemented-li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #a7f3d0;
+    width: 100%;
+    height: 100%;
 }
 
 .feature-implemented-li:hover {

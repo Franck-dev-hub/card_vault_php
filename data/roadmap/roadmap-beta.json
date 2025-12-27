@@ -1,5 +1,6 @@
 [
     {
+        "id": "V0.1-beta",
         "class": "-beta",
         "version": "V0.1-beta",
         "title": "First public deployment",
@@ -9,6 +10,7 @@
         ]
     },
     {
+        "id": "V0.2-beta",
         "class": "-beta",
         "version": "V0.2-beta",
         "title": "Responsive UI & user settings",
@@ -21,6 +23,7 @@
         ]
     },
     {
+        "id": "V0.3-beta",
         "class": "-beta",
         "version": "V0.3-beta",
         "title": "Mobile UX refinement",
@@ -32,6 +35,7 @@
         ]
     },
     {
+        "id": "V0.4-beta",
         "class": "-beta",
         "version": "V0.4-beta",
         "title": "Language & fallback handling",

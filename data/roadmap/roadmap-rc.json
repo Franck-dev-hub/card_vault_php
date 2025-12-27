@@ -1,5 +1,6 @@
 [
     {
+        "id": "V1.0",
         "class": "-rc",
         "version": "V1.0",
         "title": "MVP",
@@ -22,6 +23,7 @@
         ]
     },
     {
+        "id": "V1.1",
         "class": "-rc",
         "version": "V1.1",
         "title": "AI Update",
@@ -30,6 +32,7 @@
         ]
     },
     {
+        "id": "V1.2",
         "class": "-rc",
         "version": "V1.2",
         "title": "Card Details Update",
@@ -40,6 +43,7 @@
         ]
     },
     {
+        "id": "V1.3",
         "class": "-rc",
         "version": "V1.3",
         "title": "Value Update",
@@ -51,6 +55,7 @@
         ]
     },
     {
+        "id": "V1.4",
         "class": "-rc",
         "version": "V1.4",
         "title": "Stats, Research & Community Update",
@@ -70,6 +75,7 @@
         ]
     },
     {
+        "id": "V1.5",
         "class": "-rc",
         "version": "V1.5",
         "title": "Inventory & Deck Update",
@@ -89,6 +95,7 @@
         ]
     },
     {
+        "id": "V1.6",
         "class": "-rc",
         "version": "V1.6",
         "title": "View & Account Customization Update",
@@ -104,6 +111,7 @@
         ]
     },
     {
+        "id": "V1.7",
         "class": "-rc",
         "version": "V1.7",
         "title": "Progression Update",
@@ -115,6 +123,7 @@
         ]
     },
     {
+        "id": "V1.8",
         "class": "-rc",
         "version": "V1.8",
         "title": "Multi-Select Update",
@@ -129,6 +138,7 @@
         ]
     },
     {
+        "id": "V1.9",
         "class": "-rc",
         "version": "V1.9",
         "title": "Import / Export Update",
@@ -144,6 +154,7 @@
         ]
     },
     {
+        "id": "V1.10",
         "class": "-rc",
         "version": "V1.10",
         "title": "Authentication Update",
@@ -154,6 +165,7 @@
         ]
     },
     {
+        "id": "V1.11",
         "class": "-rc",
         "version": "V1.11",
         "title": "Friends & Social Update",
@@ -164,6 +176,7 @@
         ]
     },
     {
+        "id": "V1.12",
         "class": "-rc",
         "version": "V1.12",
         "title": "Gamification Update",
