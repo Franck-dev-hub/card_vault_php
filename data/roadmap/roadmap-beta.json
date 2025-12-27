@@ -44,5 +44,17 @@
             "Feat: Display back Pokémon card if image doesn't exist",
             "Improvement: Language management"
         ]
+    },
+    {
+        "id": "V0.5-beta",
+        "class": "-beta",
+        "version": "V0.5-beta",
+        "title": "Roadmap vue",
+        "features": [
+            "Feat: Create roadmap section in profile",
+            "Feat: Make roadmap section scalable",
+            "Feat: Create link from implemented section to they dedicated section",
+            "Improve: roadmap CSS"
+        ]
     }
 ]

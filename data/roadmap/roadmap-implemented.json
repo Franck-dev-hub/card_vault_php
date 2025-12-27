@@ -46,5 +46,9 @@
     {
         "id": "V0.4-beta",
         "title": "Beta 4 - Language & fallback handling"
+    },
+    {
+        "id": "V0.5-beta",
+        "title": "Beta 5 - Roadmap vue"
     }
 ]
