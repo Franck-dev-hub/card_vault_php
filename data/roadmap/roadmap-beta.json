@@ -1,0 +1,60 @@
+[
+    {
+        "id": "V0.1-beta",
+        "class": "-beta",
+        "version": "V0.1-beta",
+        "title": "First public deployment",
+        "features": [
+            "Feat: Deployment on \"Railway\"",
+            "Feat: Display Pokémon cards with symfony"
+        ]
+    },
+    {
+        "id": "V0.2-beta",
+        "class": "-beta",
+        "version": "V0.2-beta",
+        "title": "Responsive UI & user settings",
+        "features": [
+            "Feat: Make CSS responsive",
+            "Feat: Create language form in profile section",
+            "Feat: Display implemented feature in the dashboard",
+            "Improvement: CSS",
+            "Fix: Burger menu on mobile"
+        ]
+    },
+    {
+        "id": "V0.3-beta",
+        "class": "-beta",
+        "version": "V0.3-beta",
+        "title": "Mobile UX refinement",
+        "features": [
+            "Feat: French translation",
+            "Fix: Hide burger menu on mobile (keep footer menu)",
+            "Fix: Footer menu on device like Samsung Flip's secondary screen",
+            "Fix: Backdrop profile"
+        ]
+    },
+    {
+        "id": "V0.4-beta",
+        "class": "-beta",
+        "version": "V0.4-beta",
+        "title": "Language & fallback handling",
+        "features": [
+            "Feat: Add Pop-Up warning if selected card language is other than English",
+            "Feat: Display back Pokémon card if image doesn't exist",
+            "Improvement: Language management"
+        ]
+    },
+    {
+        "id": "V0.5-beta",
+        "class": "-beta",
+        "version": "V0.5-beta",
+        "title": "Roadmap vue",
+        "features": [
+            "Feat: Create roadmap section in profile",
+            "Feat: Make roadmap section scalable",
+            "Feat: Create link from implemented section to they dedicated section",
+            "Improve: roadmap CSS"
+        ]
+    }
+]

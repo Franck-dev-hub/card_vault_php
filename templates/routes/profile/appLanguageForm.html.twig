@@ -1,0 +1,12 @@
+<form method="POST" action="{{ path('change_app_language') }}">
+    <label for="app-language-choice">App Language</label>
+    <select name="choice" id="app-language-choice" onchange="this.form.submit()">
+        <option value="fr" {% if languageManager.appLanguage == "fr" %}selected{% endif %}>
+            Français
+        </option>
+        <option value="en" {% if languageManager.appLanguage == "en" %}selected{% endif %}>
+            English
+        </option>
+        <!-- <option value="jp">日本語</option> -->
+    </select>
+</form>

@@ -2,20 +2,14 @@
     display: flex;
     position: relative;
     align-items: center;
-    background-color: #FFFFFF;
+    background-color: var(--color-bg-white);
     padding: 20px;
     gap: 20px;
 }
 
 .header-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #636363;
+    flex: 1;
+    text-align: center;
+    color: var(--color-text-primary);
     font-weight: 600;
-}
-
-.header-profile {
-    position: relative;
-    margin-left: auto;
 }

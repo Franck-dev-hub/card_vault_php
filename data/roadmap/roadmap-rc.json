@@ -1,0 +1,189 @@
+[
+    {
+        "id": "V1.0",
+        "class": "-rc",
+        "version": "V1.0",
+        "title": "MVP",
+        "features": [
+            "Create an account",
+            "Log in to your account",
+            "Log out from your account",
+            "Browse available licences",
+            "Browse extensions/sets",
+            "Browse cards within extension",
+            "View card details",
+            "Add card to collection",
+            "Add card variant",
+            "Remove card from collection",
+            "Scan card with camera",
+            "Card recognition >90% accuracy",
+            "Search cards by name/set/rarity",
+            "Display collection value",
+            "Authentication with JWT"
+        ]
+    },
+    {
+        "id": "V1.1",
+        "class": "-rc",
+        "version": "V1.1",
+        "title": "AI Update",
+        "features": [
+            "Bulk card scanning with pre-record filters"
+        ]
+    },
+    {
+        "id": "V1.2",
+        "class": "-rc",
+        "version": "V1.2",
+        "title": "Card Details Update",
+        "features": [
+            "Display card prices",
+            "Change card language display",
+            "Update card condition (M, NM, EX, G, LP, PL, P)"
+        ]
+    },
+    {
+        "id": "V1.3",
+        "class": "-rc",
+        "version": "V1.3",
+        "title": "Value Update",
+        "features": [
+            "Edit a card's purchase price",
+            "Display collection total value",
+            "Display licence total value",
+            "Display extension total value"
+        ]
+    },
+    {
+        "id": "V1.4",
+        "class": "-rc",
+        "version": "V1.4",
+        "title": "Stats, Research & Community Update",
+        "features": [
+            "Add global statistics to homepage",
+            "Add collection-level statistics",
+            "Add extension-specific statistics",
+            "Improve filtering for Collections",
+            "Improve sorting for Collections",
+            "Improve filtering for Extensions",
+            "Improve sorting for Extensions",
+            "Improve filtering for Cards",
+            "Improve sorting for Cards",
+            "Launch community Discord server",
+            "Add Discord support link",
+            "Set up donation link"
+        ]
+    },
+    {
+        "id": "V1.5",
+        "class": "-rc",
+        "version": "V1.5",
+        "title": "Inventory & Deck Update",
+        "features": [
+            "Create an inventory",
+            "Delete an inventory",
+            "Add cards to an inventory",
+            "Remove cards from an inventory",
+            "Enable filtering within inventory",
+            "Enable sorting within inventory",
+            "Create a deck",
+            "Delete a deck",
+            "Add cards to a deck",
+            "Remove cards from a deck",
+            "Enable filtering within decks",
+            "Enable sorting within decks"
+        ]
+    },
+    {
+        "id": "V1.6",
+        "class": "-rc",
+        "version": "V1.6",
+        "title": "View & Account Customization Update",
+        "features": [
+            "Change collection view (rows or grid)",
+            "Change extension view (rows or grid)",
+            "Change cards view (rows or grid)",
+            "Implement dark mode",
+            "Delete the account",
+            "Change username/pseudo",
+            "Change currency display",
+            "Change password"
+        ]
+    },
+    {
+        "id": "V1.7",
+        "class": "-rc",
+        "version": "V1.7",
+        "title": "Progression Update",
+        "features": [
+            "Add themes (base color templates)",
+            "Display collection completion percentage",
+            "Display licence completion percentage",
+            "Display extension completion percentage"
+        ]
+    },
+    {
+        "id": "V1.8",
+        "class": "-rc",
+        "version": "V1.8",
+        "title": "Multi-Select Update",
+        "features": [
+            "Personalized theme (full color customization)",
+            "Inventory: Multi-select to add cards",
+            "Inventory: Multi-select to delete cards",
+            "Inventory: Multi-select to move cards",
+            "Deck: Multi-select to add cards",
+            "Deck: Multi-select to delete cards",
+            "Deck: Multi-select to move cards"
+        ]
+    },
+    {
+        "id": "V1.9",
+        "class": "-rc",
+        "version": "V1.9",
+        "title": "Import / Export Update",
+        "features": [
+            "Export full user data",
+            "Export a collection",
+            "Export an inventory",
+            "Export a deck",
+            "Import full user data",
+            "Import a collection",
+            "Import an inventory",
+            "Import a deck"
+        ]
+    },
+    {
+        "id": "V1.10",
+        "class": "-rc",
+        "version": "V1.10",
+        "title": "Authentication Update",
+        "features": [
+            "Google login / synchronization",
+            "Password recovery (forgot password)",
+            "TOTP two-factor authentication"
+        ]
+    },
+    {
+        "id": "V1.11",
+        "class": "-rc",
+        "version": "V1.11",
+        "title": "Friends & Social Update",
+        "features": [
+            "Add a friend",
+            "Delete a friend",
+            "Compare statistics with friends"
+        ]
+    },
+    {
+        "id": "V1.12",
+        "class": "-rc",
+        "version": "V1.12",
+        "title": "Gamification Update",
+        "features": [
+            "Push notifications",
+            "Badge system (achievements)",
+            "Gamification features"
+        ]
+    }
+]

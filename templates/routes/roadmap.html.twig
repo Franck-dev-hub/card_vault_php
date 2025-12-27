@@ -1,0 +1,51 @@
+{% extends "./base.html.twig" %}
+
+{% block content %}
+<div class="roadmap-main">
+    <div class="roadmap-sub">
+        <!-- Header -->
+        <div class="roadmap-main-header">
+            <h1 class="roadmap-header-h1">Card Vault {{ "roadmap.title"|trans }}</h1>
+            <p class="roadmap-header-p">Discover what's coming next</p>
+        </div>
+
+        <!-- Features Implemented -->
+        <div class="feature-implemented-main">
+            <h2 class="feature-implemented-h2">✓ Features Implemented</h2>
+            <ul class="feature-implemented-ul">
+                {% for item in implemented %}
+                    <li class="feature-implemented-li">
+                        <a href="#{{ item.id }}">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Versions Timeline -->
+        <div class="roadmap-timeline-main">
+            <!-- Main feature loop -->
+            {% for release in releases %}
+                <div id="{{ release.id }}" class="roadmap-release-main">
+                    <div class="roadmap-release-sub">
+                        <div class="roadmap-release-version{{ release.class }}">{{ release.version }}</div>
+                        <div>
+                            <h3 class="roadmap-release-title">{{ release.title }}</h3>
+                        </div>
+                    </div>
+                    <ul class="roadmap-release-features">
+                        {% for feature in release.features %}
+                            <li class="roadmap-release-points">{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+
+            <!-- Footer -->
+            <div class="roadmap-footer-main">
+                <p class="roadmap-footer-p">This roadmap is subject to change based on community feedback and
+                    priorities</p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

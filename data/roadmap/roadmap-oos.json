@@ -1,0 +1,12 @@
+[
+    {
+        "id": "Out of Scope",
+        "class": "-oos",
+        "version": "Out of Scope",
+        "title": "Completely Out of Scope",
+        "features": [
+            "Real money transactions",
+            "Real-time chat"
+        ]
+    }
+]

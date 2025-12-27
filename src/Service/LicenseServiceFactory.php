@@ -3,7 +3,7 @@ namespace App\Service;
 
 use App\Service\License\LicenseServiceInterface;
 
-class LicenseServiceFactory
+readonly class LicenseServiceFactory
 {
     public function __construct(
         private LicenseServiceInterface $pokemonService,

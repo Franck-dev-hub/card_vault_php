@@ -1,12 +1,87 @@
+:root {
+    /* Background colors */
+    --color-bg-main: #F9F9F9;
+    --color-bg-white: #FFFFFF;
+    --color-bg-light: #f0f0f0;
+    --color-bg-light-blue: #e0e8ff;
+    --color-bg-gradient-start: #f8fafc;
+    --color-bg-gradient-mid: #f1f5f9;
+    --color-bg-gradient-end: #f8fafc;
+
+    /* Text colors */
+    --color-text-primary: #0A0A0A;
+    --color-text-secondary: #4A5565;
+    --color-text-dark: #333333;
+    --color-text-medium: #666666;
+    --color-text-light: #64748b;
+    --color-text-white: #FFFFFF;
+
+    /* Border colors */
+    --color-border-light: #e0e0e0;
+    --color-border-medium: #dddddd;
+    --color-border-dark: #4A5565;
+
+    /* Accent colors - Blue */
+    --color-accent-blue-light: #e0e8ff;
+    --color-accent-blue-medium: #89acef;
+    --color-accent-blue-primary: #3b82f6;
+    --color-accent-blue-dark: #1e40af;
+    --color-accent-blue-darker: #0369a1;
+    --color-accent-blue-gradient-start: rgba(59, 130, 246, 0.15);
+    --color-accent-blue-gradient-end: rgba(59, 130, 246, 0.08);
+    --color-accent-blue-gradient-hover: rgba(59, 130, 246, 0.15);
+
+    /* Accent colors - Green */
+    --color-accent-green-primary: #10b981;
+    --color-accent-green-dark: #059669;
+    --color-accent-green-darker: #047857;
+    --color-accent-green-light: #34d399;
+    --color-accent-green-gradient-start: rgba(16, 185, 129, 0.08);
+    --color-accent-green-gradient-end: rgba(52, 211, 153, 0.08);
+    --color-accent-green-gradient-hover: rgba(16, 185, 129, 0.2);
+    --color-accent-green-border: rgba(16, 185, 129, 0.3);
+    --color-accent-green-shadow: rgba(16, 185, 129, 0.3);
+
+    /* Accent colors - Purple */
+    --color-accent-purple-primary: #7c3aed;
+    --color-accent-purple-light: #a78bfa;
+    --color-accent-purple-shadow: rgba(124, 58, 237, 0.3);
+
+    /* Accent colors - Orange/Yellow */
+    --color-accent-orange-primary: #f59e0b;
+    --color-accent-orange-light: #fbbf24;
+    --color-accent-orange-shadow: rgba(245, 158, 11, 0.3);
+
+    /* Accent colors - Pink */
+    --color-accent-pink-primary: #ec4899;
+
+    /* Status colors - Gray */
+    --color-status-gray: #94a3b8;
+    --color-status-gray-shadow: rgba(148, 163, 184, 0.3);
+    --color-status-gray-border: rgba(148, 163, 184, 0.3);
+
+    /* Shadow and overlay colors */
+    --color-shadow-light: rgba(0, 0, 0, 0.1);
+    --color-shadow-medium: rgba(0, 0, 0, 0.15);
+    --color-shadow-dark: rgba(0, 0, 0, 0.2);
+    --color-overlay: rgba(0, 0, 0, 0.4);
+
+    /* Roadmap specific colors */
+    --color-roadmap-text-primary: #1e293b;
+    --color-roadmap-text-heading: #0f172a;
+    --color-roadmap-bg-radial: rgba(59, 130, 246, 0.15);
+}
+
 html, body {
     height: 99%;
     font-family: "Sora", sans-serif;
 }
 
 body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: #F9F9F9;
+    background-color: var(--color-bg-main);
 }
 
 main {

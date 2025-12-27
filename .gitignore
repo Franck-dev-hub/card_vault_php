@@ -1,19 +1,42 @@
-# Jetbrains
-.idea/
-
 # symfony/framework-bundle
 /.env.local
-/.env.local.php
 /.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
 
-# phpunit/phpunit
-/phpunit.xml
-/.phpunit.cache/
+# symfony/webpack-encore-bundle
+/node_modules/
+/public/build/
+/public/uploads/
+npm-debug.log
+yarn-error.log
 
-# symfony/asset-mapper
-/public/assets/
-/assets/vendor/
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+
+##Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Composer
+composer.lock
+
+# Custom
+.cache/
+.tmp/
+var/
+vendor/
+uploads/

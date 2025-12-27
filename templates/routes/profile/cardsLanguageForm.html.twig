@@ -1,0 +1,14 @@
+<form method="POST" action="{{ path('change_cards_language') }}">
+    <label for="cards-language-choice">Cards Language</label>
+    <select name="choice" id="cards-language-choice"
+            data-warning-message="{{ translator.trans('profile.card-language-pop-up') }}"
+            onchange="cardLanguagePopUp(this)">
+        {% for code, name in availableLanguages %}
+            <option value="{{ code }}" {% if languageManager.cardsLanguage == code %}selected{% endif %}>
+                {{ name }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
+<script src="{{ asset('js/cardLanguagePopUp.js') }}"></script>
