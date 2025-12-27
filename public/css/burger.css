@@ -24,8 +24,8 @@
     height: 40px;
     border-radius: 25%;
     border: none;
-    background: #e0e8ff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: var(--color-accent-blue-light);
+    box-shadow: 0 2px 8px var(--color-shadow-medium);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -36,13 +36,13 @@
 }
 
 .not-touch-device .burger-button:hover {
-    background: #89acef;
+    background: var(--color-accent-blue-medium);
 }
 
 .not-touch-device .burger-line {
     width: 60%;
     height: 2px;
-    background: #333;
+    background: var(--color-text-dark);
     border-radius: 1px;
 }
 
@@ -52,8 +52,8 @@
     left: 0;
     bottom: 0;
     width: 260px;
-    background: #ffffff;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+    background: var(--color-bg-white);
+    box-shadow: 2px 0 10px var(--color-shadow-medium);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 1200;
@@ -68,7 +68,7 @@
 .not-touch-device .menu-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: var(--color-overlay);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -101,7 +101,7 @@
     cursor: pointer;
     transition: background 0.3s ease-in-out;
     text-decoration: none;
-    color: #4A5565;
+    color: var(--color-text-secondary);
     width: 100%
 }
 
@@ -112,14 +112,14 @@
 }
 
 .not-touch-device .menu-item span {
-    color: #333;
+    color: var(--color-text-dark);
     font-size: 0.95rem;
 }
 
 .not-touch-device .menu-item:hover {
-    background: #f0f0f0;
+    background: var(--color-bg-light);
 }
 
 .not-touch-device .menu-item.active {
-    background: #e0e8ff;
+    background: var(--color-accent-blue-light);
 }
