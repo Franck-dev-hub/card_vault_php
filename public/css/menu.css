@@ -6,13 +6,13 @@ footer {
     right: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 10px var(--color-shadow-light);
 }
 
 .menu-box {
     display: flex;
     justify-content: space-between;
-    background-color: #FFFFFF;
+    background-color: var(--color-bg-white);
     gap: 8px;
     padding: 10px;
 }
@@ -26,8 +26,8 @@ footer {
 .menu-button {
     flex: 1;
     width: 100%;
-    color: #4A5565;
-    background-color: #FFFFFF;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg-white);
     padding: 0.375rem 0.75rem;
     font-size: 1.5rem;
     border: 0 solid transparent;
@@ -49,12 +49,12 @@ footer {
 }
 
 .menu-button:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-bg-light);
     border-radius: 1rem;
 }
 
 .menu-button.active {
-    background-color: #e0e8ff;
+    background-color: var(--color-accent-blue-light);
     border-radius: 1rem;
 }
 
