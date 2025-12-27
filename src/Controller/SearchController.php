@@ -1,11 +1,14 @@
 <?php
 namespace App\Controller;
 
-use App\Service\FooterService;
+use App\Service\MenuService;
+use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -13,28 +16,39 @@ class SearchController extends BaseController
 {
     public function __construct(
         protected readonly LicenseServiceFactory $licenseFactory,
-        FooterService $footerService,
-        TranslatorInterface $translator,
-        string $appLanguage,
-        PokemonService $pokemonService,
+        MenuService                              $footerService,
+        TranslatorInterface                      $translator,
+        LanguageManager                          $appLanguage,
+        PokemonService                           $pokemonService,
     ) {
         parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
     }
 
     #[Route("/search", name: "search")]
-    public function search(Request $request): Response
+    public function search(Request $request, SessionInterface $session): Response
     {
-        $licenseSelected = $request->request->get("license", '');
-        $setSelected = $request->request->get("choice", '');
+        // Get values from cache or form
+        $licenseSelected = $request->request->get("license", '')
+            ?: $session->get('search_license', '');
+        $setSelected = $request->request->get("choice", '')
+            ?: $session->get('search_set', '');
 
         $extensions = [];
         $cards = [];
         $currentSet = null;
 
+        // Set values in cache
+        if ($licenseSelected) {
+            $session->set('search_license', $licenseSelected);
+        }
+        if ($setSelected) {
+            $session->set('search_set', $setSelected);
+        }
+
         $licenseService = $this->licenseFactory->getLicenseService($licenseSelected);
 
         if (!$licenseService) {
-            $this->addFlash("error", "search.error-license");
+            $this->addFlash("error", "License not supported");
             return $this->renderPage("routes/search.html.twig", [
                 "licenseSelected" => $licenseSelected,
                 "setSelected" => $setSelected,
@@ -47,8 +61,8 @@ class SearchController extends BaseController
 
         // Fetch sets
         try {
-            $extensions = $licenseService->fetchSets();
-        } catch (\Exception $e) {
+            $extensions = $licenseService->fetchPokemonSets();
+        } catch (Exception $e) {
             $this->addFlash("error", $e->getMessage());
         }
 
@@ -56,12 +70,12 @@ class SearchController extends BaseController
         if ($setSelected) {
             try {
                 [$currentSet, $cards] = match($licenseSelected) {
-                    "pokemon" => $licenseService->handleSetSelection($setSelected),
+                    "pokemon" => $licenseService->handlePokemonSetSelection($setSelected),
                     // "yugioh" => $licenseService->handleSetSelection($setSelected),
                     // "magic" => $licenseService->handleSetSelection($setSelected),
                     default => [null, []],
                 };
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $this->addFlash("error", $e->getMessage());
             }
         }
