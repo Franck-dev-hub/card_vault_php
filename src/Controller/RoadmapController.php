@@ -1,17 +1,65 @@
 <?php
+
 namespace App\Controller;
 
+use App\Service\MenuService;
+use App\Service\LanguageManager;
+use App\Service\LicenseServiceFactory;
+use App\Service\PokemonService;
+use Exception;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RoadmapController extends BaseController
 {
-    #[Route("/roadmap/{name}", name: "roadmap")]
-    public function roadmap(string $name): Response
+    public function __construct(
+        protected readonly LicenseServiceFactory $licenseFactory,
+        MenuService                              $footerService,
+        TranslatorInterface                      $translator,
+        LanguageManager                          $appLanguage,
+        PokemonService                           $pokemonService,
+    )
     {
-        return $this->renderPage("routes/roadmap.js", [
-            "name" => $name,
-            "currentPage" => $name
+        parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route("/roadmap", name: "roadmap")]
+    public function roadmap(Request $request): Response
+    {
+        $files = [
+            "roadmap-alpha.json",
+            "roadmap-beta.json",
+            "roadmap-rc.json",
+            "roadmap-oos.json"
+        ];
+
+        $releases = [];
+        $dataDir = $this->getParameter("kernel.project_dir") . "/data/roadmap/";
+
+        foreach ($files as $file) {
+            $filePath = $dataDir . $file;
+
+            if (!file_exists($filePath)) {
+                throw $this->createNotFoundException("File $file doesn't exist");
+            }
+
+            $jsonContent = file_get_contents($filePath);
+            $data = json_decode($jsonContent, true);
+
+            if ($data === null) {
+                throw new Exception("Error when decoding $file");
+            }
+
+            $releases = array_merge($releases, $data);
+        }
+        return $this->renderPage("routes/roadmap.html.twig", [
+            "releases" => $releases,
+            "currentPage" => "roadmap"
         ]);
     }
 }

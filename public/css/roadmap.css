@@ -133,7 +133,7 @@
 
 .roadmap-release-version-alpha,
 .roadmap-release-version-beta,
-.roadmap-release-version-official,
+.roadmap-release-version-rc,
 .roadmap-release-version-oos {
     padding: 0.5rem 1.25rem;
     border-radius: 9999px;
@@ -156,7 +156,7 @@
     color: #1f2937;
 }
 
-.roadmap-release-version-official {
+.roadmap-release-version-rc {
     background: linear-gradient(135deg, #34d399 0%, #6ee7b7 100%);
     box-shadow: 0 4px 15px rgba(52, 211, 153, 0.3);
     color: #064e3b;

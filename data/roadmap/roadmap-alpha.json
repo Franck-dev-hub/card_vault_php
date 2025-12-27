@@ -1,0 +1,82 @@
+[
+    {
+        "class": "-alpha",
+        "version": "V0.1-alpha",
+        "title": "Project initialisation",
+        "features": [
+            "Feat: Create main page as Dashboard",
+            "Feat: Create docker compose",
+            "Feat: Install php in docker"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.2-alpha",
+        "title": "Layout & navigation",
+        "features": [
+            "Feat: Create all main pages with a template",
+            "Feat: Create a footer menu",
+            "Fix: Icons appearance"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.3-alpha",
+        "title": "Internationalisation setup",
+        "features": [
+            "Feat: Create a translator in French",
+            "Feat: Init English & French translation files",
+            "Improvement: Template page system"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.4-alpha",
+        "title": "Backend foundations",
+        "features": [
+            "Feat: Init composer",
+            "Feat: Init TCGdex API"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.5-alpha",
+        "title": "Card browsing core",
+        "features": [
+            "Feat: Display Pokémon license form",
+            "Feat: Display Pokémon's sets form",
+            "Feat: Display Pokémon cards from selected set",
+            "Feat: Display total cards in set",
+            "Fix: Padding for the footer",
+            "Fix: Add language variable (to manage missing french images)"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.6-alpha",
+        "title": "Framework migration",
+        "features": [
+            "Feat: Migrate to Symfony",
+            "Feat: Migrate basic code from PHP to Symfony"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.7-alpha",
+        "title": "Desktop navigation",
+        "features": [
+            "Feat: Create burger menu for desktop",
+            "Fix: Packages version"
+        ]
+    },
+    {
+        "class": "-alpha",
+        "version": "V0.8-alpha",
+        "title": "Responsive & deployment preparation",
+        "features": [
+            "Feat: Merge footer & burger menu & make them responsive",
+            "Improvement: Menus appearances",
+            "Fix: Create app variable & open ports for deployment"
+        ]
+    }
+]
