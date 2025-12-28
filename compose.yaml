@@ -7,3 +7,30 @@ services:
       - .:/app
     environment:
       - PHP_ENV=development
+    depends_on:
+      - redis
+      - postgres
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: cardvaultphp_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME:-card_vault_php}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/data/postgresql
+
+volumes:
+  redis_data:
+  postgres_data:

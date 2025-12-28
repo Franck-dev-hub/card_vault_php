@@ -27,7 +27,11 @@ http://localhost:8000/
 - `/search` - Search page
 
 ## Notes
-You can access the running project files in Docker with:
+You can access the running project files in Docker with :
 ```bash
 docker compose exec php bash
+```
+You can reset Redis cache with this command :
+```bash
+docker exec -it card-vault-php-php-1 php bin/console cache:clear
 ```

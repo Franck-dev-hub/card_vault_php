@@ -6,21 +6,21 @@
         <!-- Pokémon -->
         <option
             value="pokemon"
-            {% if app.request.request.get("license") == "pokemon" %}selected{% endif %}>
+            {% if licenseSelected == "pokemon" %}selected{% endif %}>
             Pokémon
         </option>
 
         <!-- Magic -->
         <!-- <option
             value="magic"
-            {% if app.request.request.get("license") == "magic" %}selected{% endif %}>
+            {% if licenseSelected == "magic" %}selected{% endif %}>
             Magic
         </option> -->
 
         <!-- Yu-Gi-Oh -->
         <!-- <option
             value="yugioh"
-            {% if app.request.request.get("license") == "yugioh" %}selected{% endif %}>
+            {% if licenseSelected == "yugioh" %}selected{% endif %}>
             Yu-Gi-Oh
         </option> -->
     </select>
