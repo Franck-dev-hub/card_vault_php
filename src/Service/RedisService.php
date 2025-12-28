@@ -17,6 +17,7 @@ readonly class RedisService
         $item->set($value);
         // 86400 = 24H
         // 604800 = 7days
+        // 2592000 = 30 days
         $item->expiresAfter($time);
         $cache->save($item);
     }

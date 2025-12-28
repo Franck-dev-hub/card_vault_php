@@ -7,6 +7,7 @@ use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
 use App\Service\RedisService;
+use App\Service\License\TcgdexRedisService;
 
 use Exception;
 use Psr\Cache\CacheItemPoolInterface;
@@ -20,13 +21,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SearchController extends BaseController
 {
     public function __construct(
+        protected readonly CacheItemPoolInterface $cache,
         protected readonly LicenseServiceFactory  $licenseFactory,
         protected readonly RedisService           $redisService,
-        protected readonly CacheItemPoolInterface $cache,
-        MenuService                               $footerService,
-        TranslatorInterface                       $translator,
+        protected readonly TcgdexRedisService     $tcgdexRedisService,
         LanguageManager                           $appLanguage,
+        MenuService                               $footerService,
         PokemonService                            $pokemonService,
+        TranslatorInterface                       $translator,
     )
     {
         parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
@@ -69,7 +71,7 @@ class SearchController extends BaseController
 
         // Fetch sets
         try {
-            $extensions = $licenseService->fetchPokemonSets();
+            $extensions = $this->tcgdexRedisService->getExtensions($licenseSelected, $licenseService);
         } catch (Exception $e) {
             $this->addFlash("error", $e->getMessage());
         }
@@ -78,7 +80,11 @@ class SearchController extends BaseController
         if ($setSelected) {
             try {
                 [$currentSet, $cards] = match ($licenseSelected) {
-                    "pokemon" => $licenseService->handlePokemonSetSelection($setSelected),
+                    "pokemon" => $this->tcgdexRedisService->getCards(
+                        $licenseSelected,
+                        $setSelected,
+                        $licenseService
+                    ),
                     // "yugioh" => $licenseService->handleSetSelection($setSelected),
                     // "magic" => $licenseService->handleSetSelection($setSelected),
                     default => [null, []],
