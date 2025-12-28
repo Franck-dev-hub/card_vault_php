@@ -6,13 +6,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ScanController extends BaseController
 {
-    #[Route("/scan/{name}", name: "scan")]
-    public function scan(string $name): Response
+    private const string PAGE_NAME = "scan";
+
+    #[Route("/" . self::PAGE_NAME, name: self::PAGE_NAME)]
+    public function dashboard(): Response
     {
-        return $this->renderPage("routes/scan.html.twig", [
-            "name" => $name,
-            "pageTitle" => ucfirst($name),
-            "currentPage" => $name
+        return $this->renderPage(self::PAGE_NAME . ".html.twig", [
+            "dir" => "routes",
+            "currentPage" => self::PAGE_NAME
         ]);
     }
 }

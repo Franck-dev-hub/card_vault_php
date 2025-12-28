@@ -6,13 +6,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class VaultController extends BaseController
 {
-    #[Route("/vault/{name}", name: "vault")]
-    public function vault(string $name): Response
+    private const string PAGE_NAME = "vault";
+
+    #[Route("/" . self::PAGE_NAME, name: self::PAGE_NAME)]
+    public function dashboard(): Response
     {
-        return $this->renderPage("routes/vault.html.twig", [
-            "name" => $name,
-            "pageTitle" => ucfirst($name),
-            "currentPage" => $name
+        return $this->renderPage(self::PAGE_NAME . ".html.twig", [
+            "dir" => "routes",
+            "currentPage" => self::PAGE_NAME
         ]);
     }
 }

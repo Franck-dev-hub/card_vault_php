@@ -56,5 +56,23 @@
             "Feat: Create link from implemented section to they dedicated section",
             "Improve: roadmap CSS"
         ]
+    },
+    {
+        "id": "V0.6-beta",
+        "class": "-beta",
+        "version": "V0.6-beta",
+        "title": "Login - Logout",
+        "features": [
+            "Feat: Create REDIS to store data",
+            "Feat: Store API data in REDIS",
+            "Feat: Create register section",
+            "Feat: Create login - logout section",
+            "Feat: Create pgAdmin interface",
+            "Feat: Create mailHog interface",
+            "Improve: Store user preferences in redis",
+            "Improve: Docker launch with bash script",
+            "Update: Roadmap",
+            "Update: Translation (en - fr)"
+        ]
     }
 ]

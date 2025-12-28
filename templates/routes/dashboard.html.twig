@@ -2,4 +2,7 @@
 
 {% block content %}
     <h1>Hello from {{ "dashboard.title"|trans }}</h1>
+    {% if app.user %}
+        <h2>Hidden message : You can see it because you're logged in</h2>
+    {% endif %}
 {% endblock %}

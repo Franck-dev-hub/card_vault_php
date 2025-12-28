@@ -6,6 +6,7 @@ use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
+use App\Service\UserPreferencesService;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,21 +15,31 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RoadmapController extends BaseController
 {
+    private const string PAGE_NAME = "roadmap";
+
     public function __construct(
         protected readonly LicenseServiceFactory $licenseFactory,
+        UserPreferencesService                   $userPreferencesService,
         MenuService                              $footerService,
         TranslatorInterface                      $translator,
         LanguageManager                          $appLanguage,
         PokemonService                           $pokemonService,
     )
     {
-        parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
+        parent::__construct(
+            $footerService,
+            $translator,
+            $userPreferencesService,
+            $appLanguage,
+            $pokemonService
+        );
     }
 
     /**
      * @throws Exception
      */
-    #[Route("/roadmap", name: "roadmap")]
+
+    #[Route("/" . self::PAGE_NAME, name: self::PAGE_NAME)]
     public function roadmap(Request $request): Response
     {
         $files = [
@@ -75,10 +86,11 @@ class RoadmapController extends BaseController
             $releases = array_merge($releases, $data);
         }
 
-        return $this->renderPage("routes/roadmap.html.twig", [
+        return $this->renderPage(self::PAGE_NAME . ".html.twig", [
+            "dir" => "routes",
             "implemented" => $implemented,
             "releases" => $releases,
-            "currentPage" => "roadmap"
+            "currentPage" => self::PAGE_NAME
         ]);
     }
 }

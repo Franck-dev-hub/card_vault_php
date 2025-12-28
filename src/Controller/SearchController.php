@@ -7,6 +7,7 @@ use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
 use App\Service\RedisService;
+use App\Service\UserPreferencesService;
 use App\Service\License\TcgdexRedisService;
 
 use Exception;
@@ -25,13 +26,20 @@ class SearchController extends BaseController
         protected readonly LicenseServiceFactory  $licenseFactory,
         protected readonly RedisService           $redisService,
         protected readonly TcgdexRedisService     $tcgdexRedisService,
+        UserPreferencesService                    $userPreferencesService,
         LanguageManager                           $appLanguage,
         MenuService                               $footerService,
         PokemonService                            $pokemonService,
         TranslatorInterface                       $translator,
     )
     {
-        parent::__construct($footerService, $translator, $appLanguage, $pokemonService);
+        parent::__construct(
+            $footerService,
+            $translator,
+            $userPreferencesService,
+            $appLanguage,
+            $pokemonService
+        );
     }
 
     /**
@@ -96,7 +104,8 @@ class SearchController extends BaseController
             }
         }
 
-        return $this->renderPage("routes/search.html.twig", [
+        return $this->renderPage("search.html.twig", [
+            "dir" => "routes",
             "licenseSelected" => $licenseSelected,
             "setSelected" => $setSelected,
             "extensions" => $extensions,

@@ -24,6 +24,15 @@
     "profile": {
         "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?"
     },
+    "register": {
+        "title": "Register"
+    },
+    "login": {
+        "title": "Login"
+    },
+    "logout": {
+        "title": "Logout"
+    },
     "roadmap": {
         "title": "Roadmap"
     }

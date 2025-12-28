@@ -7,9 +7,9 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class RootController extends AbstractController
 {
-    #[Route("/", name: "home")]
-    public function home(): Response
+    #[Route("/", name: "root")]
+    public function root(): Response
     {
-        return $this->redirectToRoute("root", ["name" => "dashboard"]);
+        return $this->redirectToRoute("dashboard");
     }
 }

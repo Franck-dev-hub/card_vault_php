@@ -7,9 +7,18 @@
 
 <div class="profile-overlay" id="profileOverlay">
     <div class="profile-content">
+        {% if not app.user %}
+            <div class="auth-links">
+                <div class="profile-section"><a href="/login">{{ "login.title"|trans }}</a></div>
+                <div class="profile-section"><a href="/register">{{ "register.title"|trans }}</a></div>
+            </div>
+        {% endif %}
         <div class="profile-section">{% include "routes/profile/appLanguageForm.html.twig" %}</div>
         <div class="profile-section">{% include "routes/profile/cardsLanguageForm.html.twig" %}</div>
-        <div class="profile-section"><a href="/roadmap">Roadmap</a></div>
+        <div class="profile-section"><a href="/roadmap">{{ "roadmap.title"|trans }}</a></div>
+        {% if app.user %}
+            <div class="profile-section logout-btn"><a href="/logout">{{ "logout.title"|trans }}</a></div>
+        {% endif %}
     </div>
 </div>
 
