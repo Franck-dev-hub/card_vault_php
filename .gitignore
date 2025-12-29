@@ -12,6 +12,9 @@
 npm-debug.log
 yarn-error.log
 
+# SQL
+migrations/
+
 # IDE
 .vscode/
 .idea/

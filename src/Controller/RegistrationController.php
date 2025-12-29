@@ -61,7 +61,10 @@ class RegistrationController extends BaseController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $plainPassword = $form->get('plainPassword')->getData();
+            $username = $form->get("username")->getData();
+
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+            $user->setUsername($username);
 
             $entityManager->persist($user);
             $entityManager->flush();
