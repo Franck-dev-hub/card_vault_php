@@ -9,7 +9,9 @@ use App\Security\EmailVerifier;
 use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\PokemonService;
+use App\Service\UserPreferencesService;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,28 +25,36 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 class RegistrationController extends BaseController
 {
     public function __construct(
-        MenuService $footerService,
-        TranslatorInterface $translator,
-        LanguageManager $languageManager,
-        PokemonService $pokemonService,
+        MenuService                      $footerService,
+        UserPreferencesService           $userPreferencesService,
+        TranslatorInterface              $translator,
+        LanguageManager                  $languageManager,
+        PokemonService                   $pokemonService,
         protected readonly EmailVerifier $emailVerifier,
-        private readonly string $emailFromAddress,
-        private readonly string $emailFromName,
-    ) {
-        parent::__construct($footerService, $translator, $languageManager, $pokemonService);
+        private readonly string          $emailFromAddress,
+        private readonly string          $emailFromName,
+    )
+    {
+        parent::__construct(
+            $footerService,
+            $translator,
+            $userPreferencesService,
+            $languageManager,
+            $pokemonService);
     }
 
     private const string PAGE_NAME = "register";
 
     /**
-     * @throws TransportExceptionInterface
+     * @throws TransportExceptionInterface|InvalidArgumentException
      */
     #[Route("/" . self::PAGE_NAME, name: self::PAGE_NAME)]
     public function register(
-        Request $request,
+        Request                     $request,
         UserPasswordHasherInterface $userPasswordHasher,
-        EntityManagerInterface $entityManager
-    ): Response {
+        EntityManagerInterface      $entityManager
+    ): Response
+    {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -59,7 +69,7 @@ class RegistrationController extends BaseController
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 new TemplatedEmail()
                     ->from(new Address($this->emailFromAddress, $this->emailFromName))
-                    ->to((string) $user->getEmail())
+                    ->to((string)$user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );

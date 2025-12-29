@@ -8,6 +8,7 @@ use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
 use App\Service\UserPreferencesService;
 use Exception;
+use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -36,7 +37,7 @@ class RoadmapController extends BaseController
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|InvalidArgumentException
      */
 
     #[Route("/" . self::PAGE_NAME, name: self::PAGE_NAME)]
