@@ -1,9 +1,12 @@
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #818cf8;
-    --danger-color: #ef4444;
-    --success-color: #10b981;
+    --primary-color: #89B4FA;
+    --primary-dark: #4A7BA7;
+    --primary-light: #C5D9F8;
+    --secondary-color: #89F7B6;
+    --secondary-dark: #2EA878;
+    --secondary-light: #C5FDE1;
+    --danger-color: #F38BA8;
+    --success-color: #89F7B6;
     --text-dark: #1f2937;
     --text-light: #6b7280;
     --border-color: #e5e7eb;
@@ -112,11 +115,12 @@ main {
 }
 
 /* Main button */
-.not-touch-device .menu-item,
+.menu-item,
 .profile-section,
 .menu-button {
     flex: 1;
     width: 100%;
+    gap: 1rem;
     text-align: left;
     justify-content: start;
     padding: 12px 16px;
@@ -134,7 +138,7 @@ main {
 }
 
 /* Main button hover */
-.not-touch-device .menu-item:hover,
+.menu-item:hover,
 .profile-section:hover,
 .menu-button:hover {
     outline: none;
@@ -144,7 +148,7 @@ main {
 }
 
 /* Main button focus */
-.not-touch-device .menu-item:focus,
+.menu-item:focus,
 .profile-section:focus,
 .menu-button:focus {
     background-color: var(--primary-light);
