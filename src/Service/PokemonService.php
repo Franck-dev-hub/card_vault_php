@@ -6,29 +6,26 @@ use TCGdex\TCGdex;
 use Symfony\Component\HttpClient\Psr18Client;
 use Nyholm\Psr7\Factory\Psr17Factory;
 
-class PokemonService
+readonly class PokemonService
 {
-    private TCGdex $tcgdex;
-    private bool $initialized = false;
+    public function __construct(
+        private LanguageManager $languageManager
+    ) {}
 
-    public function __construct(private readonly LanguageManager $languageManager)
+    private function getTcgdex(): TCGdex
     {
-        $this->initialize();
-    }
-
-    private function initialize(): void
-    {
-        if ($this->initialized) {
-            return;
-        }
-
         $psr17Factory = new Psr17Factory();
         TCGdex::$requestFactory = $psr17Factory;
         TCGdex::$responseFactory = $psr17Factory;
         TCGdex::$client = new Psr18Client();
         TCGdex::$ttl = 3600 * 1000;
-        $this->tcgdex = new TCGdex($this->languageManager->getCardsLanguage());
-        $this->initialized = true;
+
+        return new TCGdex($this->languageManager->getCardsLanguage());
+    }
+
+    public function getCardsLanguage(): string
+    {
+        return $this->languageManager->getCardsLanguage();
     }
 
     /**
@@ -39,8 +36,9 @@ class PokemonService
      */
     public function getPokemonSets(): array
     {
+        $tcgdex = $this->getTcgdex();
+        $pokemonSets = $tcgdex->set->list();
         $extensions = [];
-        $pokemonSets = $this->tcgdex->set->list();
 
         foreach ($pokemonSets as $set) {
             $extensions[$set->id] = $set->name ?? $set->id;
@@ -57,7 +55,8 @@ class PokemonService
      */
     public function getSetWithCards(string $setSelected): array
     {
-        $set = $this->tcgdex->set->get($setSelected);
+        $tcgdex = $this->getTcgdex();
+        $set = $tcgdex->set->get($setSelected);
 
         if ($set === null) {
             return ["set" => null, "cards" => []];
@@ -77,7 +76,8 @@ class PokemonService
      */
     public function getSerieCards(string $setSelected): array
     {
-        $serie = $this->tcgdex->serie->get($setSelected);
+        $tcgdex = $this->getTcgdex();
+        $serie = $tcgdex->serie->get($setSelected);
 
         if (empty($serie->sets)) {
             return ["set" => null, "cards" => []];

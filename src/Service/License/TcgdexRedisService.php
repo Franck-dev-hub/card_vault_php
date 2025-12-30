@@ -21,7 +21,8 @@ readonly class TcgdexRedisService
      */
     public function getExtensions(string $license, mixed $licenseService): mixed
     {
-        $cacheKey = "api_sets_{$license}";
+        $language = $licenseService->getCardsLanguage();
+        $cacheKey = "api_sets_{$license}_{$language}";
         $extensions = $this->redisService->getRedis($this->cache, $cacheKey);
 
         if ($extensions) {
@@ -44,7 +45,8 @@ readonly class TcgdexRedisService
      */
     public function getCards(string $license, string $setSelected, mixed $licenseService): array
     {
-        $cacheKey = "api_cards_{$license}_{$setSelected}";
+        $language = $licenseService->getCardsLanguage();
+        $cacheKey = "api_cards_{$license}_{$setSelected}_{$language}";
         $cachedData = $this->redisService->getRedis($this->cache, $cacheKey);
 
         if ($cachedData) {

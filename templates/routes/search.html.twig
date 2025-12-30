@@ -15,7 +15,7 @@
         {% endif %}
         <!-- Reset button -->
         {% if licenseSelected %}
-        <form method="post" action="{{ path('search') }}">
+        <form method="POST" action="{{ path('search') }}">
             <button class="reset" type="submit" name="reset" value="1">
                 Reset
             </button>

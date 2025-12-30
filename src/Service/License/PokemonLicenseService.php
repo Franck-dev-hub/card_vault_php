@@ -32,6 +32,11 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
         return $this->pokemonService->getSerieCards($setId);
     }
 
+    public function getCardsLanguage(): string
+    {
+        return $this->pokemonService->getCardsLanguage();
+    }
+
     /**
      * Fetch Pokémon sets with error handling
      * @throws Exception
