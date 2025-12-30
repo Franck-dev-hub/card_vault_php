@@ -11,13 +11,13 @@ footer {
     right: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 -2px 10px var(--color-shadow-light);
+    box-shadow: 0 -2px 10px var(--shadow-sm);
 }
 
 .menu-box {
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-bg-white);
+    background-color: var(--bg-white);
     gap: 8px;
     padding: 10px;
 }
@@ -48,7 +48,7 @@ footer {
 }
 
 .menu-button.active {
-    background-color: var(--color-accent-blue-light);
+    background-color: var(--accent-blue-light);
 }
 
 @media (max-height: 320px) {
@@ -76,8 +76,8 @@ footer {
     height: 40px;
     border-radius: 25%;
     border: none;
-    background: var(--color-accent-blue-light);
-    box-shadow: 0 2px 8px var(--color-shadow-medium);
+    background: var(--accent-blue-light);
+    box-shadow: 0 2px 8px var(--shadow-md);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -89,14 +89,14 @@ footer {
 
 .not-touch-device .burger-button:hover,
 .profile-button:hover {
-    background: var(--color-accent-blue-medium);
+    background: var(--accent-blue-light);
     transform: scale(1.05);
 }
 
 .not-touch-device .burger-line {
     width: 60%;
     height: 2px;
-    background: var(--color-text-dark);
+    background: var(--text-primary);
     border-radius: 1px;
     transition: all 0.3s ease;
 }
@@ -119,8 +119,8 @@ footer {
     left: 0;
     bottom: 0;
     width: 260px;
-    background: var(--color-bg-white);
-    box-shadow: 2px 0 10px var(--color-shadow-medium);
+    background: var(--bg-white);
+    box-shadow: 2px 0 10px var(--shadow-md);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 1200;
@@ -136,7 +136,7 @@ footer {
 .not-touch-device .menu-backdrop {
     position: fixed;
     inset: 0;
-    background: var(--color-overlay);
+    background: var(--overlay);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -167,16 +167,16 @@ footer {
     background: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    color: var(--color-text-dark);
+    color: var(--text-primary);
     font-size: 0.95rem;
 }
 
 .not-touch-device .menu-item:hover {
-    background-color: var(--color-accent-blue-light);
+    background-color: var(--accent-blue-light);
 }
 
 .not-touch-device .menu-item.active {
-    background: var(--color-accent-blue-light);
+    background: var(--accent-blue-light);
     font-weight: 500;
 }
 
@@ -188,5 +188,5 @@ footer {
 }
 
 .not-touch-device .menu-item span {
-    color: var(--color-text-dark);
+    color: var(--text-primary);
 }

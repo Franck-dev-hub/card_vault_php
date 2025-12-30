@@ -2,8 +2,8 @@
     min-height: 100vh;
     padding: 3rem 2rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-mid) 50%, var(--color-bg-gradient-end) 100%);
-    color: var(--color-roadmap-text-primary);
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+    color: var(--roadmap-text-primary);
     line-height: 1.6;
 }
 
@@ -27,7 +27,7 @@
     right: -10%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, var(--color-roadmap-bg-radial) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -35,7 +35,7 @@
 .roadmap-header-h1 {
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--color-accent-blue-dark) 0%, var(--color-accent-blue-darker) 100%);
+    background: linear-gradient(135deg, var(--accent-blue-dark) 0%, #0369a1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -45,7 +45,7 @@
 
 .roadmap-header-p {
     font-size: 1.25rem;
-    color: var(--color-text-light);
+    color: var(--text-muted);
     font-weight: 300;
 }
 
@@ -62,7 +62,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--color-accent-blue-primary), var(--color-accent-purple-primary), var(--color-accent-pink-primary));
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-pink));
     opacity: 0.4;
 }
 
@@ -74,8 +74,8 @@
 
 /* Features Implemented */
 .feature-implemented-main {
-    background: linear-gradient(135deg, var(--color-accent-green-gradient-start) 0%, var(--color-accent-green-gradient-end) 100%);
-    border: 1px solid var(--color-accent-green-border);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(52, 211, 153, 0.08) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 1rem;
     padding: 2rem;
     margin-bottom: 4rem;
@@ -85,7 +85,7 @@
 .feature-implemented-h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--color-accent-green-dark);
+    color: var(--accent-green-dark);
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
@@ -100,8 +100,8 @@
 
 .feature-implemented-li {
     padding: 0;
-    background: var(--color-accent-green-gradient-start);
-    border-left: 2px solid var(--color-accent-green-primary);
+    background: rgba(16, 185, 129, 0.08);
+    border-left: 2px solid var(--accent-green);
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -112,14 +112,14 @@
     display: block;
     padding: 0.75rem 1rem;
     text-decoration: none;
-    color: var(--color-accent-green-darker);
+    color: var(--accent-green-dark);
     width: 100%;
     height: 100%;
 }
 
 .feature-implemented-li:hover {
-    background: var(--color-accent-green-gradient-hover);
-    border-left: 3px solid var(--color-accent-green-primary);
+    background: rgba(16, 185, 129, 0.2);
+    border-left: 3px solid var(--accent-green);
     transform: translateX(4px);
 }
 
@@ -157,29 +157,29 @@
 }
 
 .roadmap-release-version-alpha {
-    background: linear-gradient(135deg, var(--color-accent-purple-primary) 0%, var(--color-accent-purple-light) 100%);
-    box-shadow: 0 4px 15px var(--color-accent-purple-shadow);
+    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-light) 100%);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
 }
 
 .roadmap-release-version-beta {
-    background: linear-gradient(135deg, var(--color-accent-orange-primary) 0%, var(--color-accent-orange-light) 100%);
-    box-shadow: 0 4px 15px var(--color-accent-orange-shadow);
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
 }
 
 .roadmap-release-version-rc {
-    background: linear-gradient(135deg, var(--color-accent-green-primary) 0%, var(--color-accent-green-light) 100%);
-    box-shadow: 0 4px 15px var(--color-accent-green-shadow);
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-light) 100%);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .roadmap-release-version-oos {
-    background: var(--color-status-gray);
-    box-shadow: 0 4px 15px var(--color-status-gray-shadow);
+    background: var(--status-gray);
+    box-shadow: 0 4px 15px rgba(148, 163, 184, 0.3);
 }
 
 .roadmap-release-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-roadmap-text-heading);
+    color: var(--roadmap-text-heading);
 }
 
 .roadmap-release-features {
@@ -193,19 +193,19 @@
 .roadmap-release-point-done {
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    border-left: 2px solid var(--color-accent-blue-primary);
+    border-left: 2px solid var(--accent-blue);
     transition: all 0.3s ease;
     position: relative;
 }
 
 .roadmap-release-points {
-    color: var(--color-accent-blue-dark);
-    background: var(--color-accent-blue-gradient-end);
+    color: var(--accent-blue-dark);
+    background: rgba(59, 130, 246, 0.08);
 }
 
 .roadmap-release-points:hover {
-    background: var(--color-accent-blue-gradient-hover);
-    border-left: 3px solid var(--color-accent-blue-primary);
+    background: rgba(59, 130, 246, 0.15);
+    border-left: 3px solid var(--accent-blue);
 }
 
 .roadmap-release-points::marker,
@@ -214,16 +214,16 @@
 }
 
 .roadmap-release-point-done {
-    color: var(--color-accent-green-darker);
-    border-left-color: var(--color-accent-green-primary);
-    background: var(--color-accent-green-gradient-start);
+    color: var(--accent-green-dark);
+    border-left-color: var(--accent-green);
+    background: rgba(16, 185, 129, 0.08);
 }
 
 .roadmap-release-point-done::before {
     content: '✓';
     position: absolute;
     left: 0.5rem;
-    color: var(--color-accent-green-primary);
+    color: var(--accent-green);
     font-weight: bold;
 }
 
@@ -236,11 +236,11 @@
     text-align: center;
     margin-top: 5rem;
     padding-top: 3rem;
-    border-top: 1px solid var(--color-status-gray-border);
+    border-top: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .roadmap-footer-p {
-    color: var(--color-text-light);
+    color: var(--text-muted);
     font-size: 1.1rem;
     font-style: italic;
 }

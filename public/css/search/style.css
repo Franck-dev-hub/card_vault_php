@@ -14,12 +14,12 @@ form {
 /* Select styling */
 select {
     appearance: none;
-    background-color: var(--color-bg-white);
-    border: 2px solid var(--color-border-light);
+    background-color: var(--bg-white);
+    border: 2px solid var(--border);
     border-radius: 8px;
     padding: 0.5rem 2.5rem 0.5rem .75rem;
     font-size: 1rem;
-    color: var(--color-text-dark);
+    color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -32,20 +32,20 @@ select {
 
 /* Hover state */
 select:hover {
-    border-color: var(--color-border-dark);
+    border-color: var(--text-secondary);
 }
 
 /* Focus state */
 select:focus {
     outline: none;
-    border-color: var(--color-border-dark);
+    border-color: var(--text-secondary);
 }
 
 /* Options styling */
 select option {
     padding: 0.5rem;
-    background-color: var(--color-bg-white);
-    color: var(--color-text-dark);
+    background-color: var(--bg-white);
+    color: var(--text-primary);
 }
 
 /* Responsive - mobile */

@@ -16,7 +16,7 @@
 .card-item:hover {
     transform: translateY(-1px);
     filter: brightness(1.05);
-    box-shadow: 0 4px 16px var(--color-shadow-dark);
+    box-shadow: 0 4px 16px var(--shadow-lg);
 }
 
 /* Card's image */

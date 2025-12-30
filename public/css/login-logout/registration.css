@@ -21,15 +21,15 @@
     margin-bottom: 20px;
     padding: 12px;
     background: rgba(239, 68, 68, 0.1);
-    border-left: 4px solid var(--danger-color);
+    border-left: 4px solid var(--danger);
     border-radius: 6px;
     font-size: 13px;
-    color: var(--danger-color);
+    color: var(--danger);
     list-style: none;
 }
 
 .registration-form {
-    background: var(--white);
+    background: var(--bg-white);
     border-radius: 12px;
     padding: 40px;
     box-shadow: var(--shadow-lg);
@@ -40,7 +40,7 @@
 .registration-form .title {
     font-size: 28px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 30px;
     text-align: center;
     letter-spacing: -0.5px;
@@ -64,7 +64,7 @@
     transform: translateY(-50%);
     margin-bottom: 0;
     font-weight: 500;
-    color: var(--text-light);
+    color: var(--text-muted);
     font-size: 14px;
     text-transform: capitalize;
     pointer-events: none;
@@ -76,11 +76,11 @@
 .registration-field input[type="password"] {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 14px;
-    color: var(--text-dark);
-    background: var(--white);
+    color: var(--text-primary);
+    background: var(--bg-white);
     transition: var(--transition);
     font-family: inherit;
 }
@@ -89,9 +89,9 @@
 .registration-field input[type="email"]:focus,
 .registration-field input[type="password"]:focus {
     outline: none;
-    border-color: var(--primary-color);
-    background: var(--white);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    border-color: var(--primary);
+    background: var(--bg-white);
+    box-shadow: -2px 0 10px var(--shadow-md);
     transform: scale(1.02);
 }
 
@@ -105,7 +105,7 @@
 }
 
 .registration-field input::placeholder {
-    color: var(--text-light);
+    color: var(--text-muted);
 }
 
 /* ===== Alert Messages ===== */
@@ -120,8 +120,8 @@
 
 .alert-danger {
     background: rgba(239, 68, 68, 0.1);
-    border-left-color: var(--danger-color);
-    color: var(--danger-color);
+    border-left-color: var(--danger);
+    color: var(--danger);
 }
 
 /* ===== Checkbox (Terms) ===== */
@@ -129,10 +129,10 @@
     margin-bottom: 20px;
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    color: var(--text-dark);
-    background: var(--white);
+    color: var(--text-primary);
+    background: var(--bg-white);
     transition: var(--transition);
 }
 
@@ -141,7 +141,7 @@
     padding: 10px;
     margin: 0;
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--text-muted);
     cursor: pointer;
     font-weight: 400;
 }
@@ -150,12 +150,12 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: var(--primary-color);
+    accent-color: var(--primary);
     flex-shrink: 0;
 }
 
 .registration-option input[type="checkbox"]:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid var(--primary);
     outline-offset: 2px;
 }
 
@@ -165,8 +165,8 @@
     padding: 12px 24px;
     margin-top: 10px;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--text-white);
     border: none;
     border-radius: 8px;
     font-size: 15px;
@@ -202,7 +202,7 @@
 
 .login-redirection {
     font-size: 14px;
-    color: var(--white);
+    color: var(--text-white);
     text-decoration: none;
     font-weight: 500;
     position: relative;
