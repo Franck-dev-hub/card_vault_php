@@ -96,12 +96,12 @@
 }
 
 .registration-field:has(input:focus) label,
-.registration-field:has(input:not(:placeholder-shown)) {
-    top: -12px;
-    color: black;
+.registration-field:has(input:not(:placeholder-shown)) label {
+    top: -10px;
     font-size: 12px;
-    font-weight: 800;
+    color: black;
     padding: 0 4px;
+    border-radius: 4px;
 }
 
 .registration-field input::placeholder {

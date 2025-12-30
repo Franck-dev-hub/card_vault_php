@@ -23,6 +23,11 @@ class RegistrationFormType extends AbstractType
             ->add("username", TextType::class, [
                 "mapped" => false,
                 "label" => "register.username",
+                "attr" => [
+                    "class" => "form-input",
+                    "placeholder" => " ",
+                    "required" => "",
+                ],
                 "constraints" => [
                     new NotBlank(message: "register.username_required"),
                     new Length(
@@ -35,6 +40,11 @@ class RegistrationFormType extends AbstractType
             ])
             ->add("email", EmailType::class, [
                 "label" => "register.email",
+                "attr" => [
+                    "class" => "form-input",
+                    "placeholder" => " ",
+                    "required" => "",
+                ],
                 "constraints" => [
                     new NotBlank(message: "register.email_required"),
                 ]
@@ -51,6 +61,9 @@ class RegistrationFormType extends AbstractType
                 "label" => "register.password",
                 "attr" => [
                     "autocomplete" => "new-password",
+                    "class" => "form-input",
+                    "placeholder" => " ",
+                    "required" => "",
                 ],
                 "constraints" => [
                     new NotBlank(message: "register.password_required"),
