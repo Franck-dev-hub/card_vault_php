@@ -2,27 +2,27 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset("css/login-logout/registration.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/security/security.css") }}">
 {% endblock %}
 
 {% block title %}{{ "register.title"|trans }}{% endblock %}
 
 {% block content %}
-    <div class="register-page">
+    <div class="security-page">
         {% for flash_error in app.flashes('verify_email_error') %}
             <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
         {% endfor %}
         <div class="container">
-            <div class="registration-form">
+            <div class="security-form">
                 {{ form_errors(registrationForm) }}
                 <div class="title">{{ "register.title"|trans }}</div>
                 {{ form_start(registrationForm) }}
-                <div class="registration-field">{{ form_row(registrationForm.username) }}</div>
-                <div class="registration-field">{{ form_row(registrationForm.email) }}</div>
-                <div class="registration-field">{{ form_row(registrationForm.plainPassword, { label: "register.password"|trans }) }}</div>
-                <div class="registration-option">{{ form_row(registrationForm.agreeTerms) }}</div>
+                <div class="security-field">{{ form_row(registrationForm.username) }}</div>
+                <div class="security-field">{{ form_row(registrationForm.email) }}</div>
+                <div class="security-field">{{ form_row(registrationForm.plainPassword, { label: "register.password"|trans }) }}</div>
+                <div class="security-option">{{ form_row(registrationForm.agreeTerms) }}</div>
 
-                <button type="submit" class="registration-button">{{ "register.submit"|trans }}</button>
+                <button type="submit" class="security-button">{{ "register.submit"|trans }}</button>
                 {{ form_end(registrationForm) }}
             </div>
             <div>

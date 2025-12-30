@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Form\LoginFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -19,11 +20,15 @@ class SecurityController extends BaseController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        // Create form from template
+        $loginForm = $this->createForm(LoginFormType::class);
+
         return $this->renderPage(self::PAGE_NAME . ".html.twig", [
             "dir" => "security",
             "currentPage" => self::PAGE_NAME,
-            'last_username' => $lastUsername,
-            'error' => $error,
+            "loginForm" => $loginForm->createView(),
+            "last_username" => $lastUsername,
+            "error" => $error,
         ]);
     }
 

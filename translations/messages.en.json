@@ -41,7 +41,12 @@
         "already_account": "I already have an account"
     },
     "login": {
-        "title": "Login"
+        "title": "Login",
+        "email": "Email",
+        "password": "Password",
+        "remember_me": "Remember me",
+        "submit": "Submit",
+        "no_account": "I don't have an account"
     },
     "logout": {
         "title": "Logout"

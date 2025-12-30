@@ -24,7 +24,7 @@ class RegistrationFormType extends AbstractType
                 "mapped" => false,
                 "label" => "register.username",
                 "attr" => [
-                    "class" => "form-input",
+                    "class" => "security-input",
                     "placeholder" => " ",
                     "required" => "",
                 ],
@@ -41,7 +41,7 @@ class RegistrationFormType extends AbstractType
             ->add("email", EmailType::class, [
                 "label" => "register.email",
                 "attr" => [
-                    "class" => "form-input",
+                    "class" => "security-input",
                     "placeholder" => " ",
                     "required" => "",
                 ],
@@ -61,7 +61,7 @@ class RegistrationFormType extends AbstractType
                 "label" => "register.password",
                 "attr" => [
                     "autocomplete" => "new-password",
-                    "class" => "form-input",
+                    "class" => "security-input",
                     "placeholder" => " ",
                     "required" => "",
                 ],

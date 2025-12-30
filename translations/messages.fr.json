@@ -41,7 +41,12 @@
         "already_account": "J'ai déjà un compte"
     },
     "login": {
-        "title": "Connexion"
+        "title": "Connexion",
+        "email": "Email",
+        "password": "Mot de passe",
+        "remember_me": "Se souvenir de moi",
+        "submit": "Se connecter",
+        "no_account": "Je n'ai pas de compte"
     },
     "logout": {
         "title": "Déconnexion"

@@ -71,6 +71,7 @@
             "Feat: Create mailHog interface",
             "Improve: Store user preferences in redis",
             "Improve: Docker launch with bash script",
+            "Improve: CSS",
             "Update: Roadmap",
             "Update: Translation (en - fr)"
         ]
