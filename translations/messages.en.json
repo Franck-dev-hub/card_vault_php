@@ -19,24 +19,20 @@
         "title": "Research",
         "search-license": "-- Select a license --",
         "select-extension": "-- Select a set --",
-        "no-cards": "No card found for this set"
+        "no-cards": "No card found for this set",
+        "reset": "Reset"
     },
     "profile": {
-        "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?"
+        "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?",
+        "app-language": "App Language",
+        "card-language": "Cards Language"
     },
     "register": {
         "title": "Create Account",
         "username": "Username",
-        "username_required": "Please enter a username",
-        "username_min": "Your username should be at least {{ limit }} characters",
-        "username_max": "Your username cannot exceed {{ limit }} characters",
         "email": "Email",
-        "email_required": "Please enter an email",
         "password": "Password",
-        "password_required": "Please enter a password",
-        "password_min": "Your password should be at least {{ limit }} characters",
         "agree_terms": "I agree to the terms",
-        "agree_terms_required": "You should agree to our terms.",
         "submit": "Register",
         "already_account": "I already have an account"
     },

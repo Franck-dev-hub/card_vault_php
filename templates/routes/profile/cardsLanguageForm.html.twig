@@ -1,5 +1,5 @@
 <form method="POST" action="{{ path('change_cards_language') }}">
-    <label for="cards-language-choice">Cards Language</label>
+    <label for="cards-language-choice">{{ "profile.card-language"|trans }}</label>
     <select name="choice" id="cards-language-choice"
             data-warning-message="{{ translator.trans('profile.card-language-pop-up') }}"
             onchange="cardLanguagePopUp(this)">

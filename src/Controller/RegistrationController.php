@@ -56,11 +56,14 @@ class RegistrationController extends BaseController
     ): Response
     {
         $user = new User();
+        $locale = $this->languageManager->getAppLanguage();
+        $this->translator->setLocale($locale);
+
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $form->get('plainPassword')->getData();
+            $plainPassword = $form->get("plainPassword")->getData();
             $username = $form->get("username")->getData();
 
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
@@ -78,7 +81,7 @@ class RegistrationController extends BaseController
             );
 
             $this->addFlash('success', 'Please check your email to verify your account');
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute("login");
         }
 
         return $this->renderPage("register.html.twig", [

@@ -10,9 +10,9 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
 
 
 class RegistrationFormType extends AbstractType
@@ -26,7 +26,6 @@ class RegistrationFormType extends AbstractType
                 "attr" => [
                     "class" => "security-input",
                     "placeholder" => " ",
-                    "required" => "",
                 ],
                 "constraints" => [
                     new NotBlank(message: "register.username_required"),
@@ -47,6 +46,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 "constraints" => [
                     new NotBlank(message: "register.email_required"),
+                    new Email(message: "register.email_invalid"),
                 ]
             ])
             ->add("agreeTerms", CheckboxType::class, [

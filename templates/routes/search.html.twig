@@ -17,7 +17,7 @@
         {% if licenseSelected %}
         <form method="POST" action="{{ path('search') }}">
             <button class="reset" type="submit" name="reset" value="1">
-                Reset
+                {{ "search.reset"|trans }}
             </button>
         </form>
         {% endif %}

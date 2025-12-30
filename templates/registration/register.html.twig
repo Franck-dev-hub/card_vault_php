@@ -16,12 +16,11 @@
             <div class="security-form">
                 {{ form_errors(registrationForm) }}
                 <div class="title">{{ "register.title"|trans }}</div>
-                {{ form_start(registrationForm) }}
+                {{ form_start(registrationForm, { 'attr': {'novalidate': 'novalidate'} }) }}
                 <div class="security-field">{{ form_row(registrationForm.username) }}</div>
                 <div class="security-field">{{ form_row(registrationForm.email) }}</div>
-                <div class="security-field">{{ form_row(registrationForm.plainPassword, { label: "register.password"|trans }) }}</div>
+                <div class="security-field">{{ form_row(registrationForm.plainPassword) }}</div>
                 <div class="security-option">{{ form_row(registrationForm.agreeTerms) }}</div>
-
                 <button type="submit" class="security-button">{{ "register.submit"|trans }}</button>
                 {{ form_end(registrationForm) }}
             </div>
