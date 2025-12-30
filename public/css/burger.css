@@ -81,28 +81,16 @@
     pointer-events: auto;
 }
 
-.not-touch-device .menu-content {
+.not-touch-device .menu-content,
+.profile-content {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-.not-touch-device .menu-link {
+.not-touch-device .menu-link,
+.profile-link {
     text-decoration: none;
-}
-
-.not-touch-device .menu-item {
-    display: flex;
-    gap: 0.75rem;
-    padding: 0.5rem 0.75rem;
-    border: none;
-    background: transparent;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    text-decoration: none;
-    color: var(--color-text-secondary);
-    width: 100%
 }
 
 .not-touch-device .menu-item img {
@@ -111,15 +99,12 @@
     object-fit: contain;
 }
 
-.not-touch-device .menu-item span {
+.not-touch-device .menu-item span,
+.profile-section span {
     color: var(--color-text-dark);
-    font-size: 0.95rem;
 }
 
-.not-touch-device .menu-item:hover {
-    background: var(--color-bg-light);
-}
-
-.not-touch-device .menu-item.active {
+.not-touch-device .menu-item.active,
+.profile-section.active {
     background: var(--color-accent-blue-light);
 }

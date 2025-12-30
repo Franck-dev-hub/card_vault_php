@@ -1,28 +1,33 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}Register{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/login-logout/registration.css") }}">
+{% endblock %}
+
+{% block title %}{{ "register.title"|trans }}{% endblock %}
 
 {% block content %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+    <div class="register-page">
+        {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+        {% endfor %}
+        <div class="container">
+            <div class="registration-form">
+                {{ form_errors(registrationForm) }}
+                <div class="title">{{ "register.title"|trans }}</div>
+                {{ form_start(registrationForm) }}
+                <div class="registration-field">{{ form_row(registrationForm.username) }}</div>
+                <div class="registration-field">{{ form_row(registrationForm.email) }}</div>
+                <div class="registration-field">{{ form_row(registrationForm.plainPassword, { label: "register.password"|trans }) }}</div>
+                <div class="registration-option">{{ form_row(registrationForm.agreeTerms) }}</div>
 
-    <div class="container">
-        <div class="registration-form">
-            {{ form_errors(registrationForm) }}
-            <h1>Create Account</h1>
-            {{ form_start(registrationForm) }}
-            <div class="registration-form-item">{{ form_row(registrationForm.username) }}</div>
-            <div class="registration-form-item">{{ form_row(registrationForm.email) }}</div>
-            <div
-                class="registration-form-item">{{ form_row(registrationForm.plainPassword, { label: "Password" }) }}</div>
-            <div class="registration-form-item">{{ form_row(registrationForm.agreeTerms) }}</div>
-
-            <button type="submit" class="btn">Register</button>
-            {{ form_end(registrationForm) }}
-        </div>
-        <div>
-            <a class="login-redirection" href="/login">I already have an account</a>
+                <button type="submit" class="registration-button">{{ "register.submit"|trans }}</button>
+                {{ form_end(registrationForm) }}
+            </div>
+            <div>
+                <a class="login-redirection" href="/login">{{ "register.already_account"|trans }}</a>
+            </div>
         </div>
     </div>
 {% endblock %}

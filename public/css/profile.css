@@ -22,19 +22,10 @@
 
 .profile-section {
     display: flex;
+    flex-direction: column;
     gap: 0.75rem;
-    padding: 0.5rem 0.75rem;
-    border: none;
     background: transparent;
-    border-radius: 0.5rem;
-    transition: background 0.3s ease-in-out;
     text-decoration: none;
-    color: var(--color-text-secondary);
-    width: 100%;
-}
-
-.profile-section:hover {
-    background-color: var(--color-bg-light);
 }
 
 .profile-section form {
@@ -47,9 +38,9 @@
 
 .profile-section a {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
     text-decoration: none;
     color: var(--color-text-secondary);
     gap: 0.75rem;
@@ -83,6 +74,9 @@
 .profile-content {
     position: relative;
     padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .close-button {
@@ -151,9 +145,14 @@
     pointer-events: auto;
 }
 
+.profile-link {
+    flex: 1;
+}
+
 .auth-links {
     display: flex;
-    gap: 10px;
+    justify-content: space-around;
+    gap: 0.75rem;
 }
 
 .auth-links .profile-section {

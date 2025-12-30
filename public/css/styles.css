@@ -1,4 +1,19 @@
 :root {
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #818cf8;
+    --danger-color: #ef4444;
+    --success-color: #10b981;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border-color: #e5e7eb;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
     /* Background colors */
     --color-bg-main: #F9F9F9;
     --color-bg-white: #FFFFFF;
@@ -22,9 +37,9 @@
     --color-border-dark: #4A5565;
 
     /* Accent colors - Blue */
+    --color-accent-blue-primary: #3b82f6;
     --color-accent-blue-light: #e0e8ff;
     --color-accent-blue-medium: #89acef;
-    --color-accent-blue-primary: #3b82f6;
     --color-accent-blue-dark: #1e40af;
     --color-accent-blue-darker: #0369a1;
     --color-accent-blue-gradient-start: rgba(59, 130, 246, 0.15);
@@ -72,13 +87,21 @@
     --color-roadmap-bg-radial: rgba(59, 130, 246, 0.15);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
-    height: 99%;
-    font-family: "Sora", sans-serif;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg-main);
@@ -86,6 +109,45 @@ body {
 
 main {
     flex: 1;
+}
+
+/* Main button */
+.not-touch-device .menu-item,
+.profile-section,
+.menu-button {
+    flex: 1;
+    width: 100%;
+    text-align: left;
+    justify-content: start;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: var(--transition);
+    font-family: inherit;
+    background-color: var(--color-bg-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Main button hover */
+.not-touch-device .menu-item:hover,
+.profile-section:hover,
+.menu-button:hover {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    background: var(--white);
+}
+
+/* Main button focus */
+.not-touch-device .menu-item:focus,
+.profile-section:focus,
+.menu-button:focus {
+    background-color: var(--primary-light);
 }
 
 /* Disable debug toolbar */

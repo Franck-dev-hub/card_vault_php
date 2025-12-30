@@ -25,7 +25,20 @@
         "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?"
     },
     "register": {
-        "title": "Register"
+        "title": "Create Account",
+        "username": "Username",
+        "username_required": "Please enter a username",
+        "username_min": "Your username should be at least {{ limit }} characters",
+        "username_max": "Your username cannot exceed {{ limit }} characters",
+        "email": "Email",
+        "email_required": "Please enter an email",
+        "password": "Password",
+        "password_required": "Please enter a password",
+        "password_min": "Your password should be at least {{ limit }} characters",
+        "agree_terms": "I agree to the terms",
+        "agree_terms_required": "You should agree to our terms.",
+        "submit": "Register",
+        "already_account": "I already have an account"
     },
     "login": {
         "title": "Login"

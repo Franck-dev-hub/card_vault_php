@@ -25,7 +25,20 @@
         "card-language-pop-up": "Attention : les images des cartes peuvent être incomplètes dans les langues autres que l'anglais. Continuer ?"
     },
     "register": {
-        "title": "S'inscrire"
+        "title": "S'inscrire",
+        "username": "Nom d'utilisateur",
+        "username_required": "Veuillez entrer un nom d'utilisateur",
+        "username_min": "Votre nom d'utilisateur doit contenir au moins {{ limit }} caractères",
+        "username_max": "Votre nom d'utilisateur ne peut pas dépasser {{ limit }} caractères",
+        "email": "Email",
+        "email_required": "Veuillez entrer un email",
+        "password": "Mot de passe",
+        "password_required": "Veuillez entrer un mot de passe",
+        "password_min": "Votre mot de passe doit contenir au moins {{ limit }} caractères",
+        "agree_terms": "J'accepte les conditions",
+        "agree_terms_required": "Vous devez accepter nos conditions.",
+        "submit": "S'inscrire",
+        "already_account": "J'ai déjà un compte"
     },
     "login": {
         "title": "Connexion"

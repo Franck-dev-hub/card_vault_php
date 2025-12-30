@@ -22,39 +22,42 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add("username", TextType::class, [
                 "mapped" => false,
-                "label" => "Username",
-                "attr" => ["placeholder" => "Username"],
-                "constraints" => [new NotBlank(message: "Please enter a username"),
+                "label" => "register.username",
+                "constraints" => [
+                    new NotBlank(message: "register.username_required"),
                     new Length(
                         min: 3,
                         max: 50,
-                        minMessage: "Your username should be at least {{ limit }} characters",
-                        maxMessage: "Your username cannot exceed {{ limit }} characters",
+                        minMessage: "register.username_min",
+                        maxMessage: "register.username_max",
                     ),
                 ]
             ])
             ->add("email", EmailType::class, [
-                "attr" => ["placeholder" => "Email"],
-                "constraints" => [new NotBlank(message: "Please enter an email"),]
+                "label" => "register.email",
+                "constraints" => [
+                    new NotBlank(message: "register.email_required"),
+                ]
             ])
             ->add("agreeTerms", CheckboxType::class, [
                 "mapped" => false,
+                "label" => "register.agree_terms",
                 "constraints" => [
-                    new NotBlank(message: "You should agree to our terms."),
+                    new NotBlank(message: "register.agree_terms_required"),
                 ],
             ])
             ->add("plainPassword", PasswordType::class, [
                 "mapped" => false,
+                "label" => "register.password",
                 "attr" => [
                     "autocomplete" => "new-password",
-                    "placeholder" => "Password",
-                    ],
+                ],
                 "constraints" => [
-                    new NotBlank(message: "Please enter a password"),
+                    new NotBlank(message: "register.password_required"),
                     new Length(
                         min: 6,
                         max: 4096,
-                        minMessage: "Your password should be at least {{ limit }} characters",
+                        minMessage: "register.password_min",
                     ),
                 ],
             ]);
@@ -63,7 +66,8 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            "data_class" => User::class,
+            "translation_domain" => "messages",
         ]);
     }
 }
