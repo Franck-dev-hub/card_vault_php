@@ -26,21 +26,25 @@
             <div class="security-form">
                 <div class="title">{{ "login.title"|trans }}</div>
 
-                {{ form_start(loginForm, { method: 'post' }) }}
-                <div class="security-field">{{ form_row(loginForm._username) }}</div>
-                <div class="security-field">{{ form_row(loginForm._password) }}</div>
-                <div class="security-option">{{ form_row(loginForm._remember_me) }}</div>
-
-                {{ form_rest(loginForm) }}
-
-                <button class="security-button" type="submit">
-                    {{ "login.submit"|trans }}
-                </button>
-                {{ form_end(loginForm) }}
+                <form method="post" action="{{ path('login') }}">
+                    <div class="security-field">
+                        <input type="email" name="email" placeholder="{{ 'login.email'|trans }}" required class="form-control">
+                    </div>
+                    <div class="security-field">
+                        <input type="password" name="password" placeholder="{{ 'login.password'|trans }}" required class="form-control">
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="security-option">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> {{ "login.remember_me"|trans }}
+                        </label>
+                    </div>
+                    <button class="security-button" type="submit">{{ "login.submit"|trans }}</button>
+                </form>
             </div>
 
             <div>
-                <a class="login-redirection" href="/register">{{ "login.no_account"|trans }}</a>
+                <a class="login-redirection" href="{{ path('register') }}">{{ "login.no_account"|trans }}</a>
             </div>
         </div>
     </div>
