@@ -7,10 +7,19 @@
 
 {% block content %}
     <div class="forms-container">
+        <!-- License form -->
         {% include "routes/search/licenseForm.html.twig" %}
-
+        <!-- Set form -->
         {% if licenseSelected and extensions is not empty %}
             {% include "routes/search/extensionForm.html.twig" %}
+        {% endif %}
+        <!-- Reset button -->
+        {% if licenseSelected %}
+        <form method="post" action="{{ path('search') }}">
+            <button class="reset" type="submit" name="reset" value="1">
+                Reset
+            </button>
+        </form>
         {% endif %}
     </div>
 
@@ -32,5 +41,4 @@
             <p>{{ "search.no-cards"|trans }}</p>
         {% endif %}
     {% endif %}
-
 {% endblock %}

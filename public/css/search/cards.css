@@ -4,7 +4,7 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 0.30em;
     padding: 0.30em 0.30em 80px;
-    margin: 0 auto;
+    margin: 0 0.75rem 0 0.75rem;
 }
 
 /* Individual card */

@@ -104,6 +104,12 @@ class SearchController extends BaseController
             }
         }
 
+        if ($request->request->has("reset")) {
+            $this->redisService->deleteRedisItem($this->cache, "search_license") ?? '';
+            $this->redisService->deleteRedisItem($this->cache, "search_set") ?? '';
+            return $this->redirectToRoute("search");
+        }
+
         return $this->renderPage("search.html.twig", [
             "dir" => "routes",
             "licenseSelected" => $licenseSelected,

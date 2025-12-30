@@ -29,6 +29,7 @@
 
     /* Border colors */
     --border: #e5e7eb;
+    --border-radius: 8px;
 
     /* Accent colors - Blue */
     --accent-blue: #3b82f6;
