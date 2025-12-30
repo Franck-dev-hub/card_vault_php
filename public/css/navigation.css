@@ -1,0 +1,192 @@
+.burger-container,
+.menu-overlay,
+.menu-backdrop {
+    display: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px var(--color-shadow-light);
+}
+
+.menu-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-bg-white);
+    gap: 8px;
+    padding: 10px;
+}
+
+.menu-link {
+    flex: 1;
+    display: flex;
+    text-decoration: none;
+}
+
+.menu-button {
+    width: 100%;
+    background: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button img,
+.menu-button svg {
+    fill: currentColor;
+    width: clamp(20px, 8vw, 40px);
+    height: clamp(20px, 8vw, 40px);
+    object-fit: contain;
+}
+
+.menu-button.active {
+    background-color: var(--color-accent-blue-light);
+}
+
+@media (max-height: 320px) {
+    footer {
+        bottom: -10px;
+    }
+}
+
+/* ===== DESKTOP (touch-device non détecté) ===== */
+.not-touch-device footer {
+    display: none;
+}
+
+.not-touch-device .burger-container {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    display: block;
+}
+
+.not-touch-device .burger-button,
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 25%;
+    border: none;
+    background: var(--color-accent-blue-light);
+    box-shadow: 0 2px 8px var(--color-shadow-medium);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.not-touch-device .burger-button:hover,
+.profile-button:hover {
+    background: var(--color-accent-blue-medium);
+    transform: scale(1.05);
+}
+
+.not-touch-device .burger-line {
+    width: 60%;
+    height: 2px;
+    background: var(--color-text-dark);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.not-touch-device .burger-button.open .burger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.not-touch-device .burger-button.open .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.not-touch-device .burger-button.open .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+.not-touch-device .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    background: var(--color-bg-white);
+    box-shadow: 2px 0 10px var(--color-shadow-medium);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1200;
+    padding: 1.5rem 1rem;
+    display: block;
+    overflow-y: auto;
+}
+
+.not-touch-device .menu-overlay.open {
+    transform: translateX(0);
+}
+
+.not-touch-device .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1150;
+    display: block;
+}
+
+.not-touch-device .menu-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.not-touch-device .menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.not-touch-device .menu-link {
+    text-decoration: none;
+}
+
+.not-touch-device .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+}
+
+.not-touch-device .menu-item:hover {
+    background-color: var(--color-accent-blue-light);
+}
+
+.not-touch-device .menu-item.active {
+    background: var(--color-accent-blue-light);
+    font-weight: 500;
+}
+
+.not-touch-device .menu-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.not-touch-device .menu-item span {
+    color: var(--color-text-dark);
+}

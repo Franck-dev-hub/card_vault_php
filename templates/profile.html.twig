@@ -10,13 +10,13 @@
         {% if not app.user %}
             <div class="auth-links">
                 <!-- Login button -->
-                <a href="/login" class="profile-link">
+                <a href="/login" class="menu-link">
                     <button class="menu-item {% if '/login' == currentPage %}active{% endif %}">
                         <span>{{ "login.title"|trans }}</span>
                     </button>
                 </a>
                 <!-- Register button -->
-                <a href="/register" class="profile-link">
+                <a href="/register" class="menu-link">
                     <button class="menu-item {% if '/register' == currentPage %}active{% endif %}">
                         <span>{{ "register.title"|trans }}</span>
                     </button>
@@ -29,7 +29,7 @@
         <!-- Cards language form -->
         <div class="profile-section">{% include "routes/profile/cardsLanguageForm.html.twig" %}</div>
         <!-- Roadmap button -->
-        <a href="/roadmap" class="profile-link">
+        <a href="/roadmap" class="menu-link">
             <button class="menu-item {% if '/roadmap' == currentPage %}active{% endif %}">
                 <span>{{ "roadmap.title"|trans }}</span>
             </button>
