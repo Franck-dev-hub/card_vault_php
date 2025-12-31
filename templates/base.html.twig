@@ -8,12 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>{{ pageTitle }}</title>
     <link rel="icon" href="{{ asset("assets/favicon.png") }}" type="image/x-png">
-    <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/profile.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/header.css") }}">
     <link rel="stylesheet" href="{{ asset("css/navigation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/profile.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
+
     <link rel="stylesheet" href="{{ asset("css/search/search.css") }}">
     {% block stylesheets %}{% endblock %}
 </head>
+
+<header>
+    <div class="header-title">
+        <p>{{ pageTitle|trans }}</p>
+    </div>
+</header>
+
 <body>
 {% include "navigation.html.twig" %}
 <script src="{{ asset("js/toggleMenu.js") }}"></script>
