@@ -59,7 +59,7 @@ class RegistrationController extends BaseController
         if ($this->getUser()) {
             return $this->redirectToRoute("root");
         }
-        
+
         $user = new User();
         $locale = $this->languageManager->getAppLanguage();
         $this->translator->setLocale($locale);

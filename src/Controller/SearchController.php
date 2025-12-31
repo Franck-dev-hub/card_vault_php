@@ -9,11 +9,9 @@ use App\Service\PokemonService;
 use App\Service\RedisService;
 use App\Service\UserPreferencesService;
 use App\Service\License\TcgdexRedisService;
-
 use Exception;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -26,21 +24,12 @@ class SearchController extends BaseController
         protected readonly LicenseServiceFactory  $licenseFactory,
         protected readonly RedisService           $redisService,
         protected readonly TcgdexRedisService     $tcgdexRedisService,
-        UserPreferencesService                    $userPreferencesService,
-        LanguageManager                           $appLanguage,
-        MenuService                               $footerService,
-        PokemonService                            $pokemonService,
-        TranslatorInterface                       $translator,
-    )
-    {
-        parent::__construct(
-            $footerService,
-            $translator,
-            $userPreferencesService,
-            $appLanguage,
-            $pokemonService
-        );
-    }
+        protected readonly UserPreferencesService $userPreferencesService,
+        protected readonly LanguageManager        $languageManager,
+        protected readonly MenuService            $footerService,
+        protected readonly PokemonService         $pokemonService,
+        protected readonly TranslatorInterface    $translator,
+    ) {}
 
     /**
      * @throws InvalidArgumentException
@@ -48,6 +37,9 @@ class SearchController extends BaseController
     #[Route("/search", name: "search")]
     public function search(Request $request): Response
     {
+        $user = $this->getUser();
+        $userId = $user?->getId();
+
         $licenseSelected = $request->request->get("license", '');
         $setSelected = $request->request->get("choice", '');
 
@@ -55,12 +47,15 @@ class SearchController extends BaseController
         $cards = [];
         $currentSet = null;
 
-        if (!$licenseSelected) {
-            $licenseSelected = $this->redisService->getRedis($this->cache, "search_license") ?? '';
+        // Get user preferences
+        if (!$licenseSelected && $userId) {
+            $prefs = $this->userPreferencesService->getPreferences($userId);
+            $licenseSelected = $prefs["search_license"] ?? '';
         }
 
-        if (!$setSelected) {
-            $setSelected = $this->redisService->getRedis($this->cache, "search_set") ?? '';
+        if (!$setSelected && $userId) {
+            $prefs = $this->userPreferencesService->getPreferences($userId);
+            $setSelected = $prefs["search_set"] ?? '';
         }
 
         $licenseService = $this->licenseFactory->getLicenseService($licenseSelected);
@@ -97,16 +92,24 @@ class SearchController extends BaseController
                     // "magic" => $licenseService->handleSetSelection($setSelected),
                     default => [null, []],
                 };
-                $this->redisService->storeRedis($this->cache, "search_license", $licenseSelected, 84600);
-                $this->redisService->storeRedis($this->cache, "search_set", $setSelected, 84600);
+
+                // Save user preferences
+                if ($userId) {
+                    $this->userPreferencesService->setSearchPreferences(
+                        $userId,
+                        $licenseSelected,
+                        $setSelected
+                    );
+                }
             } catch (Exception $e) {
                 $this->addFlash("error", $e->getMessage());
             }
         }
 
         if ($request->request->has("reset")) {
-            $this->redisService->deleteRedisItem($this->cache, "search_license") ?? '';
-            $this->redisService->deleteRedisItem($this->cache, "search_set") ?? '';
+            if ($userId) {
+                $this->userPreferencesService->resetSearchPreferences($userId);
+            }
             return $this->redirectToRoute("search");
         }
 

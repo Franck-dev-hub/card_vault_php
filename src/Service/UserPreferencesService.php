@@ -79,4 +79,35 @@ readonly class UserPreferencesService
         $prefs = $this->getPreferences($userId);
         return $prefs["card_language"] ?? "en";
     }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function setSearchPreferences(int $userId, string $license, string $set): void
+    {
+        $key = $this->getKey($userId);
+        $prefs = $this->getPreferences($userId);
+        $prefs["search_license"] = $license;
+        $prefs["search_set"] = $set;
+
+        $item = $this->cache->getItem($key);
+        $item->set($prefs);
+        $item->expiresAfter(86400 * 365);
+        $this->cache->save($item);
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function resetSearchPreferences(int $userId): void
+    {
+        $key = $this->getKey($userId);
+        $prefs = $this->getPreferences($userId);
+        unset($prefs["search_license"], $prefs["search_set"]);
+
+        $item = $this->cache->getItem($key);
+        $item->set($prefs);
+        $item->expiresAfter(86400 * 365);
+        $this->cache->save($item);
+    }
 }
