@@ -36,7 +36,11 @@
         </a>
         <!-- Logout button -->
         {% if app.user %}
-            <div class="profile-section logout-btn"><a href="/logout">{{ "logout.title"|trans }}</a></div>
+        <a href="/logout" class="menu-link">
+            <button class="menu-item logout-btn">
+                <span>{{ "logout.title"|trans }}</span>
+            </button>
+        </a>
         {% endif %}
     </div>
 </div>

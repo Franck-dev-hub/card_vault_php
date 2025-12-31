@@ -91,11 +91,12 @@ body {
     display: flex;
     padding-top: 4rem;
     flex-direction: column;
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%) fixed;
 }
 
 main {
     flex: 1;
+    margin: 1rem;
 }
 
 /* Main button */

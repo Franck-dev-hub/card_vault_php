@@ -57,7 +57,7 @@ footer {
     }
 }
 
-/* ===== DESKTOP (touch-device non détecté) ===== */
+/* ===== DESKTOP (touch-device not detected) ===== */
 .not-touch-device footer {
     display: none;
 }
