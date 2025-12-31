@@ -1,10 +1,11 @@
 .roadmap-main {
     min-height: 100vh;
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 0 2rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
     color: var(--roadmap-text-primary);
     line-height: 1.6;
+    border-radius: 18px;
 }
 
 .roadmap-sub {
@@ -15,27 +16,15 @@
 /* Header */
 .roadmap-main-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     position: relative;
     overflow: hidden;
-}
-
-.roadmap-main-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
 }
 
 .roadmap-header-h1 {
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-blue-dark) 0%, #0369a1 100%);
+    background: var(--accent-blue-dark);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -47,29 +36,6 @@
     font-size: 1.25rem;
     color: var(--text-muted);
     font-weight: 300;
-}
-
-/* Timeline Vertical */
-.roadmap-timeline-main {
-    position: relative;
-    padding: 2rem 0;
-}
-
-.roadmap-timeline-main::before {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-pink));
-    opacity: 0.4;
-}
-
-@media (max-width: 768px) {
-    .roadmap-timeline-main::before {
-        left: 0.5rem;
-    }
 }
 
 /* Features Implemented */
@@ -234,8 +200,7 @@
 /* Footer */
 .roadmap-footer-main {
     text-align: center;
-    margin-top: 5rem;
-    padding-top: 3rem;
+    padding: 2rem 0;
     border-top: 1px solid rgba(148, 163, 184, 0.3);
 }
 
@@ -243,6 +208,10 @@
     color: var(--text-muted);
     font-size: 1.1rem;
     font-style: italic;
+}
+
+.roadmap-end {
+    padding: 1rem;
 }
 
 /* Responsive */

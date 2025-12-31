@@ -26,8 +26,6 @@
             </ul>
         </div>
 
-        <!-- Versions Timeline -->
-        <div class="roadmap-timeline-main">
             <!-- Main feature loop -->
             {% for release in releases %}
                 <div id="{{ release.id }}" class="roadmap-release-main">
@@ -47,10 +45,10 @@
 
             <!-- Footer -->
             <div class="roadmap-footer-main">
-                <p class="roadmap-footer-p">This roadmap is subject to change based on community feedback and
-                    priorities</p>
+                <p class="roadmap-footer-p">This roadmap is subject to change based on community feedback and priorities</p>
             </div>
         </div>
     </div>
 
+<span class="roadmap-end"></span>
     {% endblock %}
