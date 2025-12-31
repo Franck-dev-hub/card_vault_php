@@ -1,20 +1,20 @@
 /* Form container */
 .forms-container {
-    margin-left: 1rem;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
 }
 
 form {
-    flex: 0 1 auto;
+    width: 100%;
     margin: 0;
-    min-width: 200px;
+    flex: 0 1 auto;
 }
 
 /* Select styling */
 select {
+    width: 100%;
     appearance: none;
     background-color: var(--bg-white);
     border: 2px solid var(--border);
@@ -24,7 +24,6 @@ select {
     color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 100%;
 
     /* Custom icon */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
@@ -54,6 +53,7 @@ select option {
 
 /* Reset Button */
 .reset {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,24 +81,23 @@ select option {
     transform: none;
 }
 
-/* Responsive - mobile */
-@media (max-width: 640px) {
+/* Responsive */
+@media (min-width: 640px) {
     .forms-container {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
         gap: 0.75rem;
     }
 
     form {
-        width: 100%;
-        margin: 0;
+        width: auto;
     }
 
     select {
-        width: 100%;
+        width: auto;
     }
 
     .reset {
-        width: 100%;
+        width: auto;
     }
 }
