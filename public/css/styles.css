@@ -136,8 +136,3 @@ main {
 .menu-button:focus {
     background-color: var(--primary-light);
 }
-
-/* Disable debug toolbar */
-.sf-toolbar {
-    display: none !important;
-}

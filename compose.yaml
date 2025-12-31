@@ -5,6 +5,8 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+    env_file:
+      - .env.dev
     environment:
       - PHP_ENV=development
     depends_on:
@@ -20,7 +22,7 @@ services:
     volumes:
       - .:/app
     environment:
-      - PHP_ENV=development
+      - PHP_ENV=dev
     depends_on:
       postgres:
         condition: service_started

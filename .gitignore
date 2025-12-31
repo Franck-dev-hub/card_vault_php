@@ -12,9 +12,6 @@
 npm-debug.log
 yarn-error.log
 
-# SQL
-migrations/
-
 # IDE
 .vscode/
 .idea/
@@ -26,16 +23,12 @@ migrations/
 Thumbs.db
 .DS_Store
 
-##Logs
+# Logs
 *.log
 
 # Environment
-#.env
 .env.local
 .env.*.local
-
-# Composer
-composer.lock
 
 # Custom
 .cache/
@@ -43,3 +36,6 @@ composer.lock
 var/
 vendor/
 uploads/
+
+# Secrets
+config/secrets/prod/*.private.php

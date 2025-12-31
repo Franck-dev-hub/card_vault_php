@@ -1,13 +1,12 @@
 #!/bin/sh
 set -e
 
-echo "Waiting for PostgreSQL..."
-while ! pg_isready -h postgres -p 5432 > /dev/null 2>&1; do
-  sleep 1
-done
+echo "Clearing cache..."
+php bin/console cache:clear --env=prod || true
+php bin/console cache:warmup --env=prod || true
 
 echo "Running migrations..."
 php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration || true
 
-echo "Starting PHP server..."
-php -S 0.0.0.0:8000 -t public
+echo "Starting PHP server on port ${PORT:-8000}..."
+php -S 0.0.0.0:${PORT:-8000} -t public
