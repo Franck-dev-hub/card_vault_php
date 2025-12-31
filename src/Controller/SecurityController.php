@@ -15,6 +15,11 @@ class SecurityController extends BaseController
     #[Route("/" . self::PAGE_NAME, name: self::PAGE_NAME)]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        // Redirect user if logged in
+        if ($this->getUser()) {
+            return $this->redirectToRoute("root");
+        }
+
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 

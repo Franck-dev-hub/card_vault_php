@@ -55,6 +55,11 @@ class RegistrationController extends BaseController
         EntityManagerInterface      $entityManager
     ): Response
     {
+        // Redirect user if logged in
+        if ($this->getUser()) {
+            return $this->redirectToRoute("root");
+        }
+        
         $user = new User();
         $locale = $this->languageManager->getAppLanguage();
         $this->translator->setLocale($locale);
