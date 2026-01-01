@@ -1,4 +1,4 @@
-function cardLanguagePopUp(select) {
+export function cardLanguagePopUp(select) {
     const selectedLang = select.value;
     const message = select.dataset.warningMessage;
 
@@ -14,3 +14,5 @@ function cardLanguagePopUp(select) {
         select.form.submit();
     }
 }
+
+window.cardLanguagePopUp = cardLanguagePopUp;

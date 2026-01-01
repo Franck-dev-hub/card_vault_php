@@ -1,8 +1,6 @@
-<!-- navigation.html.twig -->
-
 <!-- Burger button (desktop) -->
 <div class="burger-container">
-    <button class="burger-button" onclick="toggleMenu()" aria-label="Toggle menu">
+    <button class="burger-button" onclick="toggleMenu('burger')" aria-label="Toggle menu">
         <span class="burger-line"></span>
         <span class="burger-line"></span>
         <span class="burger-line"></span>
@@ -10,10 +8,14 @@
 </div>
 
 <!-- Menu overlay (desktop) -->
-<div class="menu-overlay" id="menuOverlay">
+<div class="menu-overlay" id="menuOverlay" data-controller="navigation">
     <div class="menu-content">
         {% for button in buttons %}
-            <a href="/{{ button.route }}" class="menu-link">
+            <a
+                href="/{{ button.route }}"
+                class="menu-link"
+                data-action="click->navigation#navigateTo"
+                data-target="navigation.menuLink">
                 <button class="menu-item {% if button.route == currentPage %}active{% endif %}">
                     <img src="{{ button.icon }}" alt="{{ button.label }}">
                     <span>{{ button.label }}</span>
@@ -23,7 +25,7 @@
     </div>
 </div>
 
-<div class="menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+<div class="menu-backdrop" id="menuBackdrop" onclick="toggleMenu('burger')"></div>
 
 <!-- Footer menu (mobile) -->
 <footer>
@@ -37,5 +39,3 @@
         {% endfor %}
     </div>
 </footer>
-
-<script src="{{ asset("js/toggleMenu.js") }}"></script>

@@ -5,6 +5,6 @@ const isTouchDevice = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     if (!isTouchDevice()) {
-        document.body.classList.add("not-touch-device");
+        document.documentElement.classList.add("not-touch-device");
     }
 });

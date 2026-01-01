@@ -11,3 +11,5 @@ function toggleMenu(menuType = "burger") {
         backdrop.classList.toggle("open");
     }
 }
+
+window.toggleMenu = toggleMenu;

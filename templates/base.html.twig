@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="{{ asset("css/navigation.css") }}">
     <link rel="stylesheet" href="{{ asset("css/profile.css") }}">
     <link rel="stylesheet" href="{{ asset("css/styles.css") }}">
-
     <link rel="stylesheet" href="{{ asset("css/search/search.css") }}">
+    {{ encore_entry_script_tags("app") }}
+    {{ encore_entry_link_tags("app") }}
     {% block stylesheets %}{% endblock %}
 </head>
 
@@ -24,15 +25,10 @@
 </header>
 
 <body>
-{% include "navigation.html.twig" %}
-<script src="{{ asset("js/toggleMenu.js") }}"></script>
-<script src="{{ asset("js/deviceDetection.js") }}"></script>
-{% include "profile.html.twig" %}
-<script src="{{ asset('js/toggleMenu.js') }}"></script>
-
-<main>
-    {% block content %} {% endblock %}
-</main>
-
+    {% include "navigation.html.twig" %}
+    {% include "profile.html.twig" %}
+    <main>
+        {% block content %} {% endblock %}
+    </main>
 </body>
 </html>

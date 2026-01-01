@@ -10,13 +10,21 @@
         {% if not app.user %}
             <div class="auth-links">
                 <!-- Login button -->
-                <a href="/login" class="menu-link">
-                    <button class="menu-item {% if '/login' == currentPage %}active{% endif %}">
-                        <span>{{ "login.title"|trans }}</span>
-                    </button>
+                <a
+                    href="/login"
+                    class="menu-link"
+                    data-action="click->navigation#navigateTo"
+                    data-target="navigation.menuLink">
+                <button class="menu-item {% if '/login' == currentPage %}active{% endif %}">
+                    <span>{{ "login.title"|trans }}</span>
+                </button>
                 </a>
                 <!-- Register button -->
-                <a href="/register" class="menu-link">
+                <a
+                    href="/register"
+                    class="menu-link"
+                    data-action="click->navigation#navigateTo"
+                    data-target="navigation.menuLink">
                     <button class="menu-item {% if '/register' == currentPage %}active{% endif %}">
                         <span>{{ "register.title"|trans }}</span>
                     </button>
@@ -29,14 +37,22 @@
         <!-- Cards language form -->
         <div class="profile-section">{% include "routes/profile/cardsLanguageForm.html.twig" %}</div>
         <!-- Roadmap button -->
-        <a href="/roadmap" class="menu-link">
+        <a
+            href="/roadmap"
+            class="menu-link"
+            data-action="click->navigation#navigateTo"
+            data-target="navigation.menuLink">
             <button class="menu-item {% if '/roadmap' == currentPage %}active{% endif %}">
                 <span>{{ "roadmap.title"|trans }}</span>
             </button>
         </a>
         <!-- Logout button -->
         {% if app.user %}
-        <a href="/logout" class="menu-link">
+        <a
+            href="/logout"
+            class="menu-link"
+            data-action="click->navigation#navigateTo"
+            data-target="navigation.menuLink">
             <button class="menu-item logout-btn">
                 <span>{{ "logout.title"|trans }}</span>
             </button>
@@ -45,5 +61,4 @@
     </div>
 </div>
 
-<script src="{{ asset("js/toggleMenu.js") }}"></script>
 <div class="menu-backdrop" id="profileBackdrop" onclick="toggleMenu('profile')"></div>

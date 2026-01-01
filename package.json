@@ -1,0 +1,38 @@
+{
+  "name": "card-vault-php",
+  "version": "1.0.0",
+  "description": "This project is a personal project as a clone of \"card vault\".   The purpose is to learn PHP & Symfony.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franck-dev-hub/card_vault_php.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Franck-dev-hub/card_vault_php/issues"
+  },
+  "homepage": "https://github.com/Franck-dev-hub/card_vault_php#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.20",
+    "@symfony/webpack-encore": "^5.3.1",
+    "babel-loader": "^10.0.0",
+    "core-js": "^3.47.0",
+    "regenerator-runtime": "^0.14.1",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-notifier": "^1.15.0"
+  }
+}
