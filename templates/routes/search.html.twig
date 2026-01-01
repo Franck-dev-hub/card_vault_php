@@ -15,7 +15,9 @@
         {% endif %}
         <!-- Reset button -->
         {% if licenseSelected %}
-        <form method="POST" action="{{ path('search') }}">
+        <form method="POST"
+              action="{{ path('search') }}"
+              data-turbo="false">
             <button class="reset" type="submit" name="reset" value="1">
                 {{ "search.reset"|trans }}
             </button>
