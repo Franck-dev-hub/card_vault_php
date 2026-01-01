@@ -106,6 +106,7 @@ class SearchController extends BaseController
             }
         }
 
+        // Reset button management
         if ($request->request->has("reset")) {
             if ($userId) {
                 $this->userPreferencesService->resetSearchPreferences($userId);
