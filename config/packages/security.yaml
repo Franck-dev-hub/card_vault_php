@@ -21,6 +21,10 @@ security:
                 enable_csrf: true
                 username_parameter: email
                 password_parameter: password
+            remember_me:
+                secret: "%kernel.secret%"
+                lifetime: 2592000 # 1 mois
+                path: /c
             logout:
                 path: /logout
                 target: /
