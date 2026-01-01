@@ -91,4 +91,38 @@ readonly class PokemonService
             "cards" => $currentSet->cards ?? []
         ];
     }
+
+    /**
+     * Get a single card by ID
+     *
+     * @param string $cardId
+     * @return array|null
+     * @throws Exception
+     */
+    public function getCardById(string $cardId): ?array
+    {
+        try {
+            $tcgdex = $this->getTcgdex();
+            $card = $tcgdex->card->get($cardId);
+
+            if ($card === null) {
+                return null;
+            }
+
+            // Convert in JSON
+            return [
+                "id" => $card->id ?? $cardId,
+                "name" => $card->name ?? "N/A",
+                "image" => $card->image ?? null,
+                "set" => $card->set?->name ?? "N/A",
+                "rarity" => $card->rarity ?? null,
+                "description" => $card->description ?? null,
+                "price" => $card->prices?->{"USD"} ?? null,
+                "hp" => $card->hp ?? null,
+                "type" => $card->types ? implode(', ', $card->types) : null,
+            ];
+        } catch (Exception $e) {
+            throw new Exception("Error fetching card {$cardId}: " . $e->getMessage());
+        }
+    }
 }
