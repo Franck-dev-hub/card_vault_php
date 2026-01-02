@@ -10,6 +10,7 @@ RUN apk add --no-cache icu-dev
 RUN apk add --no-cache zip
 RUN apk add --no-cache unzip
 RUN apk add --no-cache postgresql-client
+RUN apk add --no-cache nodejs npm
 RUN rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
@@ -35,6 +36,9 @@ RUN git config --global --add safe.directory /app
 # Install PHP dependencies
 RUN composer install --optimize-autoloader --no-scripts
 RUN composer dump-autoload --optimize
+
+# Install npm dependencies
+RUN npm install
 
 # Create and copy entrypoint script
 COPY docker-entrypoint.sh /app/docker-entrypoint.sh
