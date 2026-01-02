@@ -9,7 +9,7 @@ use App\Security\EmailVerifier;
 use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\PokemonService;
-use App\Service\UserPreferencesService;
+use App\Service\UserPreferences\UserPreferencesService;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;

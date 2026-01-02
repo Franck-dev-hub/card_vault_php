@@ -7,7 +7,7 @@ use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
 use App\Service\RedisService;
-use App\Service\UserPreferencesService;
+use App\Service\UserPreferences\UserPreferencesService;
 use App\Service\License\TcgdexRedisService;
 use Exception;
 use Psr\Cache\CacheItemPoolInterface;

@@ -6,7 +6,7 @@ use App\Service\MenuService;
 use App\Service\LanguageManager;
 use App\Service\LicenseServiceFactory;
 use App\Service\PokemonService;
-use App\Service\UserPreferencesService;
+use App\Service\UserPreferences\UserPreferencesService;
 use Exception;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Request;

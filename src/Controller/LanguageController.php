@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Service\LanguageManager;
-use App\Service\UserPreferencesService;
+use App\Service\UserPreferences\UserPreferencesService;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

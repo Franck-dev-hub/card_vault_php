@@ -84,7 +84,8 @@
         "features": [
             "Feat: Display card detail",
             "Feat: Add market & currency in user preference",
-            "Improve: UX with async route changement"
+            "Improve: UX with async route changement",
+            "Fix: Display english card image if doesn't exist in other language"
         ]
     }
 ]
