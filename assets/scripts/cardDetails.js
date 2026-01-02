@@ -2,16 +2,18 @@ const modal = document.getElementById("cardModal");
 const modalBody = document.getElementById("modalBody");
 const cardItems = document.querySelectorAll(".card-item");
 
-// Get the selected license and set
-const licenseSelected = "{{ licenseSelected }}";
-const setSelected = "{{ setSelected }}";
+// Get data from modal attributes
+const cardDetailsUrl = modal.getAttribute("data-card-details-url");
+const licenseSelected = modal.getAttribute("data-license");
 
-// Open the modal and load data when a card is clicked
+
+// Open details and load data
 cardItems.forEach(card => {
     card.addEventListener("click", function() {
         const cardId = this.getAttribute("data-card-id");
         loadCardDetails(cardId);
         modal.classList.add("active");
+        document.body.classList.add("modal-open");
     });
 });
 
@@ -20,25 +22,19 @@ function loadCardDetails(cardId) {
     // Show loading spinner
     modalBody.innerHTML = '<div class="modal-loading"><div class="spinner"></div></div>';
 
-    const url = new URL("{{ path('card_details', {'id': 'CARD_ID'}) }}".replace("CARD_ID", cardId), window.location.origin);
+    // Build the URL with the card ID and license parameter
+    const url = new URL(cardDetailsUrl.replace("PLACEHOLDER", cardId), window.location.origin);
     url.searchParams.append("license", licenseSelected);
-    url.searchParams.append("set", setSelected);
 
-    fetch(url.toString(), {
-        method: "GET",
-        headers: {
-            "Accept": "application/json",
-            "X-Requested-With": "XMLHttpRequest"
-        }
-    })
+    fetch(url.toString())
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error loading the card");
             }
-            return response.json();
+            return response.text();
         })
-        .then(data => {
-            displayCardDetails(data);
+        .then(html => {
+            modalBody.innerHTML = html;
         })
         .catch(error => {
             console.error("Error:", error);
@@ -46,31 +42,10 @@ function loadCardDetails(cardId) {
         });
 }
 
-// Display card details in the modal
-function displayCardDetails(card) {
-    modalBody.innerHTML = `
-        <img class="modal-card-image" src="${card.image}" alt="${card.name}">
-        <div class="modal-card-details">
-            <h2>${card.name}</h2>
-            <p><strong>ID:</strong> ${card.id}</p>
-            <p><strong>Set:</strong> ${card.set || "N/A"}</p>
-            ${card.rarity ? `<p><strong>Rarity:</strong> ${card.rarity}</p>` : ""}
-            ${card.description ? `<p><strong>Description:</strong> ${card.description}</p>` : ""}
-            ${card.price ? `<p><strong>Price:</strong> ${card.price}€</p>` : ""}
-        </div>
-    `;
-}
-
-// Close the modal when clicking on the black background
-modal.addEventListener("click", function(event) {
-    if (event.target === modal) {
-        modal.classList.remove("active");
-    }
-});
-
-// Close the modal with the Escape key
+// Close the details
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         modal.classList.remove("active");
+        document.body.classList.remove("modal-open");
     }
 });

@@ -1,0 +1,60 @@
+<div class="modal-card-container">
+    <img class="modal-card-image" src="{{ image }}" alt="{{ card.name }}">
+
+    <div class="modal-card-details">
+        <div>
+            <h2>{{ card.name }}</h2>
+            <p>{{ card.set.name ?? card.set ?? "N/A" }}</p>
+        </div>
+
+        {% if variants and variants|length > 0 %}
+            <div class="variants">
+                <ul>
+                    {% for variant in variants %}
+                        <li>
+                            <div class="variants-container">
+                                <button class="button-minus">−</button>
+                                <p>{{ variant|capitalize }}</p>
+                                <button class="button-plus">+</button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>No variants available</p>
+        {% endif %}
+    </div>
+</div>
+
+
+    <!-- card.pricing.cardmarket.avg --> <!-- price tcgplayer / cardmarket -> préférence utilisateur -->
+
+    <!-- === Edition (bouton) ===
+    Langue
+    Gradation
+    date ajout
+    prix achat
+    inventaire / deck lié
+    Note
+    -->
+
+    <!-- === Description (bouton) ===
+    name
+    License
+    Set + symbol + logo
+    série
+    numéro dans le set carte/total
+    numéro dex
+    illustrator
+    rarity
+    types
+    evolveFrom
+    description
+    stage
+    cartes du meme nom (liste de petites images)
+    -->
+
+    <!-- === Deck + (bouton) === -->
+
+    <!-- === Inventaire + (bouton) === -->

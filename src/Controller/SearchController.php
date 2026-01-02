@@ -128,7 +128,7 @@ class SearchController extends BaseController
      * Get card details by ID for modal
      */
     #[Route("/card/{id}/details", name: "card_details", methods: ["GET"])]
-    public function cardDetails(string $id, Request $request): JsonResponse
+    public function cardDetails(string $id, Request $request): Response
     {
         try {
             $license = $request->query->get("license", "pokemon");
@@ -158,14 +158,10 @@ class SearchController extends BaseController
                 $image = $image . "/high.webp";
             }
 
-            return $this->json([
-                "id" => $card["id"] ?? $id,
-                "name" => $card["name"] ?? "N/A",
-                "image" => $image ?? $this->getParameter("app.pokemon_rear_image"),
-                "set" => $card["set"] ?? "N/A",
-                "rarity" => $card["rarity"] ?? null,
-                "description" => $card["description"] ?? null,
-                "price" => $card["price"] ?? null,
+            return $this->render("/routes/search/cardModal.html.twig", [
+                "card" => $card,
+                "image" => $image,
+                "variants" => $card["variants"] ?? null,
             ]);
         } catch (Exception $e) {
             return $this->json(

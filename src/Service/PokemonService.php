@@ -109,16 +109,27 @@ readonly class PokemonService
                 return null;
             }
 
+            // Handle variants
+            $variants = null;
+            if (isset($card->variants)) {
+                $variantObj = (array) $card->variants;
+                $availableVariants = array_filter($variantObj, fn($value) => $value === true);
+
+                if (!empty($availableVariants)) {
+                    $variants = array_keys($availableVariants);
+                }
+            }
+
             // Convert in JSON
             return [
                 "id" => $card->id ?? $cardId,
                 "name" => $card->name ?? "N/A",
                 "image" => $card->image ?? null,
                 "set" => $card->set?->name ?? "N/A",
+                "variants" => $variants,
                 "rarity" => $card->rarity ?? null,
                 "description" => $card->description ?? null,
                 "price" => $card->prices?->{"USD"} ?? null,
-                "hp" => $card->hp ?? null,
                 "type" => $card->types ? implode(', ', $card->types) : null,
             ];
         } catch (Exception $e) {

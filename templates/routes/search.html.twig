@@ -16,13 +16,13 @@
         {% endif %}
         <!-- Reset button -->
         {% if licenseSelected %}
-        <form method="POST"
-              action="{{ path('search') }}"
-              data-turbo="false">
-            <button class="reset" type="submit" name="reset" value="1">
-                {{ "search.reset"|trans }}
-            </button>
-        </form>
+            <form method="POST"
+                  action="{{ path('search') }}"
+                  data-turbo="false">
+                <button class="reset" type="submit" name="reset" value="1">
+                    {{ "search.reset"|trans }}
+                </button>
+            </form>
         {% endif %}
     </div>
 
@@ -46,9 +46,12 @@
         {% endif %}
     {% endif %}
 
-
     <!-- Cards modal details-->
-    <div id="cardModal" class="modal">
+    <div id="cardModal"
+         class="modal"
+         data-card-details-url="{{ path('card_details', {'id': 'PLACEHOLDER'}) }}"
+         data-license="{{ licenseSelected }}"
+         data-set="{{ setSelected }}">
         <div class="modal-content">
             <div id="modalBody">
                 <!-- Content loaded with AJAX -->
