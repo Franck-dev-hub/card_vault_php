@@ -168,7 +168,6 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease;
     color: var(--text-primary);
-    font-size: 0.95rem;
 }
 
 .not-touch-device .menu-item.active {
@@ -185,4 +184,5 @@ footer {
 
 .not-touch-device .menu-item span {
     color: var(--text-primary);
+    cursor: pointer;
 }
