@@ -25,6 +25,7 @@
     height: auto;
     object-fit: cover;
     display: block;
+    cursor: pointer;
 }
 
 /* Responsive */

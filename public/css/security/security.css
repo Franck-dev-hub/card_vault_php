@@ -21,10 +21,10 @@
     margin-bottom: 20px;
     padding: 12px;
     background: rgba(239, 68, 68, 0.1);
-    border-left: 4px solid var(--danger);
+    border-left: 4px solid var(--error);
     border-radius: 6px;
     font-size: 13px;
-    color: var(--danger);
+    color: var(--error);
     list-style: none;
 }
 
@@ -120,8 +120,8 @@
 
 .alert-danger {
     background: rgba(239, 68, 68, 0.1);
-    border-left-color: var(--danger);
-    color: var(--danger);
+    border-left-color: var(--error);
+    color: var(--error);
 }
 
 /* ===== Checkbox (Terms) ===== */

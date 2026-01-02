@@ -123,14 +123,25 @@ readonly class PokemonService
             // Convert in JSON
             return [
                 "id" => $card->id ?? $cardId,
-                "name" => $card->name ?? "N/A",
+                "illustrator" => $card->illustrator ?? null,
                 "image" => $card->image ?? null,
-                "set" => $card->set?->name ?? "N/A",
-                "variants" => $variants,
+                "localId" => $card->localId ?? null,
+                "name" => $card->name ?? null,
                 "rarity" => $card->rarity ?? null,
+                "setOfficial" => $card->set->cardCount->official ?? null,
+                "setTotal" => $card->set->cardCount->total ?? null,
+                "setId" => $card->set->id ?? null,
+                "setLogo" => $card->set->logo ?? null,
+                "setName" => $card->set->name ?? null,
+                "setSymbol" => $card->set->symbol ?? null,
+                "variants" => $variants,
+                "dexId" => $card->dexId[0] ?? null,
+                "type" => $card->types[0] ?? null,
+                "evolveFrom" => $card->evolveFrom ?? null,
                 "description" => $card->description ?? null,
-                "price" => $card->prices?->{"USD"} ?? null,
-                "type" => $card->types ? implode(', ', $card->types) : null,
+                "stage" => $card->stage ?? null,
+                "regulationMark" => $card->regulationMark ?? null,
+                "price" => $card->pricing->cardmarket->avg ?? null,
             ];
         } catch (Exception $e) {
             throw new Exception("Error fetching card {$cardId}: " . $e->getMessage());

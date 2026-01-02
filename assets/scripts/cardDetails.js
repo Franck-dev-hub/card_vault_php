@@ -6,7 +6,6 @@ const cardItems = document.querySelectorAll(".card-item");
 const cardDetailsUrl = modal.getAttribute("data-card-details-url");
 const licenseSelected = modal.getAttribute("data-license");
 
-
 // Open details and load data
 cardItems.forEach(card => {
     card.addEventListener("click", function() {
@@ -42,9 +41,17 @@ function loadCardDetails(cardId) {
         });
 }
 
-// Close the details
+// Close details with escape key
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
+        modal.classList.remove("active");
+        document.body.classList.remove("modal-open");
+    }
+});
+
+// Close details by clicking outside the box
+modal.addEventListener("click", function(event) {
+    if (event.target === modal) {
         modal.classList.remove("active");
         document.body.classList.remove("modal-open");
     }

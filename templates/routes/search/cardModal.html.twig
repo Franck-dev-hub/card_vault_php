@@ -2,19 +2,24 @@
     <img class="modal-card-image" src="{{ image }}" alt="{{ card.name }}">
 
     <div class="modal-card-details">
+        <!-- Head section-->
         <div>
             <h2>{{ card.name }}</h2>
-            <p>{{ card.set.name ?? card.set ?? "N/A" }}</p>
+            <div class="set-infos">
+                <img src="{{ setSymbol }}" alt="{{ card.setName }}">
+                <div> #{{ card.localId }} / {{ card.setOfficial }} ({{ card.setTotal }}) {{ card.setName }} </div>
+            </div>
         </div>
 
-        {% if variants and variants|length > 0 %}
+        <!-- Variant section -->
+        {% if card.variants and card.variants|length > 0 %}
             <div class="variants">
                 <ul>
-                    {% for variant in variants %}
+                    {% for variant in card.variants %}
                         <li>
                             <div class="variants-container">
                                 <button class="button-minus">−</button>
-                                <p>{{ variant|capitalize }}</p>
+                                <p>{{ variant|capitalize }} : 0</p>
                                 <button class="button-plus">+</button>
                             </div>
                         </li>
@@ -24,37 +29,104 @@
         {% else %}
             <p>No variants available</p>
         {% endif %}
+
+        <!-- Price -->
+        <div class="detail-card-description">
+            <h3>Prices cardmarket / tcgmarket (user pref)</h3> <!-- bouton accordéon -->
+            <div class="detail-card-container">
+                <div class="name">Avg</div>
+                <div class="value">{{ card.price }}€</div>
+            </div>
+        </div>
+
+        <!-- Edition -->
+        <div class="detail-card-description">
+            <h3>Edition</h3> <!-- bouton accordéon -->
+            <div class="detail-card-container">
+                <div class="name">Language</div>
+                <div class="value">N/A</div>
+            </div>
+            <div class="detail-card-container">
+                <div class="name">Gradation</div>
+                <div class="value">N/A</div>
+            </div>
+           <div class="detail-card-container">
+                <div class="name">Add date</div>
+                <div class="value">N/A</div>
+            </div>
+           <div class="detail-card-container">
+                <div class="name">Price bought</div>
+                <div class="value">N/A</div>
+            </div>
+           <div class="detail-card-container">
+                <div class="name">Inventory / deck</div>
+                <div class="value">N/A</div>
+            </div>
+           <div class="detail-card-container">
+                <div class="name">Note</div>
+                <div class="value">N/A</div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="detail-card-description">
+            <h3>Description</h3> <!-- bouton accordéon -->
+
+            <div class="detail-card-container">
+                <div class="name">Illustrator</div>
+                <div class="value">{{ card.illustrator }}</div>
+            </div>
+
+            <div class="detail-card-container">
+                <div class="name">Rarity</div>
+                <div class="value">{{ card.rarity }}</div>
+            </div>
+
+            <div class="detail-card-container">
+                <div class="name">Energy</div>
+                <div class="value">{{ card.type }}</div>
+            </div>
+
+            <div class="detail-card-container">
+                <div class="name">Regulation mark</div>
+                <div class="value">{{ card.regulationMark }}</div>
+            </div>
+
+            {% if card.description %}
+            <div class="detail-card-container">
+                <div class="name">Description</div>
+                <div class="value">{{ card.description }}</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="name">OTHER PRINTINGS</div>
+        <p>N/A</p>
+
+
+        <!-- === Deck + (bouton) === -->
+
+        <!-- === Inventaire + (bouton) === -->
+
+        <!--
+            <p>id {{ card.id }}</p>
+            <p>illustrator {{ card.illustrator }}</p>
+            <p>localId {{ card.localId }}</p>
+            <p>name {{ card.name }}</p>
+            <p>rarity {{ card.rarity }}</p>
+            <p>setTotal {{ card.setTotal }}</p>
+            <p>setId {{ card.setId }}</p>
+            <p>setLogo {{ card.setLogo }}</p>
+            <p>setName {{ card.setName }}</p>
+            <p>setSymbol {{ card.setSymbol }}</p>
+            <p>dexId {{ card.dexId }}</p>
+            <p>type {{ card.type }}</p>
+            <p>evolveFrom {{ card.evolveFrom }}</p>
+            <p>description {{ card.description }}</p>
+            <p>stage {{ card.stage }}</p>
+            <p>regulationMark {{ card.regulationMark }}</p>
+            <p>price {{ card.price }}</p>
+        -->
+
     </div>
 </div>
-
-
-    <!-- card.pricing.cardmarket.avg --> <!-- price tcgplayer / cardmarket -> préférence utilisateur -->
-
-    <!-- === Edition (bouton) ===
-    Langue
-    Gradation
-    date ajout
-    prix achat
-    inventaire / deck lié
-    Note
-    -->
-
-    <!-- === Description (bouton) ===
-    name
-    License
-    Set + symbol + logo
-    série
-    numéro dans le set carte/total
-    numéro dex
-    illustrator
-    rarity
-    types
-    evolveFrom
-    description
-    stage
-    cartes du meme nom (liste de petites images)
-    -->
-
-    <!-- === Deck + (bouton) === -->
-
-    <!-- === Inventaire + (bouton) === -->

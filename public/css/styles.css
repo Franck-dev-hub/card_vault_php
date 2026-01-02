@@ -11,7 +11,7 @@
 
     /* Status colors */
     --success: #89F7B6;
-    --danger: #F38BA8;
+    --error: #F38BA8;
     --status-gray: #94a3b8;
 
     /* Text colors */
@@ -26,6 +26,7 @@
     --bg-white: #FFFFFF;
     --bg-light: #f9fafb;
     --bg-light-blue: #e0e8ff;
+    --bg-light-red: #fadbd8;
 
     /* Border colors */
     --border: #e5e7eb;
@@ -76,6 +77,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: default;
 }
 
 html,

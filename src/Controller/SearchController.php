@@ -158,10 +158,23 @@ class SearchController extends BaseController
                 $image = $image . "/high.webp";
             }
 
+            // Format set logo
+            $setLogo = $card["setLogo"] ?? null;
+            if ($setLogo && !str_ends_with($setLogo, ".webp")) {
+                $setLogo = $setLogo . ".webp";
+            }
+
+            // Format set symbol
+            $setSymbol = $card["setSymbol"] ?? null;
+            if ($setSymbol) {
+                $setSymbol = $setSymbol . ".webp";
+            }
+
             return $this->render("/routes/search/cardModal.html.twig", [
                 "card" => $card,
                 "image" => $image,
-                "variants" => $card["variants"] ?? null,
+                "setLogo" => $setLogo,
+                "setSymbol" => $setSymbol,
             ]);
         } catch (Exception $e) {
             return $this->json(

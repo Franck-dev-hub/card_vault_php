@@ -43,7 +43,7 @@ body.modal-open {
     }
 }
 
-/* ===== CARD CONTAINER (Mobile First) ===== */
+/* ===== CARD CONTAINER ===== */
 .modal-card-container {
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ body.modal-open {
     font-size: 1.75rem;
     justify-content: center;
     font-weight: 800;
-    color: #333;
+    color: var(--text-secondary);
 }
 
 .modal-card-details p {
@@ -80,16 +80,51 @@ body.modal-open {
     margin: 0;
     justify-content: center;
     font-size: 0.95rem;
-    color: #666;
+    color: var(--text-muted);
 }
 
-/* ===== VARIANTS ===== */
-.variants {
+.set-infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.set-infos img {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: contain;
+
+}
+
+.set-infos div {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.variants,
+.detail-card-description {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
 }
 
+.detail-card-description h3 {
+    display: flex;
+    margin: 0;
+    font-size: 1.25rem;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ===== VARIANTS ===== */
 .variants ul {
     list-style: none;
     margin: 0;
@@ -99,41 +134,53 @@ body.modal-open {
     gap: 0.5rem;
 }
 
-.variants-container {
+.variants-container,
+.detail-card-container,
+.detail-card-description {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem;
-    background-color: var(--bg-white);
     border-radius: 8px;
     width: 100%;
 }
 
-.variants-container p {
-    margin: 0;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #333;
-    flex: 1;
-}
-
+.variants-container p,
 .button-minus,
-.button-plus {
-    width: 32px;
-    height: 32px;
+.button-plus,
+.detail-card-description .name,
+.detail-card-description .value {
+    width: 38px;
+    height: 38px;
     border: 1px solid var(--border);
-    color: var(--text-primary);
     background: var(--bg-white);
     transition: var(--transition);
     border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    flex-shrink: 0;
+}
+
+.variants-container p,
+.detail-card-description .name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    flex: 1;
+    cursor: default;
+}
+
+.detail-card-description .value {
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+.button-minus,
+.button-plus {
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 800;
 }
 
 .button-minus:hover,
@@ -145,6 +192,7 @@ body.modal-open {
 .button-minus:active,
 .button-plus:active {
     background-color: var(--primary-light);
+    transition: none;
 }
 
 
@@ -155,8 +203,8 @@ body.modal-open {
 }
 
 .spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    border: 4px solid var(--border);
+    border-top: 4px solid var(--primary-dark);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -174,21 +222,11 @@ body.modal-open {
 }
 
 .modal-error {
-    color: #e74c3c;
+    color: var(--error);
     padding: 20px;
     text-align: center;
-    background-color: #fadbd8;
+    background-color: var(--bg-light-red);
     border-radius: 4px;
-}
-
-/* ===== CARD ITEMS ===== */
-.card-item {
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.card-item:hover {
-    transform: scale(1.05);
 }
 
 /* ===== DESKTOP ===== */
@@ -212,6 +250,5 @@ body.modal-open {
 
     .modal-card-details {
         flex: 1;
-        gap: 1.5rem;
     }
 }
