@@ -4,9 +4,11 @@
     <div class="modal-card-details">
         <!-- Head section-->
         <div>
-            <h2>{{ card.name }} #{{ card.dexId }}</h2>
+            <h2>{{ card.name }}</h2>
             <div class="set-infos">
-                <img src="{{ setSymbol }}" alt="{{ card.setName }}">
+                {% if setSymbol %}
+                    <img src="{{ setSymbol }}" alt="{{ card.setName }}">
+                {% endif %}
                 <div>{{ card.localId }} / {{ card.setOfficial }} ({{ card.setTotal }}) {{ card.setName }} </div>
             </div>
         </div>
@@ -33,7 +35,7 @@
         <!-- Price -->
         <div class="accordion-item">
             <button class="accordion-header">
-                <h3>Prices cardmarket / tcgmarket (user pref)</h3>
+                <h3>Prices</h3>
             </button>
             <div class="accordion-content">
                 <div class="accordion-body">

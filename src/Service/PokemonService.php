@@ -112,7 +112,7 @@ readonly class PokemonService
             // Handle variants
             $variants = null;
             if (isset($card->variants)) {
-                $variantObj = (array) $card->variants;
+                $variantObj = get_object_vars($card->variants);
                 $availableVariants = array_filter($variantObj, fn($value) => $value === true);
 
                 if (!empty($availableVariants)) {

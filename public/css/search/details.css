@@ -155,6 +155,8 @@ body.modal-open {
     color: var(--text-secondary);
     flex: 1;
     cursor: default;
+    width: fit-content;
+    padding: 0 0.5rem 0 0.5rem;
 }
 
 .detail-card-container .value {
@@ -241,7 +243,7 @@ body.modal-open {
 }
 
 .accordion-header h3 {
-    margin: 0 10px 0 0;
+    margin: 0 1.5rem 0 0;
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-secondary);
