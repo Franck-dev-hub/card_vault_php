@@ -67,16 +67,23 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// Close details by clicking outside the box
+// Close details
 modal.addEventListener("click", function(event) {
+    // Click on backdrop
     if (event.target === modal) {
+        modal.classList.remove("active");
+        document.body.classList.remove("modal-open");
+        showMenuIcons();
+    }
+    // Click on cross
+    if (event.target.classList.contains("modal-close-btn")) {
         modal.classList.remove("active");
         document.body.classList.remove("modal-open");
         showMenuIcons();
     }
 });
 
-// Accordion
+// Accordion detail
 document.addEventListener("click", function(event) {
     const header = event.target.closest(".accordion-header");
     if (header) {
