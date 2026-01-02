@@ -12,6 +12,7 @@ use App\Service\License\TcgdexRedisService;
 use Exception;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -88,8 +89,6 @@ class SearchController extends BaseController
                         $setSelected,
                         $licenseService
                     ),
-                    // "yugioh" => $licenseService->handleSetSelection($setSelected),
-                    // "magic" => $licenseService->handleSetSelection($setSelected),
                     default => [null, []],
                 };
 
@@ -123,5 +122,56 @@ class SearchController extends BaseController
             "currentSet" => $currentSet,
             "currentPage" => "search"
         ]);
+    }
+
+    /**
+     * Get card details by ID for modal
+     */
+    #[Route("/card/{id}/details", name: "card_details", methods: ["GET"])]
+    public function cardDetails(string $id, Request $request): JsonResponse
+    {
+        try {
+            $license = $request->query->get("license", "pokemon");
+
+            // Get the license service
+            $licenseService = $this->licenseFactory->getLicenseService($license);
+            if (!$licenseService) {
+                return $this->json(
+                    ["error" => "License not supported"],
+                    Response::HTTP_BAD_REQUEST
+                );
+            }
+
+            // Fetch card details
+            $card = $this->tcgdexRedisService->getCardById($license, $id, $licenseService);
+
+            if (!$card) {
+                return $this->json(
+                    ["error" => "Card not found"],
+                    Response::HTTP_NOT_FOUND
+                );
+            }
+
+            // Format the image URL
+            $image = $card["image"] ?? null;
+            if ($image && !str_ends_with($image, ".webp")) {
+                $image = $image . "/high.webp";
+            }
+
+            return $this->json([
+                "id" => $card["id"] ?? $id,
+                "name" => $card["name"] ?? "N/A",
+                "image" => $image ?? $this->getParameter("app.pokemon_rear_image"),
+                "set" => $card["set"] ?? "N/A",
+                "rarity" => $card["rarity"] ?? null,
+                "description" => $card["description"] ?? null,
+                "price" => $card["price"] ?? null,
+            ]);
+        } catch (Exception $e) {
+            return $this->json(
+                ["error" => "Error loading card: " . $e->getMessage()],
+                Response::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
     }
 }

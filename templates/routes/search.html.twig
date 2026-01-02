@@ -3,6 +3,7 @@
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset("css/search/cards.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/search/details.css") }}">
 {% endblock %}
 
 {% block content %}
@@ -25,11 +26,12 @@
         {% endif %}
     </div>
 
+    <!-- Cards -->
     {% if setSelected %}
         {% if cards is not empty %}
             <div class="cards-container">
                 {% for card in cards %}
-                    <div class="card-item">
+                    <div class="card-item" data-card-id="{{ card.id }}" data-card-name="{{ card.name }}">
                         {% if licenseSelected == "pokemon" %}
                             {% set cardImage = card.image is not null ? card.image ~ "/low.webp" : asset("assets/cards/pokemon-rear.webp") %}
                         {% else %}
@@ -43,4 +45,14 @@
             <p>{{ "search.no-cards"|trans }}</p>
         {% endif %}
     {% endif %}
+
+
+    <!-- Cards modal details-->
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <div id="modalBody">
+                <!-- Content loaded with AJAX -->
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -110,6 +110,52 @@ readonly class TcgdexRedisService
     }
 
     /**
+     * Get a single card by ID
+     * @throws InvalidArgumentException
+     * @throws Exception
+     */
+    public function getCardById(string $license, string $cardId, mixed $licenseService): ?array
+    {
+        $language = $licenseService->getCardsLanguage();
+        $cacheKey = "api_card_{$license}_{$cardId}_{$language}";
+
+        // Check cache first
+        try {
+            $cachedCard = $this->redisService->getRedis($this->cache, $cacheKey);
+            if ($cachedCard) {
+                return $cachedCard;
+            }
+        } catch (InvalidArgumentException $e) {
+            // Else continue
+        }
+
+        try {
+            // Get card from license service
+            $card = $licenseService->getCardById($cardId);
+
+            if (!$card) {
+                return null;
+            }
+
+            // Store in cache
+            try {
+                $this->redisService->storeRedis(
+                    $this->cache,
+                    $cacheKey,
+                    $card,
+                    604800 // 7 days
+                );
+            } catch (InvalidArgumentException $e) {
+                // Ignore cache errors
+            }
+
+            return $card;
+        } catch (Exception $e) {
+            throw new Exception("Error when getting card : " . $e->getMessage());
+        }
+    }
+
+    /**
      * Clear license cache
      * @throws InvalidArgumentException
      */

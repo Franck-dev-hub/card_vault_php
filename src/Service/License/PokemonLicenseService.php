@@ -75,4 +75,20 @@ readonly class PokemonLicenseService implements LicenseServiceInterface
             throw new Exception("Pokemon fallback error");
         }
     }
+
+    /**
+     * Get a single card by ID
+     *
+     * @param string $cardId
+     * @return array|null
+     * @throws Exception
+     */
+    public function getCardById(string $cardId): ?array
+    {
+        try {
+            return $this->pokemonService->getCardById($cardId);
+        } catch (Exception $e) {
+            throw new Exception("Error fetching card {$cardId}: " . $e->getMessage());
+        }
+    }
 }
