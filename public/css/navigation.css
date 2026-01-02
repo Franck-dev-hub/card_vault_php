@@ -171,10 +171,6 @@ footer {
     font-size: 0.95rem;
 }
 
-.not-touch-device .menu-item:hover {
-    background-color: var(--accent-blue-light);
-}
-
 .not-touch-device .menu-item.active {
     background: var(--accent-blue-light);
     font-weight: 500;

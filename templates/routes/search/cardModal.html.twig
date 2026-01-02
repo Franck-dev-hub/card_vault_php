@@ -4,10 +4,10 @@
     <div class="modal-card-details">
         <!-- Head section-->
         <div>
-            <h2>{{ card.name }}</h2>
+            <h2>{{ card.name }} #{{ card.dexId }}</h2>
             <div class="set-infos">
                 <img src="{{ setSymbol }}" alt="{{ card.setName }}">
-                <div> #{{ card.localId }} / {{ card.setOfficial }} ({{ card.setTotal }}) {{ card.setName }} </div>
+                <div>{{ card.localId }} / {{ card.setOfficial }} ({{ card.setTotal }}) {{ card.setName }} </div>
             </div>
         </div>
 
@@ -31,73 +31,90 @@
         {% endif %}
 
         <!-- Price -->
-        <div class="detail-card-description">
-            <h3>Prices cardmarket / tcgmarket (user pref)</h3> <!-- bouton accordéon -->
-            <div class="detail-card-container">
-                <div class="name">Avg</div>
-                <div class="value">{{ card.price }}€</div>
+        <div class="accordion-item">
+            <button class="accordion-header">
+                <h3>Prices cardmarket / tcgmarket (user pref)</h3>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <div class="detail-card-container">
+                        <div class="name">Avg</div>
+                        <div class="value">{{ card.price }}€</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Edition -->
-        <div class="detail-card-description">
-            <h3>Edition</h3> <!-- bouton accordéon -->
-            <div class="detail-card-container">
-                <div class="name">Language</div>
-                <div class="value">N/A</div>
-            </div>
-            <div class="detail-card-container">
-                <div class="name">Gradation</div>
-                <div class="value">N/A</div>
-            </div>
-           <div class="detail-card-container">
-                <div class="name">Add date</div>
-                <div class="value">N/A</div>
-            </div>
-           <div class="detail-card-container">
-                <div class="name">Price bought</div>
-                <div class="value">N/A</div>
-            </div>
-           <div class="detail-card-container">
-                <div class="name">Inventory / deck</div>
-                <div class="value">N/A</div>
-            </div>
-           <div class="detail-card-container">
-                <div class="name">Note</div>
-                <div class="value">N/A</div>
+        <div class="accordion-item">
+            <button class="accordion-header">
+                <h3>Edition</h3>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <div class="detail-card-number">
+                        <div class="name">1</div>
+                        <div class="name">2</div>
+                        <div class="name">3</div>
+                    </div>
+                    <div class="detail-card-container">
+                        <div class="name">Language</div>
+                        <div class="value">N/A</div>
+                    </div>
+                    <div class="detail-card-container">
+                        <div class="name">Gradation</div>
+                        <div class="value">N/A</div>
+                    </div>
+                    <div class="detail-card-container">
+                        <div class="name">Add date</div>
+                        <div class="value">N/A</div>
+                    </div>
+                    <div class="detail-card-container">
+                        <div class="name">Price bought</div>
+                        <div class="value">N/A</div>
+                    </div>
+                    <div class="detail-card-container">
+                        <div class="name">Inventory / deck</div>
+                        <div class="value">N/A</div>
+                    </div>
+                    <div class="detail-card-container">
+                        <div class="name">Note</div>
+                        <div class="value">N/A</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Description -->
-        <div class="detail-card-description">
-            <h3>Description</h3> <!-- bouton accordéon -->
+        <div class="accordion-item">
+            <button class="accordion-header">
+                <h3>Description</h3>
+            </button>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <div class="detail-card-container">
+                        <div class="name">Illustrator _<strong>{{ card.illustrator }}</strong></div>
+                    </div>
 
-            <div class="detail-card-container">
-                <div class="name">Illustrator</div>
-                <div class="value">{{ card.illustrator }}</div>
-            </div>
+                    <div class="detail-card-container">
+                        <div class="name">Rarity _<strong>{{ card.rarity }}</strong></div>
+                    </div>
 
-            <div class="detail-card-container">
-                <div class="name">Rarity</div>
-                <div class="value">{{ card.rarity }}</div>
-            </div>
+                    <div class="detail-card-container">
+                        <div class="name">Energy _<strong>{{ card.type }}</strong></div>
+                    </div>
 
-            <div class="detail-card-container">
-                <div class="name">Energy</div>
-                <div class="value">{{ card.type }}</div>
-            </div>
+                    <div class="detail-card-container">
+                        <div class="name">Regulation mark _<strong>{{ card.regulationMark }}</strong></div>
+                    </div>
 
-            <div class="detail-card-container">
-                <div class="name">Regulation mark</div>
-                <div class="value">{{ card.regulationMark }}</div>
+                    {% if card.description %}
+                        <div class="detail-card-container">
+                            <div class="name">Description _<strong>{{ card.description }}</strong></div>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-
-            {% if card.description %}
-            <div class="detail-card-container">
-                <div class="name">Description</div>
-                <div class="value">{{ card.description }}</div>
-            </div>
-            {% endif %}
         </div>
 
         <div class="name">OTHER PRINTINGS</div>

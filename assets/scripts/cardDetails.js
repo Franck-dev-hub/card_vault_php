@@ -56,3 +56,12 @@ modal.addEventListener("click", function(event) {
         document.body.classList.remove("modal-open");
     }
 });
+
+// Accordion
+document.addEventListener("click", function(event) {
+    const header = event.target.closest(".accordion-header");
+    if (header) {
+        const item = header.parentElement;
+        item.classList.toggle("active");
+    }
+});

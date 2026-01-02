@@ -75,5 +75,16 @@
             "Update: Roadmap",
             "Update: Translation (en - fr)"
         ]
+    },
+    {
+        "id": "V0.7-beta",
+        "class": "-beta",
+        "version": "V0.7-beta",
+        "title": "Cards details",
+        "features": [
+            "Feat: Display card detail",
+            "Feat: Add market & currency in user preference",
+            "Improve: UX with async route changement"
+        ]
     }
 ]

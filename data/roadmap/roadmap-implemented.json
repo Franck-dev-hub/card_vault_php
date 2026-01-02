@@ -54,5 +54,9 @@
     {
         "id": "V0.6-beta",
         "title": "Beta 6 - Login - Logout"
+    },
+    {
+        "id": "V0.7-beta",
+        "title": "Beta 7 - Cards details"
     }
 ]

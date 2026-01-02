@@ -95,7 +95,6 @@ body.modal-open {
     width: 1.5em;
     height: 1.5em;
     object-fit: contain;
-
 }
 
 .set-infos div {
@@ -104,24 +103,13 @@ body.modal-open {
     white-space: nowrap;
 }
 
-.variants,
-.detail-card-description {
+.variants {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     padding: 0.75rem;
-    margin-bottom: 1rem;
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-}
-
-.detail-card-description h3 {
-    display: flex;
-    margin: 0;
-    font-size: 1.25rem;
-    justify-content: center;
-    font-weight: 600;
-    color: var(--text-secondary);
 }
 
 /* ===== VARIANTS ===== */
@@ -135,8 +123,7 @@ body.modal-open {
 }
 
 .variants-container,
-.detail-card-container,
-.detail-card-description {
+.detail-card-container {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -147,8 +134,8 @@ body.modal-open {
 .variants-container p,
 .button-minus,
 .button-plus,
-.detail-card-description .name,
-.detail-card-description .value {
+.detail-card-container .name,
+.detail-card-container .value {
     width: 38px;
     height: 38px;
     border: 1px solid var(--border);
@@ -162,7 +149,7 @@ body.modal-open {
 }
 
 .variants-container p,
-.detail-card-description .name {
+.detail-card-container .name {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-secondary);
@@ -170,7 +157,7 @@ body.modal-open {
     cursor: default;
 }
 
-.detail-card-description .value {
+.detail-card-container .value {
     width: fit-content;
     padding: 0.5rem;
 }
@@ -189,12 +176,17 @@ body.modal-open {
     border-color: var(--primary);
 }
 
-.button-minus:active,
-.button-plus:active {
-    background-color: var(--primary-light);
-    transition: none;
+.button-minus,
+.button-plus {
+    background-color: var(--bg-white);
+    transition: background-color ease-out 0.3s;
 }
 
+.button-minus:active,
+.button-plus:active {
+    background-color: var(--primary);
+    transition: none;
+}
 
 /* ===== LOADING & ERROR STATES ===== */
 .modal-loading {
@@ -227,6 +219,97 @@ body.modal-open {
     text-align: center;
     background-color: var(--bg-light-red);
     border-radius: 4px;
+}
+
+/* ===== ACCORDION ===== */
+.accordion-header {
+    width: 100%;
+    background-color: var(--bg-white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 12px;
+}
+
+.accordion-header h3 {
+    margin: 0 10px 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.accordion-header:hover {
+    border: 1px solid var(--primary);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-item.active {
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+}
+
+.accordion-item.active .accordion-header {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--primary-light);
+
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+}
+
+.accordion-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* ===== DETAIL CARD NUMBER (BASCULEUR DE CARTES) ===== */
+.detail-card-number {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.detail-card-number .name {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-white);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    user-select: none;
+    width: auto !important;
+    height: auto !important;
+}
+
+.detail-card-number .name:hover {
+    border: 1px solid var(--primary);
+}
+
+.detail-card-number .name.active {
+    background-color: var(--primary-light);
 }
 
 /* ===== DESKTOP ===== */
