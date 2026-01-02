@@ -6,6 +6,10 @@ const cardItems = document.querySelectorAll(".card-item");
 const cardDetailsUrl = modal.getAttribute("data-card-details-url");
 const licenseSelected = modal.getAttribute("data-license");
 
+// Icon menu selector
+const burgerContainer = document.querySelector(".burger-container");
+const profileContainer = document.querySelector(".profile-container");
+
 // Open details and load data
 cardItems.forEach(card => {
     card.addEventListener("click", function() {
@@ -13,6 +17,7 @@ cardItems.forEach(card => {
         loadCardDetails(cardId);
         modal.classList.add("active");
         document.body.classList.add("modal-open");
+        hideMenuIcons();
     });
 });
 
@@ -41,11 +46,24 @@ function loadCardDetails(cardId) {
         });
 }
 
+// Hide menu icons
+function hideMenuIcons() {
+    if (burgerContainer) burgerContainer.style.display = "none";
+    if (profileContainer) profileContainer.style.display = "none";
+}
+
+// Display menu icons
+function showMenuIcons() {
+    if (burgerContainer) burgerContainer.style.display = "";
+    if (profileContainer) profileContainer.style.display = "";
+}
+
 // Close details with escape key
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         modal.classList.remove("active");
         document.body.classList.remove("modal-open");
+        showMenuIcons();
     }
 });
 
@@ -54,6 +72,7 @@ modal.addEventListener("click", function(event) {
     if (event.target === modal) {
         modal.classList.remove("active");
         document.body.classList.remove("modal-open");
+        showMenuIcons();
     }
 });
 
