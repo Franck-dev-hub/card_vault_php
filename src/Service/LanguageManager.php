@@ -30,7 +30,9 @@ class LanguageManager
 
     public function setAppLanguage(string $language): void
     {
-        $this->setSessionValue(self::SESSION_APP_LANGUAGE, $language);
+        if ($this->isValidLanguage($language)) {
+            $this->setSessionValue(self::SESSION_APP_LANGUAGE, $language);
+        }
     }
 
     public function getCardsLanguage(): string
@@ -40,13 +42,23 @@ class LanguageManager
 
     public function setCardsLanguage(string $language): void
     {
-        $this->setSessionValue(self::SESSION_CARDS_LANGUAGE, $language);
+        if ($this->isValidLanguage($language)) {
+            $this->setSessionValue(self::SESSION_CARDS_LANGUAGE, $language);
+        }
+    }
+
+    /**
+     * Check if language code is valid
+     */
+    public function isValidLanguage(string $language): bool
+    {
+        return isset(self::AVAILABLE_LANGUAGES[$language]);
     }
 
     private function getSessionValue(string $key, string $default): string
     {
-            $session = $this->requestStack->getSession();
-            return $session->get($key, $default);
+        $session = $this->requestStack->getSession();
+        return $session->get($key, $default);
     }
 
     private function setSessionValue(string $key, string $value): void

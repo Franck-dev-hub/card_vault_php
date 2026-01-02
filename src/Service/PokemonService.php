@@ -12,7 +12,7 @@ readonly class PokemonService
         private LanguageManager $languageManager
     ) {}
 
-    private function getTcgdex(): TCGdex
+    private function getTcgdex(?string $language = null): TCGdex
     {
         $psr17Factory = new Psr17Factory();
         TCGdex::$requestFactory = $psr17Factory;
@@ -20,7 +20,8 @@ readonly class PokemonService
         TCGdex::$client = new Psr18Client();
         TCGdex::$ttl = 3600 * 1000;
 
-        return new TCGdex($this->languageManager->getCardsLanguage());
+        $lang = $language ?? $this->languageManager->getCardsLanguage();
+        return new TCGdex($lang);
     }
 
     public function getCardsLanguage(): string
@@ -62,9 +63,12 @@ readonly class PokemonService
             return ["set" => null, "cards" => []];
         }
 
+        $cards = $set->cards ?? [];
+        $this->enrichCardsWithImageFallback($cards);
+
         return [
             "set" => $set,
-            "cards" => $set->cards ?? []
+            "cards" => $cards
         ];
     }
 
@@ -85,11 +89,62 @@ readonly class PokemonService
 
         $setResume = $serie->sets[0];
         $currentSet = $setResume->toSet();
+        $cards = $currentSet->cards ?? [];
+        $this->enrichCardsWithImageFallback($cards);
 
         return [
             "set" => $currentSet,
-            "cards" => $currentSet->cards ?? []
+            "cards" => $cards
         ];
+    }
+
+    /**
+     * Get image with fallback to English if not available in current language
+     *
+     * @param string $cardId
+     * @return string|null
+     * @throws Exception
+     */
+    private function getCardImageWithFallback(string $cardId): ?string
+    {
+        $currentLanguage = null;
+        $currentLang = $currentLanguage ?? $this->languageManager->getCardsLanguage();
+
+        // Try to get card in current language
+        $tcgdex = $this->getTcgdex($currentLang);
+        $card = $tcgdex->card->get($cardId);
+
+        if ($card !== null && !empty($card->image)) {
+            return $card->image;
+        }
+
+        // Fallback to English if image not found and current language is not English
+        if ($currentLang !== 'en') {
+            $tcgdexEn = $this->getTcgdex('en');
+            $cardEn = $tcgdexEn->card->get($cardId);
+
+            if ($cardEn !== null && !empty($cardEn->image)) {
+                return $cardEn->image;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Enrich cards array with image fallback
+     *
+     * @param array $cards
+     * @return void
+     * @throws Exception
+     */
+    private function enrichCardsWithImageFallback(array $cards): void
+    {
+        foreach ($cards as $card) {
+            if (empty($card->image) && isset($card->id)) {
+                $card->image = $this->getCardImageWithFallback($card->id);
+            }
+        }
     }
 
     /**
@@ -120,11 +175,14 @@ readonly class PokemonService
                 }
             }
 
+            // Get image with fallback
+            $image = $this->getCardImageWithFallback($cardId);
+
             // Convert in JSON
             return [
                 "id" => $card->id ?? $cardId,
                 "illustrator" => $card->illustrator ?? null,
-                "image" => $card->image ?? null,
+                "image" => $image,
                 "localId" => $card->localId ?? null,
                 "name" => $card->name ?? null,
                 "rarity" => $card->rarity ?? null,
@@ -144,7 +202,7 @@ readonly class PokemonService
                 "price" => $card->pricing->cardmarket->avg ?? null,
             ];
         } catch (Exception $e) {
-            throw new Exception("Error fetching card {$cardId}: " . $e->getMessage());
+            throw new Exception("Error fetching card $cardId: " . $e->getMessage());
         }
     }
 }

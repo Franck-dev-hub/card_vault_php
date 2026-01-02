@@ -26,25 +26,8 @@
         {% endif %}
     </div>
 
-    <!-- Cards -->
-    {% if setSelected %}
-        {% if cards is not empty %}
-            <div class="cards-container">
-                {% for card in cards %}
-                    <div class="card-item" data-card-id="{{ card.id }}" data-card-name="{{ card.name }}">
-                        {% if licenseSelected == "pokemon" %}
-                            {% set cardImage = card.image is not null ? card.image ~ "/low.webp" : asset("assets/cards/pokemon-rear.webp") %}
-                        {% else %}
-                            {% set cardImage = asset("") %}
-                        {% endif %}
-                        <img src="{{ cardImage }}" alt="{{ card.name }}" loading="lazy">
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p>{{ "search.no-cards"|trans }}</p>
-        {% endif %}
-    {% endif %}
+    <!-- Display cards -->
+    {% include "routes/search/cardDisplay.html.twig" %}
 
     <!-- Cards modal details-->
     <div id="cardModal"
