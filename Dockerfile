@@ -21,6 +21,9 @@ RUN docker-php-ext-install pdo_pgsql
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install intl
 
+# Install redis extension
+RUN pecl install redis && docker-php-ext-enable redis
+
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -34,7 +37,7 @@ COPY . /app
 RUN git config --global --add safe.directory /app
 
 # Install PHP dependencies
-RUN composer install --optimize-autoloader --no-scripts
+RUN composer install --prefer-dist --optimize-autoloader --no-scripts
 RUN composer dump-autoload --optimize
 
 # Install npm dependencies
