@@ -91,3 +91,11 @@ document.addEventListener("click", function(event) {
         item.classList.toggle("active");
     }
 });
+
+// Disable turbo for specific route
+document.addEventListener("turbo:before-visit", (event) => {
+    if (event.detail.url.includes("/search")) {
+        event.preventDefault();
+        window.location.href = event.detail.url;
+    }
+});

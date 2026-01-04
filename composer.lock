@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b063dc3075a52ed6b7eb38b1538c8e6",
+    "content-hash": "3b259f9b79c76641dfc1a297085313c4",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1332,16 +1332,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.9.0",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "10d85740180ecba7896c87e06a166e0c95a0e3b6"
+                "reference": "b321dd6749f0bf7189444158a3ce785cc16d69b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/10d85740180ecba7896c87e06a166e0c95a0e3b6",
-                "reference": "10d85740180ecba7896c87e06a166e0c95a0e3b6",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b321dd6749f0bf7189444158a3ce785cc16d69b0",
+                "reference": "b321dd6749f0bf7189444158a3ce785cc16d69b0",
                 "shasum": ""
             },
             "require": {
@@ -1359,7 +1359,7 @@
                 "graylog2/gelf-php": "^1.4.2 || ^2.0",
                 "guzzlehttp/guzzle": "^7.4.5",
                 "guzzlehttp/psr7": "^2.2",
-                "mongodb/mongodb": "^1.8",
+                "mongodb/mongodb": "^1.8 || ^2.0",
                 "php-amqplib/php-amqplib": "~2.4 || ^3",
                 "php-console/php-console": "^3.1.8",
                 "phpstan/phpstan": "^2",
@@ -1419,7 +1419,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.9.0"
+                "source": "https://github.com/Seldaek/monolog/tree/3.10.0"
             },
             "funding": [
                 {
@@ -1431,7 +1431,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-24T10:02:05+00:00"
+            "time": "2026-01-02T08:56:05+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -4634,16 +4634,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v8.0.1",
+            "version": "v8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "3690740e2e8b19d877f20d4f10b7a489cddf0fe2"
+                "reference": "514ec3aa7982f296b0ad0825f75b6be5779ae9e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/3690740e2e8b19d877f20d4f10b7a489cddf0fe2",
-                "reference": "3690740e2e8b19d877f20d4f10b7a489cddf0fe2",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/514ec3aa7982f296b0ad0825f75b6be5779ae9e7",
+                "reference": "514ec3aa7982f296b0ad0825f75b6be5779ae9e7",
                 "shasum": ""
             },
             "require": {
@@ -4690,7 +4690,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v8.0.1"
+                "source": "https://github.com/symfony/http-foundation/tree/v8.0.3"
             },
             "funding": [
                 {
@@ -4710,7 +4710,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-07T11:23:24+00:00"
+            "time": "2025-12-23T14:52:06+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -6048,16 +6048,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v8.0.0",
+            "version": "v8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "a0a750500c4ce900d69ba4e9faf16f82c10ee149"
+                "reference": "0cbbd88ec836f8757641c651bb995335846abb78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/a0a750500c4ce900d69ba4e9faf16f82c10ee149",
-                "reference": "a0a750500c4ce900d69ba4e9faf16f82c10ee149",
+                "url": "https://api.github.com/repos/symfony/process/zipball/0cbbd88ec836f8757641c651bb995335846abb78",
+                "reference": "0cbbd88ec836f8757641c651bb995335846abb78",
                 "shasum": ""
             },
             "require": {
@@ -6089,7 +6089,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v8.0.0"
+                "source": "https://github.com/symfony/process/tree/v8.0.3"
             },
             "funding": [
                 {
@@ -6109,25 +6109,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-10-16T16:25:44+00:00"
+            "time": "2025-12-19T10:01:18+00:00"
         },
         {
             "name": "symfony/property-access",
-            "version": "v8.0.0",
+            "version": "v8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "74df691dfb7f9b161b7d8cd1695bb918c68f16b5"
+                "reference": "3e9ed5d66144e02f1f430ef3be8e166920ae5271"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/74df691dfb7f9b161b7d8cd1695bb918c68f16b5",
-                "reference": "74df691dfb7f9b161b7d8cd1695bb918c68f16b5",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/3e9ed5d66144e02f1f430ef3be8e166920ae5271",
+                "reference": "3e9ed5d66144e02f1f430ef3be8e166920ae5271",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4",
-                "symfony/property-info": "^7.4|^8.0"
+                "symfony/property-info": "^7.4.2|^8.0.3"
             },
             "require-dev": {
                 "symfony/cache": "^7.4|^8.0",
@@ -6170,7 +6170,7 @@
                 "reflection"
             ],
             "support": {
-                "source": "https://github.com/symfony/property-access/tree/v8.0.0"
+                "source": "https://github.com/symfony/property-access/tree/v8.0.3"
             },
             "funding": [
                 {
@@ -6190,20 +6190,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-12T11:06:01+00:00"
+            "time": "2025-12-18T11:23:51+00:00"
         },
         {
             "name": "symfony/property-info",
-            "version": "v8.0.1",
+            "version": "v8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-info.git",
-                "reference": "afbad53529b39e4c48a3584d87d0afef2375ee31"
+                "reference": "a756f192435191bd50f55967adf999212c4a7232"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-info/zipball/afbad53529b39e4c48a3584d87d0afef2375ee31",
-                "reference": "afbad53529b39e4c48a3584d87d0afef2375ee31",
+                "url": "https://api.github.com/repos/symfony/property-info/zipball/a756f192435191bd50f55967adf999212c4a7232",
+                "reference": "a756f192435191bd50f55967adf999212c4a7232",
                 "shasum": ""
             },
             "require": {
@@ -6256,7 +6256,7 @@
                 "validator"
             ],
             "support": {
-                "source": "https://github.com/symfony/property-info/tree/v8.0.1"
+                "source": "https://github.com/symfony/property-info/tree/v8.0.3"
             },
             "funding": [
                 {
@@ -6276,7 +6276,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-05T14:08:45+00:00"
+            "time": "2025-12-18T11:23:51+00:00"
         },
         {
             "name": "symfony/routing",

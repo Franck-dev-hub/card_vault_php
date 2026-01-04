@@ -1,12 +1,10 @@
 <form method="POST" action="{{ path('change_app_language') }}">
     <label for="app-language-choice">{{ "profile.app-language"|trans }}</label>
     <select name="choice" id="app-language-choice" onchange="this.form.submit()">
-        <option value="fr" {% if languageManager.appLanguage == "fr" %}selected{% endif %}>
-            Français
-        </option>
-        <option value="en" {% if languageManager.appLanguage == "en" %}selected{% endif %}>
-            English
-        </option>
-        <!-- <option value="jp">日本語</option> -->
+        {% for code, name in availableAppLanguages %}
+            <option value="{{ code }}" {% if languageManager.appLanguage == code %}selected{% endif %}>
+                {{ name }}
+            </option>
+        {% endfor %}
     </select>
 </form>
