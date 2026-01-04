@@ -11,7 +11,6 @@ RUN apk add --no-cache zip
 RUN apk add --no-cache unzip
 RUN apk add --no-cache postgresql-client
 RUN apk add --no-cache nodejs npm
-RUN rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-configure intl
@@ -34,7 +33,7 @@ COPY . /app
 RUN git config --global --add safe.directory /app
 
 # Install PHP dependencies
-RUN composer install --optimize-autoloader --no-scripts
+RUN composer install --prefer-dist --optimize-autoloader --no-scripts
 RUN composer dump-autoload --optimize
 
 # Install npm dependencies

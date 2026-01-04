@@ -113,7 +113,6 @@
         "symfony/debug-bundle": "8.0.*",
         "symfony/maker-bundle": "^1.65.1",
         "symfony/stopwatch": "8.0.*",
-        "symfony/web-profiler-bundle": "8.0.*",
-        "symfony/webpack-encore-pack": "^1.0.2"
+        "symfony/web-profiler-bundle": "8.0.*"
     }
 }
