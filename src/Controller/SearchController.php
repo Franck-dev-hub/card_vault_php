@@ -94,7 +94,7 @@ class SearchController extends BaseController
 
                 // Save user preferences
                 if ($userId) {
-                    $this->userPreferencesService->setSearchPreferences(
+                    $this->userPreferencesService->search()->setSearchPreferences(
                         $userId,
                         $licenseSelected,
                         $setSelected
@@ -108,7 +108,7 @@ class SearchController extends BaseController
         // Reset button management
         if ($request->request->has("reset")) {
             if ($userId) {
-                $this->userPreferencesService->resetSearchPreferences($userId);
+                $this->userPreferencesService->search()->resetSearchPreferences($userId);
             }
             return $this->redirectToRoute("search");
         }

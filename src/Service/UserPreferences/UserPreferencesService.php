@@ -55,6 +55,9 @@ readonly class UserPreferencesService
     {
         $prefs = $this->getPreferences($userId);
         $prefs[$key] = $value;
+
+        $this->cache->deleteItem($this->getKey($userId));
+
         $this->savePreferences($userId, $prefs);
     }
 
@@ -75,6 +78,11 @@ readonly class UserPreferencesService
     public function currency(): CurrencyPreferences
     {
         return new CurrencyPreferences($this);
+    }
+
+    public function marketplace(): MarketplacePreferences
+    {
+        return new MarketplacePreferences($this);
     }
 
     public function search(): SearchPreferences

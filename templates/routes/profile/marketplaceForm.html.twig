@@ -1,0 +1,10 @@
+<form method="POST" action="{{ path('market_change_marketplace') }}">
+    <label for="marketplace-choice">{{ "profile.marketplace"|trans }}</label>
+    <select name="choice" id="marketplace-choice" onchange="this.form.submit()">
+        {% for code, name in availableMarketplaces %}
+            <option value="{{ code }}" {% if currentMarketplace == code %}selected{% endif %}>
+                {{ name }}
+            </option>
+        {% endfor %}
+    </select>
+</form>

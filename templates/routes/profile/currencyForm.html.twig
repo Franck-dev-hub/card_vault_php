@@ -1,0 +1,10 @@
+<form method="POST" action="{{ path('market_change_currency') }}">
+    <label for="currency-choice">{{ "profile.currency"|trans }}</label>
+    <select name="choice" id="currency-choice" onchange="this.form.submit()">
+        {% for code, name in availableCurrencies %}
+            <option value="{{ code }}" {% if currentCurrency == code %}selected{% endif %}>
+                {{ name }}
+            </option>
+        {% endfor %}
+    </select>
+</form>

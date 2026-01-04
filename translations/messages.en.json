@@ -25,7 +25,9 @@
     "profile": {
         "card-language-pop-up": "Warning: Card images may be incomplete in other language than english. Continue ?",
         "app-language": "App Language",
-        "card-language": "Cards Language"
+        "card-language": "Cards Language",
+        "currency": "Currency",
+        "marketplace": "Marketplace"
     },
     "register": {
         "title": "Create Account",

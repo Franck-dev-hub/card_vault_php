@@ -1,3 +1,6 @@
+{% set currentCurrency = currentCurrency ?? 'euro' %}
+{% set currentMarketplace = currentMarketplace ?? 'cardmarket' %}
+
 <!-- Profile button -->
 <div class="profile-container">
     <button class="profile-button" onclick="toggleMenu('profile')">
@@ -9,16 +12,18 @@
     <div class="profile-content">
         {% if not app.user %}
             <div class="auth-links">
+
                 <!-- Login button -->
                 <a
                     href="/login"
                     class="menu-link"
                     data-action="click->navigation#navigateTo"
                     data-target="navigation.menuLink">
-                <button class="menu-item {% if '/login' == currentPage %}active{% endif %}">
-                    <span>{{ "login.title"|trans }}</span>
-                </button>
+                    <button class="menu-item {% if '/login' == currentPage %}active{% endif %}">
+                        <span>{{ "login.title"|trans }}</span>
+                    </button>
                 </a>
+
                 <!-- Register button -->
                 <a
                     href="/register"
@@ -32,10 +37,12 @@
             </div>
         {% endif %}
 
-        <!-- App language form -->
+        <!-- Forms -->
         <div class="profile-section">{% include "routes/profile/appLanguageForm.html.twig" %}</div>
-        <!-- Cards language form -->
         <div class="profile-section">{% include "routes/profile/cardsLanguageForm.html.twig" %}</div>
+        {# <div class="profile-section">{% include "routes/profile/currencyForm.html.twig" %}</div>#}
+        {# <div class="profile-section">{% include "routes/profile/marketplaceForm.html.twig" %}</div>#}
+
         <!-- Roadmap button -->
         <a
             href="/roadmap"
@@ -46,17 +53,18 @@
                 <span>{{ "roadmap.title"|trans }}</span>
             </button>
         </a>
+
         <!-- Logout button -->
         {% if app.user %}
-        <a
-            href="/logout"
-            class="menu-link"
-            data-action="click->navigation#navigateTo"
-            data-target="navigation.menuLink">
-            <button class="menu-item logout-btn">
-                <span>{{ "logout.title"|trans }}</span>
-            </button>
-        </a>
+            <a
+                href="/logout"
+                class="menu-link"
+                data-action="click->navigation#navigateTo"
+                data-target="navigation.menuLink">
+                <button class="menu-item logout-btn">
+                    <span>{{ "logout.title"|trans }}</span>
+                </button>
+            </a>
         {% endif %}
     </div>
 </div>

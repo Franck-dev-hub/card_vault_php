@@ -26,11 +26,18 @@ abstract class BaseController extends AbstractController
     protected function renderPage(string $template, array $data = []): Response
     {
         if ($this->getUser()) {
-            $appLanguage = $this->userPreferencesService->language()->getAppLanguage($this->getUser()->getId());
-            $cardLanguage = $this->userPreferencesService->language()->getCardLanguage($this->getUser()->getId());
+            $userId = $this->getUser()->getId();
+
+            $appLanguage = $this->userPreferencesService->language()->getAppLanguage($userId);
+            $cardLanguage = $this->userPreferencesService->language()->getCardLanguage($userId);
+            $appCurrency = $this->userPreferencesService->currency()->getAppCurrency($userId);
+            $appMarketplace = $this->userPreferencesService->marketplace()->getAppMarketplace($userId);
 
             $this->languageManager->setAppLanguage($appLanguage);
             $this->languageManager->setCardsLanguage($cardLanguage);
+
+            $data["currentCurrency"] = $appCurrency;
+            $data["currentMarketplace"] = $appMarketplace;
         } else {
             $appLanguage = $this->languageManager->getAppLanguage();
         }
@@ -47,7 +54,10 @@ abstract class BaseController extends AbstractController
         $data["buttons"] = $this->footerService->getButtons();
         $data["translator"] = $this->translator;
         $data["languageManager"] = $this->languageManager;
+        $data["availableAppLanguages"] = $this->languageManager->getAvailableAppLanguages();
         $data["availableLanguages"] = $this->languageManager->getAvailableLanguages();
+        $data["availableCurrencies"] = $this->userPreferencesService->currency()->getAvailableCurrencies();
+        $data["availableMarketplaces"] = $this->userPreferencesService->marketplace()->getAvailableMarketplaces();
 
         // Build full template path if dir is provided and template doesn't already contain path
         if (isset($data["dir"]) && $data["dir"] && !str_contains($template, '/')) {

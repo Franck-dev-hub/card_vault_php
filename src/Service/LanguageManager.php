@@ -14,6 +14,11 @@ class LanguageManager
         "pt" => "Português",
     ];
 
+    private const array AVAILABLE_APP_LANGUAGES = [
+        "en" => "English",
+        "fr" => "Francais",
+    ];
+
     private const string SESSION_APP_LANGUAGE = "app_language";
     private const string SESSION_CARDS_LANGUAGE = "cards_language";
     private const string DEFAULT_APP_LANGUAGE = "en";
@@ -70,5 +75,10 @@ class LanguageManager
     public function getAvailableLanguages(): array
     {
         return self::AVAILABLE_LANGUAGES;
+    }
+
+    public function getAvailableAppLanguages(): array
+    {
+        return self::AVAILABLE_APP_LANGUAGES;
     }
 }

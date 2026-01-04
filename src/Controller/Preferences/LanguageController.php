@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Preferences;
 
 use App\Service\LanguageManager;
 use App\Service\UserPreferences\UserPreferencesService;
@@ -28,7 +28,7 @@ class LanguageController extends AbstractController
             $this->languageManager->setAppLanguage($language);
 
             if ($this->getUser()) {
-                $this->userPreferencesService->setAppLanguage(
+                $this->userPreferencesService->language()->setAppLanguage(
                     $this->getUser()->getId(),
                     $language
                 );
@@ -49,7 +49,7 @@ class LanguageController extends AbstractController
             $this->languageManager->setCardsLanguage($language);
 
             if ($this->getUser()) {
-                $this->userPreferencesService->setCardLanguage(
+                $this->userPreferencesService->language()->setCardLanguage(
                     $this->getUser()->getId(),
                     $language
                 );

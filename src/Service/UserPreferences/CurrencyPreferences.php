@@ -5,9 +5,19 @@ use Psr\Cache\InvalidArgumentException;
 
 readonly class CurrencyPreferences
 {
+
+    private const array AVAILABLE_CURRENCIES = [
+        "euro" => "€",
+        "dollar" => "$"
+    ];
+
     public function __construct(
         private UserPreferencesService $service
     ) {}
+
+    public function getAvailableCurrencies(): array {
+        return $this::AVAILABLE_CURRENCIES;
+    }
 
     /**
      * @throws InvalidArgumentException

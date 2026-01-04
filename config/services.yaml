@@ -1,6 +1,8 @@
 parameters:
     app_language: "%env(APP_LANGUAGE)%"
     cards_language: "%env(CARDS_LANGUAGE)%"
+    app_currency: "%env(APP_CURRENCY)%"
+    app_marketplace: "%env(APP_MARKETPLACE)%"
 
 services:
     _defaults:
@@ -9,6 +11,11 @@ services:
         bind:
             $emailFromAddress: '%env(MAILER_FROM_ADDRESS)%'
             $emailFromName: '%env(MAILER_FROM_NAME)%'
+
+    App\Service\UserPreferences\UserPreferencesService:
+        arguments:
+            $defaultAppCurrency: "%app_currency%"
+            $defaultMarketplace: "%app_marketplace%"
 
     App\Service\LanguageManager:
         arguments:
