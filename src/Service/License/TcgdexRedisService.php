@@ -4,24 +4,23 @@ namespace App\Service\License;
 
 use App\Service\RedisService;
 use Exception;
-use Psr\Cache\CacheItemPoolInterface;
-use Psr\Cache\InvalidArgumentException;
 use Psr\Log\LoggerInterface;
 
 readonly class TcgdexRedisService
 {
-    private const int SETS_TTL  = 604800;
-    private const int CARDS_TTL = 2592000;
+    private const int SETS_TTL = 604800;      // 7 days
+    private const int CARDS_TTL = 2592000;    // 30 days
+    private const int CARD_TTL = 604800;      // 7 days
 
     public function __construct(
-        private RedisService           $redisService,
-        private CacheItemPoolInterface $cache,
-        private LoggerInterface        $logger,
-    ) {}
+        private RedisService    $redisService,
+        private LoggerInterface $logger,
+    )
+    {
+    }
 
     /**
      * Get sets from cache or API
-     * @throws InvalidArgumentException
      * @throws Exception
      */
     public function getExtensions(string $license, mixed $licenseService): mixed
@@ -29,7 +28,7 @@ readonly class TcgdexRedisService
         $language = $licenseService->getCardsLanguage();
         $cacheKey = "api_sets_{$license}_{$language}";
 
-        $extensions = $this->redisService->getRedis($this->cache, $cacheKey);
+        $extensions = $this->redisService->getRedis($cacheKey);
 
         if ($extensions) {
             $this->logger->info("Extension loaded from Redis", [
@@ -45,12 +44,7 @@ readonly class TcgdexRedisService
 
             $extensions = $licenseService->fetchPokemonSets();
 
-            $this->redisService->storeRedis(
-                $this->cache,
-                $cacheKey,
-                $extensions,
-                self::SETS_TTL
-            );
+            $this->redisService->storeRedis($cacheKey, $extensions, self::SETS_TTL);
 
             return $extensions;
         } catch (Exception $e) {
@@ -58,16 +52,12 @@ readonly class TcgdexRedisService
                 "exception" => $e,
             ]);
 
-            throw new Exception(
-                "Error when getting sets",
-                previous: $e
-            );
+            throw new Exception("Error when getting sets", previous: $e);
         }
     }
 
     /**
      * Get cards from a set
-     * @throws InvalidArgumentException
      * @throws Exception
      */
     public function getCards(string $license, string $setSelected, mixed $licenseService): array
@@ -75,7 +65,7 @@ readonly class TcgdexRedisService
         $language = $licenseService->getCardsLanguage();
         $cacheKey = "api_cards_{$license}_{$setSelected}_{$language}";
 
-        $cachedData = $this->redisService->getRedis($this->cache, $cacheKey);
+        $cachedData = $this->redisService->getRedis($cacheKey);
 
         if ($cachedData) {
             $this->logger->info("Cards loaded from Redis", [
@@ -89,7 +79,6 @@ readonly class TcgdexRedisService
             [$currentSet, $cards] = $licenseService->handlePokemonSetSelection($setSelected);
 
             $this->redisService->storeRedis(
-                $this->cache,
                 $cacheKey,
                 [$currentSet, $cards],
                 self::CARDS_TTL
@@ -102,16 +91,12 @@ readonly class TcgdexRedisService
                 "exception" => $e,
             ]);
 
-            throw new Exception(
-                "Error when getting cards",
-                previous: $e
-            );
+            throw new Exception("Error when getting cards", previous: $e);
         }
     }
 
     /**
      * Get a single card by ID
-     * @throws InvalidArgumentException
      * @throws Exception
      */
     public function getCardById(string $license, string $cardId, mixed $licenseService): ?array
@@ -120,13 +105,12 @@ readonly class TcgdexRedisService
         $cacheKey = "api_card_{$license}_{$cardId}_{$language}";
 
         // Check cache first
-        try {
-            $cachedCard = $this->redisService->getRedis($this->cache, $cacheKey);
-            if ($cachedCard) {
-                return $cachedCard;
-            }
-        } catch (InvalidArgumentException $e) {
-            // Else continue
+        $cachedCard = $this->redisService->getRedis($cacheKey);
+        if ($cachedCard) {
+            $this->logger->info("Card loaded from Redis", [
+                "cache_key" => $cacheKey,
+            ]);
+            return $cachedCard;
         }
 
         try {
@@ -137,33 +121,47 @@ readonly class TcgdexRedisService
                 return null;
             }
 
-            // Store in cache
+            // Store in cache (ignore cache errors)
             try {
-                $this->redisService->storeRedis(
-                    $this->cache,
-                    $cacheKey,
-                    $card,
-                    604800 // 7 days
-                );
-            } catch (InvalidArgumentException $e) {
-                // Ignore cache errors
+                $this->redisService->storeRedis($cacheKey, $card, self::CARD_TTL);
+            } catch (Exception $e) {
+                $this->logger->warning("Failed to cache card", [
+                    "card_id" => $cardId,
+                    "exception" => $e,
+                ]);
             }
 
             return $card;
         } catch (Exception $e) {
-            throw new Exception("Error when getting card : " . $e->getMessage());
+            throw new Exception("Error when getting card: " . $e->getMessage(), previous: $e);
         }
     }
 
     /**
      * Clear license cache
-     * @throws InvalidArgumentException
      */
     public function clearLicenseCache(string $license): void
     {
-        $this->redisService->deleteRedisItem($this->cache, "api_sets_{$license}");
-        $this->logger->info("License cache cleared", [
-            "license" => $license,
-        ]);
+        try {
+            // Need to clear all related keys with proper patterns
+            $patterns = [
+                "api_sets_{$license}_*",
+                "api_cards_{$license}_*",
+                "api_card_{$license}_*",
+            ];
+
+            foreach ($patterns as $pattern) {
+                $this->redisService->deleteRedis($pattern);
+            }
+
+            $this->logger->info("License cache cleared", [
+                "license" => $license,
+            ]);
+        } catch (Exception $e) {
+            $this->logger->error("Failed to clear license cache", [
+                "license" => $license,
+                "exception" => $e,
+            ]);
+        }
     }
 }
