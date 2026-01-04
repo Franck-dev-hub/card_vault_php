@@ -33,6 +33,11 @@ services:
 
   redis:
     image: redis:latest
+    command: redis-server --requirepass ${REDIS_PASSWORD:-redis}
+    environment:
+      REDIS_DB: ${REDIS_NAME:-card_vault_php}
+      REDIS_USER: ${REDIS_USER:-redis}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis}
     ports:
       - "6379:6379"
     volumes:
